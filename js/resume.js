@@ -1,35 +1,34 @@
-// ======================================== scroll down ====================================== //
-let onScroll = function() {
-  let windowTopPosition = ($(window).scrollTop())
-  let windowHeight = $(window).height()
-  let windowBottomPosition = (windowTopPosition + windowHeight)
+// ======================================== scroll down / up ====================================== //
+let onScroll = () => {
+  const windowTopPosition = ($(window).scrollTop())
+  const windowHeight = $(window).height()
+  const windowBottomPosition = (windowTopPosition + windowHeight)
   
   // Animation sections on scroll.
-  let sections = $('section')
-  sections.each(function(i) {
-    let element = $(this)
-    let elementTopPosition = element.offset().top 
-    let elementHeight = element.height()
-    let elementBottomPosition = element.offset().top + elementHeight 
-    if ((elementBottomPosition >= windowTopPosition) && (elementTopPosition <= (windowBottomPosition)  )) {
-      element.addClass('scroll')
+  const sections = $('section')
+  sections.each((index, element) => {
+    const elementTopPosition = $(element).offset().top 
+    const elementHeight = $(element).height()
+    const elementBottomPosition = $(element).offset().top + elementHeight 
+    if ((elementBottomPosition >= windowTopPosition) && (elementTopPosition <= (windowBottomPosition))) {
+      $(element).addClass('scroll')
     }
     else {
-      element.removeClass('scroll')
+      $(element).removeClass('scroll')
     }
   })
 
   // Animation active state top menu.
-  sections.each(function(i) {
-    if ((windowTopPosition + 300) >= $(this).offset().top) {
+  sections.each((index, element) => {
+    if ((windowTopPosition + 300) >= $(element).offset().top) {
       $('.top-menu a.active').removeClass('active')
-      $('.top-menu a').eq(i).addClass('active')
+      $('.top-menu a').eq(index).addClass('active')
     }
   })
 
   // Animate progress circles.
-  let skillDescriptionManagement = $('.skill__management').children('.skill__description')
-  let progressCircles = $('.skill__circle--progress')
+  const skillDescriptionManagement = $('.skill__management').children('.skill__description')
+  const progressCircles = $('.skill__circle--progress')
   if ($('.section--skills').hasClass('scroll')) {
     skillDescriptionManagement.addClass('animate-description')
     progressCircles.addClass('animate-circle')
@@ -40,43 +39,40 @@ let onScroll = function() {
   }
 }
 
-// Animation top-menu on scroll. s
+// Animation top-menu on scroll. 
 let lastScrollTop = 0;
-$(window).scroll(function(event){
-    let windowScrollTop = $(this).scrollTop()
+$(window).scroll(() => {
+  let windowScrollTop = $(this).scrollTop()
   //  Scroll to top.
-    if (windowScrollTop < lastScrollTop) {
-      $('.top-menu').addClass('show-menu')
-    } 
+  if (windowScrollTop < lastScrollTop) {
+    $('.top-menu').addClass('show-menu')
+  } 
 
   // Scroll to bottom.
-    else {
-      $('.top-menu').removeClass('show-menu')
-    }
-    lastScrollTop = windowScrollTop;
+  else {
+    $('.top-menu').removeClass('show-menu')
+  }
+  lastScrollTop = windowScrollTop;
 })
 // =========================================================================================== //
 
 // ====================================== scroll to on click ================================= //  
-let initOnClick = function() {
+let initOnClick = () => {
   $('.top-menu__button').click(function(e) {      
     let position = $($(this).attr('href')).offset().top
-    $('html').animate(
-      { scrollTop: position },
-      500,
-    )
+    $('html').animate({ scrollTop: position }, 500)
   }) 
 }
 // =========================================================================================== //
 
 // ===================================== form validation ===================================== //
-let initFormValidation = function() {
-  let fields = $('.contact-form__field')
-  let form = $('.contact-form__wrapper')
+let initFormValidation = () => {
+  const fields = $('.contact-form__field')
+  const form = $('.contact-form__wrapper')
 
-  form.submit(function(e) {
+  form.submit(() => {
     let formErrors = 0
-    fields.each(function(i) {
+    fields.each(i => {
       formErrors += validateField(fields[i]) ? 0 : 1 
     })
     // If no error, send form via ajax.
@@ -103,19 +99,22 @@ let initFormValidation = function() {
       //   }  
       // })
       // e.preventDefault()
-      return true;
+      return true
     } 
     return false
   })  
   // Validate fields on keyup.
-  fields.on('keyup', function() {
-    validateField(this)
-  })
+
+  fields.keyup(e => validateField(e.target))
+
+  // fields.on('keyup', function() {
+  //   validateField(this)
+  // })
 }
 // ================================== validate form fields =================================== //
-function validateField (field) {
-  fieldWrapper = $(field).parent()
-  let fieldValue = $.trim($(field).val())
+let validateField = field => {
+  const fieldWrapper = $(field).parent()
+  const fieldValue = $.trim($(field).val())
 
   if (!fieldValue) {
     fieldWrapper
@@ -142,12 +141,12 @@ function validateField (field) {
 // =========================================================================================== //
 
 // =============================== slide show projects ======================================= //
-$(document).ready(function(){
+$(document).ready(() => {
   $('.projects-wrapper').slick({
     dots: true,
     infinite: true,
     speed: 300,
-    slidesToShow: 1,
+    slidesToShow: 1
   })
 })
 // =========================================================================================== //
@@ -155,7 +154,7 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function() {
+$(document).ready(() => {
   initOnClick()
   initFormValidation()
 })

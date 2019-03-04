@@ -36,10 +36,6 @@ export default {
 				label: 'Projects'
 			},
 			{
-				scrollTo: 'projects',
-				label: 'Projects'
-			},
-			{
 				scrollTo: 'skills',
 				label: 'Skills'
 			},

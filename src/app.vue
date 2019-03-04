@@ -68,12 +68,12 @@ import xp from '@/views/xp'
 import hobbies from '@/views/hobbies'
 import contact from '@/views/contact'
 
-import Vue from 'vue'
-import VueAnimate from 'vue-animate-scroll'
- 
-Vue.use(VueAnimate)
+import 'vueperslides/dist/vueperslides.css'
 
-// import HelloWorld from '@/components/HelloWorld.vue'
+
+import Vue from 'vue'
+
+// Vue.use(VueAnimate)
 
 export default {
   name: 'app',

@@ -102,7 +102,6 @@ export default {
       const sections = document.getElementsByTagName("section")
       for (let i = 0; i < sections.length; i++){
         let section = sections[i]
-        // console.log(section, windowTopPosition)
         const sectionTopPosition = section.offsetTop 
         const sectionHeight = section.offsetHeight
         const sectionBottomPosition = section.offsetTop + sectionHeight 
@@ -113,6 +112,20 @@ export default {
           section.classList.remove('scroll1')
         }
       }
+
+      // Animation top menu active state on scroll.
+      let buttons = document.getElementsByClassName('top-menu__button')
+      for (let i = 0; i < sections.length; i++){
+        let section = sections[i]
+        let button = buttons[i]
+        let sectionOffsetBottom = (section.offsetHeight + section.offsetTop)
+        if (((windowTopPosition + 300) >= section.offsetTop) && ((windowTopPosition + 300) <= sectionOffsetBottom)) {
+          button.classList.add('active')
+        }
+        else {
+          button.classList.remove('active')
+        }
+      }    
     }
   },
   created () {
@@ -121,7 +134,6 @@ export default {
   destroyed () {
     window.removeEventListener('scroll', this.eventsOnScroll);
   }
-
 }
 </script>
 

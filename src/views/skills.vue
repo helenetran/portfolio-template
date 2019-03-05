@@ -484,10 +484,6 @@ export default {
   z-index: 5; 
 }
 
-.skill__management .skill__description {
-  transition: 0.5s ease-in-out 1.5s; 
-}
-
 .animate-description {
   transform: translate(-50%,5px);
   opacity: 1;

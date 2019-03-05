@@ -115,7 +115,7 @@ export default {
 
       // Animation top menu active state on scroll.
       let buttons = document.getElementsByClassName('top-menu__button')
-      for (let i = 0; i < sections.length; i++){
+      for (let i = 0; i < sections.length; i++) {
         let section = sections[i]
         let button = buttons[i]
         let sectionOffsetBottom = (section.offsetHeight + section.offsetTop)
@@ -125,7 +125,19 @@ export default {
         else {
           button.classList.remove('active')
         }
-      }    
+      }
+      
+      // Animate progress circles if visible within the window.
+      let progressCircles = document.getElementsByClassName('skill__circle--progress')
+      for (let i = 0; i < progressCircles.length; i++) {
+        let progressCircle = progressCircles[i] 
+        if (document.getElementById('skills').classList.contains('scroll1')) {
+          progressCircle.classList.add('animate-circle')
+        }
+        else {
+          progressCircle.classList.remove('animate-circle')
+        }
+      }
     }
   },
   created () {

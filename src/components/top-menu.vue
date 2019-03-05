@@ -2,10 +2,12 @@
 	<div id="top-menu" class="top-menu show-menu">
 		<ul class="top-menu--wrapper">
 			<li v-for="(item, i) in topMenuItems" :key="i">
-				<a class="top-menu__button" 
-					:href="item.link"
-					:title="item.title"
-					v-scroll-to="item.scrollTo && { element: '#' + item.scrollTo, duration: 500 }">
+				<a v-if="item.scrollTo" 
+					 class="top-menu__button" 
+					 v-scroll-to="{ element: '#' + item.scrollTo, duration: 500 }">
+					<span class="top-menu__text" v-html="item.label"></span>
+				</a>
+				<a v-else :href="item.link" target="_blank" class="top-menu__button" :title="item.title">
 					<span class="top-menu__text" v-html="item.label"></span>
 				</a>
 			</li>
@@ -15,7 +17,7 @@
 
 <script>
 import Vue from 'vue'
-var VueScrollTo = require('vue-scrollto')
+const VueScrollTo = require('vue-scrollto')
 
 Vue.use(VueScrollTo)
 
@@ -52,7 +54,7 @@ export default {
 				label: 'Contact'
 			},
 			{
-				link: 'helene-developer-resume.pdf',
+				link: `./helene-developer-resume.pdf?v=3`,
 				label: '<i class="icon icon-download"></i>',
 				title: 'Download my resume'
 			}

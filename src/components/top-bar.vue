@@ -1,14 +1,14 @@
 <template>
-	<div id="top-menu" class="top-menu show-menu">
-		<ul class="top-menu--wrapper">
-			<li v-for="(item, i) in topMenuItems" :key="i">
+	<div id="top-bar" class="top-bar show-menu">
+		<ul class="top-bar--wrapper">
+			<li v-for="(item, i) in topBarItems" :key="i">
 				<a v-if="item.scrollTo" 
-					 class="top-menu__button" 
+					 class="top-bar__button" 
 					 v-scroll-to="{ element: '#' + item.scrollTo, duration: 500 }">
-					<span class="top-menu__text" v-html="item.label"></span>
+					<span class="top-bar__text" v-html="item.label"></span>
 				</a>
-				<a v-else :href="item.link" target="_blank" class="top-menu__button" :title="item.title">
-					<span class="top-menu__text" v-html="item.label"></span>
+				<a v-else :href="item.link" target="_blank" class="top-bar__button" :title="item.title">
+					<span class="top-bar__text" v-html="item.label"></span>
 				</a>
 			</li>
 		</ul>
@@ -22,9 +22,9 @@ const VueScrollTo = require('vue-scrollto')
 Vue.use(VueScrollTo)
 
 export default {
-	name: 'topMenu',
+	name: 'topBar',
 	data: () => ({
-		topMenuItems: [
+		topBarItems: [
 			{
 				scrollTo: 'home',
 				label: 'Home'
@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style lang="scss">
-.top-menu {
+.top-bar {
   height: 40px;
   width: 100%;
   position: fixed;
@@ -76,14 +76,14 @@ export default {
   box-shadow: 0 0 7px rgba(128,128,128, 0.5);
 }
 
-.top-menu--wrapper {
+.top-bar--wrapper {
   height: 68%;
   position: absolute;
   bottom: 0%;
   display: flex;
 }
 
-.top-menu__button {
+.top-bar__button {
   padding: 10px;
   padding-left: 13px;
   padding-right: 13px;
@@ -95,11 +95,11 @@ export default {
   transition: 0.3s ease-in-out;
 }
 
-.top-menu__text {
+.top-bar__text {
   transition: 0.3s ease-in-out;
 }
 
-.top-menu__button:hover .top-menu__text {
+.top-bar__button:hover .top-bar__text {
  color: #4dd0e1; 
 }
 

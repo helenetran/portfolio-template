@@ -1,6 +1,8 @@
 <template>
   <section id="home" class="section--home">
-      <div class="home__background"></div>
+      <div class="home__background">
+        <div class="home__background--test"></div>
+      </div>
       <div class="home__title-wrapper">
         <div class="home__title">
           <div class="home__title--name">Helene ANDRE</div> 
@@ -22,7 +24,6 @@ export default {
     }
   }
 }
-
 </script>
 
 <style lang="scss">

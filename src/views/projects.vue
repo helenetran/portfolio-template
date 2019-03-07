@@ -4,7 +4,7 @@
 			<h1 class="projects__title">PROJECTS</h1>
 			<!-- <div class="projects-wrapper"> -->
 			<div class="slide--wrapper">
-				<vueper-slides class="no-shadow" :slide-ratio="0.5">
+				<vueper-slides class="no-shadow" :slide-ratio="0.5" slide-content-outside="bottom" arrows-outside bullets-outside>
 					<vueper-slide
 						v-for="(slide, i) in slides"
 						:key="i"
@@ -167,12 +167,12 @@ export default {
 
 .vueperslide__content-wrapper {
 	background-color: rgba(255,255,255, 0.8);
-	position: relative; 
-	top: unset; 
-	bottom: 0%;  
-	width: 100%;
-	text-align: left; 
-	-webkit-transform: translate(-50%,0%);
-	transform: translate(-50%,0%);
+	// position: relative; 
+	// top: unset; 
+	// bottom: 0%;  
+	// width: 100%;
+	// text-align: left; 
+	// -webkit-transform: translate(-50%,0%);
+	// transform: translate(-50%,0%);
 }
 </style>

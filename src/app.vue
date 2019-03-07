@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <top-menu id="top-menu"></top-menu>
+    <top-bar id="top-bar"></top-bar>
     <home id="home"></home>
     <about id="about"></about>
     <projects id="projects"></projects>
@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import topMenu from '@/components/top-menu'
+import topBar from '@/components/top-bar'
 import home from '@/views/home'
 import about from '@/views/about'
 import projects from '@/views/projects'
@@ -78,7 +78,7 @@ import Vue from 'vue'
 export default {
   name: 'app',
   components: {
-    topMenu,
+    topBar,
     home,
     about,
     projects,
@@ -106,15 +106,15 @@ export default {
         const sectionHeight = section.offsetHeight
         const sectionBottomPosition = section.offsetTop + sectionHeight 
         if ((sectionBottomPosition >= windowTopPosition) && (sectionTopPosition <= (windowBottomPosition))) {
-          section.classList.add('scroll1')
+          section.classList.add('scroll')
         }
         else {
-          section.classList.remove('scroll1')
+          section.classList.remove('scroll')
         }
       }
 
       // Animation top menu active state on scroll.
-      let buttons = document.getElementsByClassName('top-menu__button')
+      let buttons = document.getElementsByClassName('top-bar__button')
       for (let i = 0; i < sections.length; i++) {
         let section = sections[i]
         let button = buttons[i]
@@ -131,12 +131,20 @@ export default {
       let progressCircles = document.getElementsByClassName('skill__circle--progress')
       for (let i = 0; i < progressCircles.length; i++) {
         let progressCircle = progressCircles[i] 
-        if (document.getElementById('skills').classList.contains('scroll1')) {
+        if (document.getElementById('skills').classList.contains('scroll')) {
           progressCircle.classList.add('animate-circle')
         }
         else {
           progressCircle.classList.remove('animate-circle')
         }
+      }
+
+      // Parallax effect on home__title.
+      let backgroundTitle = document.getElementsByClassName('home__title')[0]
+      if (document.getElementById('home').classList.contains('scroll')) {
+        let test = (-windowTopPosition*0.4)
+        backgroundTitle.style.top = (50+(windowTopPosition*-0.1))+'%'
+        console.log(windowTopPosition, test)
       }
     }
   },
@@ -397,7 +405,7 @@ section {
   transition: 0.3s ease-in-out 0.5s;
 }
 
-section.scroll1 .section--wrapper {
+section.scroll .section--wrapper {
   opacity: 1;
   transform: translateY(0em);
 }
@@ -550,9 +558,14 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-  /* Top-menu section. */
-  .top-menu__text {
+  /* top-bar section. */
+  .top-bar__text {
     font-size: 12px; 
+  }
+
+  .top-bar__button {
+    padding-left: 10px; 
+    padding-right: 10px; 
   }
 
   /* Skills section. */
@@ -607,6 +620,10 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
   /* Contact section. */
   .section--contact {
     height: auto;
@@ -661,15 +678,15 @@ footer {
     font-size: 20px; 
   } 
 
-  /* Top-menu section. */
-  .top-menu {
+  /* top-bar section. */
+  .top-bar {
     height: 230px;
     padding: 5px; 
     opacity: 0;
     z-index: -5;
   }
 
-  .top-menu--wrapper {
+  .top-bar--wrapper {
     height: 90%;
     flex-direction: column; 
     justify-content: space-between;
@@ -679,11 +696,11 @@ footer {
     transform: translate(-50%,-50%);
   }
 
-  .top-menu__button.active {
+  .top-bar__button.active {
     border-bottom: 2px solid transparent;
   }
 
-  .top-menu__text {
+  .top-bar__text {
     font-size: 13px; 
   }
 
@@ -692,7 +709,7 @@ footer {
     z-index: 5;
   }
 
-  .top-menu li {
+  .top-bar li {
     height: 30px;
     text-align: center; 
   }

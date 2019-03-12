@@ -1,15 +1,17 @@
 <template>
   <section id="home" class="section--home">
+    <div class="home__background--wrapper">
       <div class="home__background">
-        <div class="home__background--test"></div>
+        <img class="home__background--image" src="../assets/images/home/test1.jpg" alt="">
       </div>
-      <div class="home__title-wrapper">
-        <div class="home__title">
-          <div class="home__title--name">Helene ANDRE</div> 
-          <div class="home__title--job">Front-end Developer</div>
-        </div>
+    </div>
+    <div class="home__title-wrapper">
+      <div class="home__title">
+        <div class="home__title--name">Helene ANDRE</div> 
+        <div class="home__title--job">Front-end Developer</div>
       </div>
-      <img class="home__picture" :src="getImage('home/helene-andre-picture.jpg')" alt="Helene Andre's picture">
+    </div>
+    <img class="home__picture" :src="getImage('home/helene-andre-picture.jpg')" alt="Helene Andre's picture">
   </section>
 </template>
 
@@ -35,14 +37,16 @@ export default {
   padding: 0; 
 }
 
+.home__background--wrapper {
+  position: absolute;
+  height: 100%; 
+  width: 100%; 
+  overflow: hidden;
+}
+
 .home__background {
-  background: url('../assets/images/home/home-background-blur.jpg');
-  min-height: 100%; 
+  position: absolute;
   width: 100%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .home__background::before {
@@ -58,8 +62,12 @@ export default {
   transition: 0.3s ease-in-out; 
 }
 
+.home__background--image {
+  width: 100%; 
+}
+
 .scroll .home__background::before {
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.2); 
 }
 
 .home__title-wrapper {

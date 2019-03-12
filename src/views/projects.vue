@@ -4,7 +4,7 @@
 			<h1 class="projects__title">PROJECTS</h1>
 			<!-- <div class="projects-wrapper"> -->
 			<div class="slide--wrapper">
-				<vueper-slides class="no-shadow" :slide-ratio="0.5" slide-content-outside="bottom" arrows-outside bullets-outside>
+				<vueper-slides class="no-shadow" :slide-ratio="0.5" arrows-outside bullets-outside>
 					<vueper-slide
 						v-for="(slide, i) in slides"
 						:key="i"
@@ -165,14 +165,26 @@ export default {
 	transform: translateY(-50%);
 }
 
-.vueperslide__content-wrapper {
-	background-color: rgba(255,255,255, 0.8);
-	// position: relative; 
+.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) {
+	width: 100%; 
+	height: auto;
+	color: #ffffff;
+	padding: 12px;
+	background-color: rgba(128,128,128, 0.5);	position: absolute; 
 	// top: unset; 
-	// bottom: 0%;  
+	bottom: 0%;  
+	top: unset;
+	left: unset;
+	-webkit-transform: translate(0%,0%);
+	transform: translate(0%,0%);
+	text-align: unset; 
 	// width: 100%;
 	// text-align: left; 
 	// -webkit-transform: translate(-50%,0%);
 	// transform: translate(-50%,0%);
+}
+
+.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) p {
+	color: #ffffff;
 }
 </style>

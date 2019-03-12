@@ -96,9 +96,10 @@ export default {
       }
 
       // Parallax effect on home__title.
-      let backgroundTitle = document.getElementsByClassName('home__title')[0]
+      let backgroundTitle = document.getElementsByClassName('home__background')[0]
+      console.log(document.getElementsByClassName('home__background')[0])
       if (document.getElementById('home').classList.contains('scroll')) {
-        backgroundTitle.style.top = (50+(windowTopPosition*-0.1))+'%'
+        backgroundTitle.style.top = (0-(windowTopPosition*0.04))+'%'
       }
     }
   },
@@ -303,12 +304,6 @@ input[type=submit] {
 .icon-vulcain:before {
   content: "\42";
 }
-.icon-communication:before {
-  content: "\43";
-}
-.icon-list:before {
-  content: "\41";
-}
 .icon-difference:before {
   content: "\44";
 }
@@ -324,17 +319,17 @@ input[type=submit] {
 .icon-volleyball:before {
   content: "\48";
 }
-.icon-previous:before {
-  content: "\4b";
-}
-.icon-next:before {
-  content: "\4c";
-}
 .icon-responsible:before {
   content: "\49";
 }
 .icon-award:before {
   content: "\6b";
+}
+.icon-vue:before {
+  content: "\6f";
+}
+.icon-mysql:before {
+  content: "\4a";
 }
 /**=====================================================================**/
 
@@ -398,6 +393,11 @@ section.scroll .section--wrapper {
     padding-right: 10px; 
   }
 
+  /* Home section. */
+  // .home__background--image {
+  //   transform: scale(1.8);
+  // }
+
   /* Skills section. */
   .skills__wrapper {
     margin: 0; 
@@ -447,11 +447,25 @@ section.scroll .section--wrapper {
   .hobby__icon {
     font-size: 69px; 
   }
+
+  /* Contact section. */
+  .contact-info__icons-wrapper {
+    font-size: 33px;
+  }
+
+  .contact-info__name {
+    font-size: 13px; 
+  }
 }
 
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 2.5em;
+  }
+
+  /* Hobbies section. */
+  .section--hobbies {
+    height: 112vh; 
   }
 
   /* Contact section. */

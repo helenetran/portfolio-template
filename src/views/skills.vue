@@ -53,9 +53,34 @@
 							</svg>
 						</div>
 						<div class="skill__description">
-							<div>CSS, SASS</div>
+							<div>CSS</div>
 						</div>	
 					</div>
+
+					<!-- CSS Sass. -->
+					<div class="skill">
+						<div class="skill__circle">
+							<div class="skill__icon"><i class="icon icon-sass"></i></div>
+							<svg>
+								<circle
+									class="skill__circle--background"
+									r="32"
+									cx="35"
+									cy="35"
+								/>									
+								<circle
+									class="skill__circle--progress"
+									r="32"
+									cx="35"
+									cy="35"
+									stroke-dasharray="150,201"
+								/>
+							</svg>
+						</div>
+						<div class="skill__description">
+							<div>Sass</div>
+						</div>	
+					</div>					
 
 					<!-- Javascript skill. -->
 					<div class="skill">
@@ -78,7 +103,7 @@
 							</svg>
 						</div>
 						<div class="skill__description">
-							<div>JavaScript</div>
+							<div>JavaScript ES6</div>
 						</div>								
 					</div>
 
@@ -107,6 +132,31 @@
 						</div>	
 					</div>
 
+					<!-- Vue skill. -->
+					<div class="skill">
+						<div class="skill__circle" >
+							<div class="skill__icon"><i class="icon icon-vue"></i></div>
+							<svg>
+								<circle
+									class="skill__circle--background"
+									r="32"
+									cx="35"
+									cy="35"
+								/>	
+								<circle
+									class="skill__circle--progress"
+									r="32"
+									cx="35"
+									cy="35"
+									stroke-dasharray="130,201"
+								/>
+							</svg>
+						</div>
+						<div class="skill__description">
+							<div>Vue</div>
+						</div>	
+					</div>
+
 					<!-- PHP skill. -->
 					<div class="skill">
 						<div class="skill__circle">
@@ -129,6 +179,31 @@
 						</div>
 						<div class="skill__description">
 							<div>PHP</div>
+						</div>	
+					</div>
+
+					<!-- MySql skill. -->
+					<div class="skill">
+						<div class="skill__circle">
+							<div class="skill__icon"><i class="icon icon-mysql"></i></div>
+							<svg>
+								<circle
+									class="skill__circle--background"
+									r="32"
+									cx="35"
+									cy="35"
+								/>	
+								<circle
+									class="skill__circle--progress"
+									r="32"
+									cx="35"
+									cy="35"
+									stroke-dasharray="40,201"
+								/>
+							</svg>
+						</div>
+						<div class="skill__description">
+							<div>MySql</div>
 						</div>	
 					</div>
 				</div>	

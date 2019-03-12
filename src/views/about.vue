@@ -9,7 +9,7 @@
 						I have <strong>started programming last November</strong>… so far, so good!
 						I play with <strong>HTML, CSS / SASS, JavaScript / jQuery & PHP</strong>. 
 						Actually, this resume is my first website "handcoded with love" - I hope you will like it!
-					</p>
+          </p>
 					<p>
 						You can visit my some of my projects <strong><a href="https://codepen.io/Helene-Andre/pen/mQrgZa" target="_blank"> @ codepen.io/Helene-Andre</a></strong>
 					</p>

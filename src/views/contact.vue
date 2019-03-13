@@ -43,20 +43,20 @@
           </ul>
         </p>
         <div class="contact-form__field-wrapper">
-					<input v-model="name" id="name" class="contact-form__field" type="text" name="name" placeholder="Name" autocomplete="off">				
+					<input v-model="name" v-on:keyup="validateField()" id="name" class="contact-form__field" type="text" name="name" placeholder="Name" autocomplete="off">				
 					<div class="invalid-field-message">This field is required</div>
 				</div>
 				<div class="contact-form__field-wrapper">
-					<input v-model="email" id="email" class="contact-form__field" type="email" name="email" placeholder="Email" autocomplete="off">
+					<input v-model="email" v-on:keyup="validateField()" id="email" class="contact-form__field" type="email" name="email" placeholder="Email" autocomplete="off">
 					<div class="invalid-field-message">This field is required</div>
 					<div class="invalid-email-message">Must be a valid email</div>
 				</div>
 				<div class="contact-form__field-wrapper">
-					<input v-model="subject" id="subject" class="contact-form__field" type="text" name="subject" placeholder="Subject" autocomplete="off">	
+					<input v-model="subject" v-on:keyup="validateField()" id="subject" class="contact-form__field" type="text" name="subject" placeholder="Subject" autocomplete="off">	
 					<div class="invalid-field-message">This field is required</div>
 				</div>
 				<div class="contact-form__field-wrapper">
-					<textarea v-model="message" id="message" class="contact-form__field" name="message" placeholder="Message" rows="6" cols="80"></textarea>		
+					<textarea v-model="message" v-on:keyup="validateField()" id="message" class="contact-form__field" name="message" placeholder="Message" rows="6" cols="80"></textarea>		
 					<div class="invalid-field-message">This field is required</div>
 				</div>
 				<div class="contact-form__send-wrapper">
@@ -107,7 +107,33 @@ export default {
         this.errors.push('Message required.');
       }
       e.preventDefault();
+    },
+    validateField: function (e) {
+      let field = document.getElementById(event.target.id)
+      let fieldWrapper = field.parentElement
+      let fieldValue = field.value.trim()
+
+      if (!fieldValue) {
+        fieldWrapper.classList.add('invalid-field')
+        fieldWrapper.classList.remove('correct-field')
+        return false 
+      }
+
+      // If field is email.
+      else if (field.id === 'email' && !/^.+@.+\.[a-zA-Z]{2,}$/.test(fieldValue)) {
+        fieldWrapper.classList.remove('invalid-field')
+        fieldWrapper.classList.add('invalid-email')
+        return false 
+      }
+      
+      else {
+        fieldWrapper.classList.remove('invalid-field')
+        fieldWrapper.classList.remove('invalid-email')
+        fieldWrapper.classList.add('correct-field')
+        return true 
+      }
     }
+
   }
 }
 </script>

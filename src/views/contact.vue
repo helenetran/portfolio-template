@@ -95,16 +95,16 @@ export default {
       this.errors = [];
 
       if (!this.name) {
-        this.errors.push('Name required.');
+        document.getElementById('name').parentElement.classList.add('invalid-field')
       }
       if (!this.email) {
-        this.errors.push('Email required.');
+        document.getElementById('email').parentElement.classList.add('invalid-field')
       }
       if (!this.subject) {
-        this.errors.push('Subject required.');
+        document.getElementById('subject').parentElement.classList.add('invalid-field')
       }
       if (!this.message) {
-        this.errors.push('Message required.');
+        document.getElementById('message').parentElement.classList.add('invalid-field')
       }
       e.preventDefault();
     },
@@ -119,7 +119,7 @@ export default {
         return false 
       }
 
-      // If field is email.
+      // If field is email field.
       else if (field.id === 'email' && !/^.+@.+\.[a-zA-Z]{2,}$/.test(fieldValue)) {
         fieldWrapper.classList.remove('invalid-field')
         fieldWrapper.classList.add('invalid-email')

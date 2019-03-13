@@ -494,6 +494,11 @@ section.scroll .section--wrapper {
     left: 50%; 
     transform: translateX(-50%);
   }
+  .contact-form__field-wrapper, 
+  .contact-form__send-wrapper {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
   .contact-info__icons-wrapper {
     justify-content: space-between;
@@ -504,6 +509,11 @@ section.scroll .section--wrapper {
     right: 50%; 
     transform: translateX(50%);
   } 
+
+  /* Footer. */
+  footer {
+    z-index: -5;
+  }
 }
 
 @media screen and (max-width: 450px) {

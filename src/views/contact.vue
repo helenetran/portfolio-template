@@ -37,11 +37,6 @@
 					</div>
 			</div>
 			<form id="form" class="contact-form" action="https://formspree.io/helene.andre.06@gmail.com" @submit="checkForm" method="post">
-        <p v-if="errors.length">
-          <ul>
-            <li v-for="error in errors" :key="error.value">{{ error }}</li>
-          </ul>
-        </p>
         <div class="contact-form__field-wrapper">
 					<input v-model="name" v-on:keyup="validateField()" id="name" class="contact-form__field" type="text" name="name" placeholder="Name" autocomplete="off">				
 					<div class="invalid-field-message">This field is required</div>
@@ -116,6 +111,7 @@ export default {
       if (!fieldValue) {
         fieldWrapper.classList.add('invalid-field')
         fieldWrapper.classList.remove('correct-field')
+        fieldWrapper.classList.remove('invalid-email')
         return false 
       }
 

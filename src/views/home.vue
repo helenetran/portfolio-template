@@ -2,7 +2,7 @@
   <section id="home" class="section--home">
     <div class="home__background--wrapper">
       <div class="home__background">
-        <img class="home__background--image" src="../assets/images/home/test1.jpg" alt="">
+        <img class="home__background--image" src="../assets/images/home/home-background.jpg" alt="">
       </div>
     </div>
     <div class="home__title-wrapper">

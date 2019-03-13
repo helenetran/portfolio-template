@@ -18,9 +18,9 @@
 
 			<div class="footnote__icon-wrapper">
 				<div class="footnote__icon">
-					<i class="icon icon-jquery"></i>
+					<i class="icon icon-vue"></i>
 				</div>
-				<div class="footnote__description">jQuery</div>
+				<div class="footnote__description">Vue</div>
 			</div>
 
 			<div class="footnote__icon-wrapper">

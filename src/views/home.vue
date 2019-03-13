@@ -64,6 +64,8 @@ export default {
 
 .home__background--image {
   width: 100%; 
+  min-width: 712px; 
+  min-height: 645px; 
 }
 
 .scroll .home__background::before {

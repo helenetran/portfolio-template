@@ -170,21 +170,20 @@ export default {
 	height: auto;
 	color: #ffffff;
 	padding: 12px;
-	background-color: rgba(128,128,128, 0.5);	position: absolute; 
-	// top: unset; 
+	background-color: rgba(128,128,128, 0.8);	position: absolute; 
 	bottom: 0%;  
 	top: unset;
 	left: unset;
 	-webkit-transform: translate(0%,0%);
 	transform: translate(0%,0%);
 	text-align: unset; 
-	// width: 100%;
-	// text-align: left; 
-	// -webkit-transform: translate(-50%,0%);
-	// transform: translate(-50%,0%);
 }
 
 .vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) p {
 	color: #ffffff;
+}
+
+.vueperslide__title {
+	font-size: 20px; 
 }
 </style>

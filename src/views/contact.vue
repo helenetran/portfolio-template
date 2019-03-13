@@ -36,22 +36,27 @@
 						<a href="https://www.linkedin.com/in/helene-andre/" target="_blank"><i class="icon icon-linkedin contact-info__icon"></i></a> 
 					</div>
 			</div>
-			<form class="contact-form__wrapper" action="https://formspree.io/helene.andre.06@gmail.com" method="post">
-				<div class="contact-form__field-wrapper">
-					<input id="name" class="contact-form__field" type="text" name="name" placeholder="Name" autocomplete="off">				
+			<form id="form" class="contact-form" action="https://formspree.io/helene.andre.06@gmail.com" @submit="checkForm" method="post">
+        <p v-if="errors.length">
+          <ul>
+            <li v-for="error in errors" :key="error.value">{{ error }}</li>
+          </ul>
+        </p>
+        <div class="contact-form__field-wrapper">
+					<input v-model="name" id="name" class="contact-form__field" type="text" name="name" placeholder="Name" autocomplete="off">				
 					<div class="invalid-field-message">This field is required</div>
 				</div>
 				<div class="contact-form__field-wrapper">
-					<input id="email" class="contact-form__field" type="email" name="email" placeholder="Email" autocomplete="off">
+					<input v-model="email" id="email" class="contact-form__field" type="email" name="email" placeholder="Email" autocomplete="off">
 					<div class="invalid-field-message">This field is required</div>
 					<div class="invalid-email-message">Must be a valid email</div>
 				</div>
 				<div class="contact-form__field-wrapper">
-					<input id="subject" class="contact-form__field" type="text" name="subject" placeholder="Subject" autocomplete="off">	
+					<input v-model="subject" id="subject" class="contact-form__field" type="text" name="subject" placeholder="Subject" autocomplete="off">	
 					<div class="invalid-field-message">This field is required</div>
 				</div>
 				<div class="contact-form__field-wrapper">
-					<textarea id="message" class="contact-form__field" name="message" placeholder="Message" rows="6" cols="80"></textarea>		
+					<textarea v-model="message" id="message" class="contact-form__field" name="message" placeholder="Message" rows="6" cols="80"></textarea>		
 					<div class="invalid-field-message">This field is required</div>
 				</div>
 				<div class="contact-form__send-wrapper">
@@ -74,12 +79,34 @@
 
 <script>
 export default {
-  name: 'contact',
   data: () => ({
+    errors: [],
+    name: null,
+    email: null,
+    subject: null,
+    message: null
   }),
-  methods: {
-    getImage (name) {
-      return require(`../assets/images/${name}`)
+  methods:{
+    checkForm: function (e) {
+      if (this.name && this.email && this.subject && this.message) {
+        return true;
+      }
+
+      this.errors = [];
+
+      if (!this.name) {
+        this.errors.push('Name required.');
+      }
+      if (!this.email) {
+        this.errors.push('Email required.');
+      }
+      if (!this.subject) {
+        this.errors.push('Subject required.');
+      }
+      if (!this.message) {
+        this.errors.push('Message required.');
+      }
+      e.preventDefault();
     }
   }
 }

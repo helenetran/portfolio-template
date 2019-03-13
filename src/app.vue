@@ -97,9 +97,8 @@ export default {
 
       // Parallax effect on home__title.
       let backgroundTitle = document.getElementsByClassName('home__background')[0]
-      console.log(document.getElementsByClassName('home__background')[0])
       if (document.getElementById('home').classList.contains('scroll')) {
-        backgroundTitle.style.top = (0-(windowTopPosition*0.04))+'%'
+        backgroundTitle.style.top = -(0-(windowTopPosition*0.04))+'%'
       }
     }
   },

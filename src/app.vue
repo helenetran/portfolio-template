@@ -382,6 +382,10 @@ section.scroll .section--wrapper {
 }
 
 @media screen and (max-width: 768px) {
+  section {
+    padding-left: 6%; 
+    padding-right: 6%; 
+  }
   /* top-bar section. */
   .top-bar__text {
     font-size: 12px; 
@@ -391,11 +395,6 @@ section.scroll .section--wrapper {
     padding-left: 10px; 
     padding-right: 10px; 
   }
-
-  /* Home section. */
-  // .home__background--image {
-  //   transform: scale(1.8);
-  // }
 
   /* Skills section. */
   .skills__wrapper {
@@ -517,11 +516,11 @@ section.scroll .section--wrapper {
 }
 
 @media screen and (max-width: 450px) {
+  /* Whole page. */
   p {
     font-size: 12px; 
   }
 
-  /* Whole page. */
   section {
     padding-left: 3%; 
     padding-right: 3%; 
@@ -530,43 +529,6 @@ section.scroll .section--wrapper {
   h1 {
     font-size: 20px; 
   } 
-
-  /* top-bar section. */
-  .top-bar {
-    height: 230px;
-    padding: 5px; 
-    opacity: 0;
-    z-index: -5;
-  }
-
-  .top-bar--wrapper {
-    height: 90%;
-    flex-direction: column; 
-    justify-content: space-between;
-    bottom: unset;
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%,-50%);
-  }
-
-  .top-bar__button.active {
-    border-bottom: 2px solid transparent;
-  }
-
-  .top-bar__text {
-    font-size: 13px; 
-  }
-
-  .show-menu {
-    opacity: 0.85; 
-    z-index: 5;
-  }
-
-  .top-bar li {
-    height: 30px;
-    text-align: center; 
-  }
-
 
   /* Home section. */
   .home__title {

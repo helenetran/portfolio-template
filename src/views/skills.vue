@@ -416,6 +416,7 @@ export default {
 .skill__elements {
   display: flex; 
   flex-wrap: wrap;
+	flex-basis: 50%;
   justify-content: space-between;
 }
 

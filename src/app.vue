@@ -468,7 +468,7 @@ section.scroll .section--wrapper {
 
   /* Contact section. */
   .section--contact {
-    height: auto;
+    height: 120vh;
   }
   
   .contact-info__title {
@@ -509,10 +509,10 @@ section.scroll .section--wrapper {
     transform: translateX(50%);
   } 
 
-  /* Footer. */
-  footer {
-    z-index: -5;
-  }
+  // /* Footer. */
+  // footer {
+  //   z-index: -5;
+  // }
 }
 
 @media screen and (max-width: 450px) {
@@ -588,14 +588,7 @@ section.scroll .section--wrapper {
 
 /**=====================================================================**/
 
-/**========================== media queries width ======================**/
-
-/* @media screen and (max-height: 625px) {
-  .section--contact {
-    height: 90vh;
-  }
-} */
-/**=====================================================================**/
+/**======================== animate sections ===========================**/
 
 .animate {
   transition-delay: .1s;

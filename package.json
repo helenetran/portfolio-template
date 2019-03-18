@@ -13,9 +13,11 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.1",
-    "@vue/cli-service": "^3.4.1",
+    "@vue/cli-service": "^3.5.1",
     "html-loader": "^0.5.5",
     "node-sass": "^4.9.0",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.1.0",
     "vue-scrollto": "^2.14.0",
     "vue-template-compiler": "^2.5.21",

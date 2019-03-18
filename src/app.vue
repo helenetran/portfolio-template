@@ -550,10 +550,6 @@ section.scroll .section--wrapper {
   } 
 
   /* About-me section. */
-  .about-me__text {
-    top: 54%; 
-  }
-
   .about-me__description {
     padding-top: 0;
   }

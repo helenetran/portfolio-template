@@ -1,21 +1,14 @@
-<template>
-	<section class="section--projects" id="projects">
-		<div class="section--wrapper">
-			<h1 class="projects__title">PROJECTS</h1>
-			<!-- <div class="projects-wrapper"> -->
-			<div class="slide--wrapper">
-				<vueper-slides class="no-shadow" :slide-ratio="0.5" arrows-outside bullets-outside>
-					<vueper-slide
-						v-for="(slide, i) in slides"
+<template lang="pug">
+	section.section--projects#projects
+		.section--wrapper
+			h1.projects__title PROJECTS
+			.slide--wrapper
+				vueper-slides.no-shadow(:slide-ratio="0.5" arrows-outside bullets-outside :breakpoints="breakpoints")
+					vueper-slide(v-for="(slide, i) in slides"
 						:key="i"
 						:image="getImage(slide.image)"
 						:title="'# ' + slide.title"
-						:content="slide.content">
-					</vueper-slide>
-				</vueper-slides>				
-			</div>
-		</div>		
-	</section>
+						:content="slide.content")
 </template>
 
 <script>
@@ -26,6 +19,7 @@ export default {
   name: 'projects',
   components: { VueperSlides, VueperSlide },
   data: () => ({
+		breakpoints: { 500: { slideContentOutside: "bottom" } },
     slides: [
       {
         title: 'Colors of the triangles',
@@ -95,13 +89,12 @@ export default {
 .section--projects {
   background-color: #D7CCC8;
   height: 120vh; 
-}
-
-.section--projects::after {
-  border: 4em solid #ffffff;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
+	&::after {
+		border: 4em solid #ffffff;
+		border-bottom-color: transparent;
+		border-left-color: transparent;
+		border-right-color: transparent;
+	}
 }
 
 .projects__title {

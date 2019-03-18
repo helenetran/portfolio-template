@@ -1,102 +1,89 @@
-<template>
-	<section class="section--xp" id="xp">
-		<div class="section--wrapper">
-			<h1 class="xp__title">EXPERIENCE</h1>
-			<div class="xp__wrapper">
+<template lang="pug">
+	section.section--xp#xp
+		.section--wrapper
+			h1.xp__title EXPERIENCE
+			.xp__wrapper
+				.xp-item.right
+					.xp-item-box.right
+						.xp-item-box__date.right-date Jan. 2017
+						h2 Travelling Project
+						.xp-item-box__location
+							i.icon.icon-location Europe, Asia, Australia
+						.xp-item-box__duration #[em 20 months]		    	
 
-				<div class="xp-item right">
-					<div class="xp-item-box right">
-						<div class="xp-item-box__date right-date">Jan. 2017</div>
-						<h2>Travelling Project</h2>
-						<div class="xp-item-box__location"><i class="icon icon-location">Europe, Asia, Australia</i></div>
-						<div class="xp-item-box__duration"><em>20 months</em></div>		    	
-					</div>
-				</div>
+				.xp-item.left
+					.xp-item-box.left
+						.xp-item-box__date.left-date Jul. 2015
+						h2 Project Leader
+						h3 Servier- Pharmaceutical Company
+						div General Management Department
+						.xp-item-box__location
+							i.icon.icon-location Ho Chi Minh City, Vietnam
+						.xp-item-box__duration #[em 18 months]
 
-				<div class="xp-item left">
-					<div class="xp-item-box left">
-						<div class="xp-item-box__date left-date">Jul. 2015</div>
-						<h2>Project Leader</h2>
-						<h3>Servier- Pharmaceutical Company</h3>
-						<div>General Management Department</div>
-						<div class="xp-item-box__location"><i class="icon icon-location">Ho Chi Minh City, Vietnam</i></div>
-						<div class="xp-item-box__duration"><em>18 months</em></div>
-					</div>
-				</div>
+				.xp-item
+					.xp-item-box.right
+						.xp-item-box__date.right-date Sept. 2014
+						h2 MBA
+						h3 Institute of Business Administration
+						.xp-item-box__location
+							i.icon.icon-location Montpellier, France
 
-				<div class="xp-item">
-					<div class="xp-item-box right">
-						<div class="xp-item-box__date right-date">Sept. 2014</div>
-						<h2>MBA</h2>
-						<h3>Institute of Business Administration</h3>
-						<div class="xp-item-box__location"><i class="icon icon-location">Montpellier, France</i></div>
-					</div>
-				</div>
+				.xp-item.left
+					.xp-item-box.left
+						.xp-item-box__date.left-date Apr. 2014
+						h2 Product Manager
+						h3 Pierre Fabre - Pharmaceutical Company
+						div Marketing Department, Smoking Cessation Team
+						.xp-item-box__location
+							i.icon.icon-location Castres, France
+						.xp-item-box__duration #[em 6 months]
 
-				<div class="xp-item left">
-					<div class="xp-item-box left">
-						<div class="xp-item-box__date left-date">Apr. 2014</div>
-						<h2>Product Manager</h2>
-						<h3>Pierre Fabre - Pharmaceutical Company</h3>
-						<div>Marketing Department, Smoking Cessation Team</div>
-						<div class="xp-item-box__location"><i class="icon icon-location">Castres, France</i></div>
-						<div class="xp-item-box__duration"><em>6 months</em></div>
-					</div>
-				</div>
+				.xp-item
+					.xp-item-box.right
+						.xp-item-box__date.right-date Sept. 2012
+						h2 Master's degree in Clinical Trials
+						h3 Faculty of Medecine
+						.xp-item-box__location
+							i.icon.icon-location Montpellier, France
 
-				<div class="xp-item">
-					<div class="xp-item-box right">
-						<div class="xp-item-box__date right-date">Sept. 2012</div>
-						<h2>Master's degree in Clinical Trials</h2>
-						<h3>Faculty of Medecine</h3>
-						<div class="xp-item-box__location"><i class="icon icon-location">Montpellier, France</i></div>
-					</div>
-				</div>
+				.xp-item.left
+					.xp-item-box.left
+						.xp-item-box__date.left-date Apr. 2012
+						h2 Clinical Trials Coordinator
+						h3 CDL Pharma - Contract Ressearch organisation
+						div Project Management Department
+						.xp-item-box__location
+							i.icon.icon-location Marseille, France
+						.xp-item-box__duration #[em 6 months]
 
-				<div class="xp-item left">
-					<div class="xp-item-box left">
-						<div class="xp-item-box__date left-date">Apr. 2012</div>
-						<h2>Clinical Trials Coordinator</h2>
-						<h3>CDL Pharma - Contract Ressearch organisation</h3>
-						<div>Project Management Department</div>
-						<div class="xp-item-box__location"><i class="icon icon-location">Marseille, France</i></div>
-						<div class="xp-item-box__duration"><em>6 months</em></div>
-					</div>
-				</div>
+				.xp-item
+					.xp-item-box.right
+						.xp-item-box__date.right-date Oct. 2011
+						h2 Clinical Ressearch Associate
+						h3 Teaching Hospital
+						div Emergency Department & Hematology Department
+						.xp-item-box__location
+							i.icon.icon-location Montpellier, France
+						.xp-item-box__duration #[em 6 months]
 
-				<div class="xp-item">
-					<div class="xp-item-box right">
-						<div class="xp-item-box__date right-date">Oct. 2011</div>
-						<h2>Clinical Ressearch Associate</h2>
-						<h3>Teaching Hospital</h3>
-						<div>Emergency Department & Hematology Department</div>
-						<div class="xp-item-box__location"><i class="icon icon-location">Montpellier, France</i></div>
-						<div class="xp-item-box__duration"><em>6 months</em></div>
-					</div>
-				</div>
+				.xp-item.left
+					.xp-item-box left
+						.xp-item-box__date.left-date Sept. 2011
+						h2 Bachelor's degree in Biology
+						h3 Nice Sophia Antipolis University
+						.xp-item-box__location
+							i.icon.icon-location Nice, France	
 
-				<div class="xp-item left">
-					<div class="xp-item-box left">
-						<div class="xp-item-box__date left-date">Sept. 2011</div>
-						<h2>Bachelor's degree in Biology</h2>
-						<h3>Nice Sophia Antipolis University</h3>
-						<div class="xp-item-box__location"><i class="icon icon-location">Nice, France</i></div>
-					</div>
-				</div>	
-
-				<div class="xp-item">
-					<div class="xp-item-box right">
-						<div class="xp-item-box__date right-date">Jan. 2011</div>
-						<h2>Intern in genetics research</h2>
-						<h3>INSERM - laboratories</h3>
-						<div>Diabetology & obesity department</div>
-						<div class="xp-item-box__location"><i class="icon icon-location">Nice, France</i></div>
-						<div class="xp-item-box__duration"><em>6 months</em></div>
-					</div>
-				</div>	
-			</div>			
-		</div>
-	</section>
+				.xp-item
+					.xp-item-box.right
+						.xp-item-box__date.right-date Jan. 2011
+						h2 Intern in genetics research
+						h3 INSERM - laboratories
+						div Diabetology & obesity department
+						.xp-item-box__location
+							i.icon.icon-location Nice, France
+						.xp-item-box__duration #[em 6 months]
 </template>
 
 <script>
@@ -150,29 +137,28 @@ export default {
 .xp-item {
   position: relative;
   padding-bottom: 15em;
-}
-
-.xp__icon {
-  display: inline-block; 
-}
-
-/* Dots on the timeline boxes. */
-.xp-item::before, 
-.xp-item::before {
-  content: '';
-  height: 1.3em;
-  width: 1.3em;
-  background-color: #e0e0e0;
-  border: 3px solid #ffffff;
-  border-radius: 15px;
-  position: absolute;
-  left: 50%; 
-  top: 50%;
-  transform: translate(-50%,-50%);
+	/* Dots on the timeline boxes. */
+	&::before, 
+	&::before {
+		content: '';
+		height: 1.3em;
+		width: 1.3em;
+		background-color: #e0e0e0;
+		border: 3px solid #ffffff;
+		border-radius: 15px;
+		position: absolute;
+		left: 50%; 
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
 }
 
 .left {
   text-align: right; 
+	&::after {
+		border-left-color: #ffffff;
+		left: 100%; 
+	}
 }
 
 .section--xp h2 {
@@ -193,31 +179,24 @@ export default {
   top: 50%;
   transform: translateY(-50%);
   transition: 0.3s ease-in-out; 
+	/* Arrows on the text boxes. */ 
+	&::after {
+		content: '';
+		height: 0;
+		width: 0;
+		border: 12px solid transparent;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
 }
 
 .right {
   right: 0%;
-}
-
-/* Arrows on the text boxes. */ 
-.xp-item-box::after {
-  content: '';
-  height: 0;
-  width: 0;
-  border: 12px solid transparent;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.left::after {
-  border-left-color: #ffffff;
-  left: 100%; 
-}
-
-.right::after {
-  border-right-color: #ffffff;
-  right: 100%;
+	&::after {
+		border-right-color: #ffffff;
+		right: 100%;
+	}
 }
 
 .xp-item-box__date {

@@ -1,359 +1,184 @@
-<template>
-	<section class="section--skills" id="skills">
-		<div class="section--wrapper">
-			<h1 class="skills__title">SKILLS</h1>				
-			<div class="skills__wrapper">
-				<div class="skill__title">
-					<h2>Computer Skills</h2>
-				</div>
-				<div class="skill__elements">
-					<!-- HTML skill. -->
-					<div class="skill">
-						<div class="skill__circle">
-							<div class="skill__icon"><i class="icon icon-html"></i></div>
-							<svg>
-								<circle
-									class="skill__circle--background"
-									r="32"
-									cx="35"
-									cy="35"
-								/>
-								<circle
-									class="skill__circle--progress"
-									r="32"
-									cx="35"
-									cy="35"
-									stroke-dasharray="160,201"
-								/>
-							</svg>
-						</div>
-						<div class="skill__description">
-							<div>HTML</div>
-						</div>		
-					</div>
+<template lang="pug">
+section.section--skills#skills
+	.section--wrapper
+		h1.skills__title SKILLS			
+		.skills__wrapper
+			.skill__title
+				h2 Computer Skills
+			.skill__elements
+				//-  HTML skill.
+				.skill
+					.skill__circle
+						.skill__icon
+							i.icon.icon-html
+						svg
+							circle.skill__circle--background(
+								r="32" cx="35" cy="35")
+							circle.skill__circle--progress(
+								r="32" cx="35" cy="35" stroke-dasharray="160,201")
+					.skill__description HTML
 
-					<!-- CSS skill. -->
-					<div class="skill">
-						<div class="skill__circle">
-							<div class="skill__icon"><i class="icon icon-css"></i></div>
-							<svg>
-								<circle
-									class="skill__circle--background"
-									r="32"
-									cx="35"
-									cy="35"
-								/>									
-								<circle
-									class="skill__circle--progress"
-									r="32"
-									cx="35"
-									cy="35"
-									stroke-dasharray="150,201"
-								/>
-							</svg>
-						</div>
-						<div class="skill__description">
-							<div>CSS</div>
-						</div>	
-					</div>
+				//- CSS skills.
+				.skill
+					.skill__circle
+						.skill__icon
+							i.icon.icon-css
+						svg
+							circle.skill__circle--background(
+								r="32" cx="35" cy="35")
+							circle.skill__circle--progress(
+								r="32" cx="35" cy="35" stroke-dasharray="150,201")
+					.skill__description CSS			
 
-					<!-- CSS Sass. -->
-					<div class="skill">
-						<div class="skill__circle">
-							<div class="skill__icon"><i class="icon icon-sass"></i></div>
-							<svg>
-								<circle
-									class="skill__circle--background"
-									r="32"
-									cx="35"
-									cy="35"
-								/>									
-								<circle
-									class="skill__circle--progress"
-									r="32"
-									cx="35"
-									cy="35"
-									stroke-dasharray="150,201"
-								/>
-							</svg>
-						</div>
-						<div class="skill__description">
-							<div>Sass</div>
-						</div>	
-					</div>					
+				//- CSS Sass.
+				.skill
+					.skill__circle
+						.skill__icon
+							i.icon.icon-sass
+						svg
+							circle.skill__circle--background(
+								r="32" cx="35" cy="35")
+							circle.skill__circle--progress(
+								r="32" cx="35" cy="35" stroke-dasharray="150,201")
+					.skill__description Sass					
 
-					<!-- Javascript skill. -->
-					<div class="skill">
-						<div class="skill__circle">
-							<div class="skill__icon"><i class="icon icon-js"></i></div>
-							<svg>
-								<circle
-									class="skill__circle--background"
-									r="32"
-									cx="35"
-									cy="35"
-								/>	
-								<circle
-									class="skill__circle--progress"
-									r="32"
-									cx="35"
-									cy="35"
-									stroke-dasharray="105,201"
-								/>
-							</svg>
-						</div>
-						<div class="skill__description">
-							<div>JavaScript ES6</div>
-						</div>								
-					</div>
+				//- Javascript skill.
+				.skill
+					.skill__circle
+						.skill__icon
+							i.icon.icon-js
+						svg
+							circle.skill__circle--background(
+								r="32" cx="35" cy="35")
+							circle.skill__circle--progress(
+								r="32" cx="35" cy="35" stroke-dasharray="105,201")
+					.skill__description JavaScript ES6
 
-					<!-- JQuery skill. -->
-					<div class="skill">
-						<div class="skill__circle" >
-							<div class="skill__icon"><i class="icon icon-jquery"></i></div>
-							<svg>
-								<circle
-									class="skill__circle--background"
-									r="32"
-									cx="35"
-									cy="35"
-								/>	
-								<circle
-									class="skill__circle--progress"
-									r="32"
-									cx="35"
-									cy="35"
-									stroke-dasharray="130,201"
-								/>
-							</svg>
-						</div>
-						<div class="skill__description">
-							<div>jQuery</div>
-						</div>	
-					</div>
+				//- JQuery skill.
+				.skill
+					.skill__circle
+						.skill__icon
+							i.icon.icon-jquery
+						svg
+							circle.skill__circle--background(
+								r="32" cx="35" cy="35")
+							circle.skill__circle--progress(
+								r="32" cx="35" cy="35" stroke-dasharray="130,201")
+					.skill__description JQuery
 
-					<!-- Vue skill. -->
-					<div class="skill">
-						<div class="skill__circle" >
-							<div class="skill__icon"><i class="icon icon-vue"></i></div>
-							<svg>
-								<circle
-									class="skill__circle--background"
-									r="32"
-									cx="35"
-									cy="35"
-								/>	
-								<circle
-									class="skill__circle--progress"
-									r="32"
-									cx="35"
-									cy="35"
-									stroke-dasharray="130,201"
-								/>
-							</svg>
-						</div>
-						<div class="skill__description">
-							<div>Vue</div>
-						</div>	
-					</div>
+				//- Vue skill.
+				.skill
+					.skill__circle
+						.skill__icon
+							i.icon.icon-vue
+						svg
+							circle.skill__circle--background(
+								r="32" cx="35" cy="35")
+							circle.skill__circle--progress(
+								r="32" cx="35" cy="35" stroke-dasharray="130,201")
+					.skill__description Vue
 
-					<!-- PHP skill. -->
-					<div class="skill">
-						<div class="skill__circle">
-							<div class="skill__icon"><i class="icon icon-php"></i></div>
-							<svg>
-								<circle
-									class="skill__circle--background"
-									r="32"
-									cx="35"
-									cy="35"
-								/>	
-								<circle
-									class="skill__circle--progress"
-									r="32"
-									cx="35"
-									cy="35"
-									stroke-dasharray="40,201"
-								/>
-							</svg>
-						</div>
-						<div class="skill__description">
-							<div>PHP</div>
-						</div>	
-					</div>
+				//- PHP skill.
+				.skill
+					.skill__circle
+						.skill__icon
+							i.icon.icon-php
+						svg
+							circle.skill__circle--background(
+								r="32" cx="35" cy="35")
+							circle.skill__circle--progress(
+								r="32" cx="35" cy="35" stroke-dasharray="40,201")
+					.skill__description PHP
 
-					<!-- MySql skill. -->
-					<div class="skill">
-						<div class="skill__circle">
-							<div class="skill__icon"><i class="icon icon-mysql"></i></div>
-							<svg>
-								<circle
-									class="skill__circle--background"
-									r="32"
-									cx="35"
-									cy="35"
-								/>	
-								<circle
-									class="skill__circle--progress"
-									r="32"
-									cx="35"
-									cy="35"
-									stroke-dasharray="40,201"
-								/>
-							</svg>
-						</div>
-						<div class="skill__description">
-							<div>MySql</div>
-						</div>	
-					</div>
-				</div>	
-			</div>
+				//- MySql skill.
+				.skill
+					.skill__circle
+						.skill__icon
+							i.icon.icon-mysql
+						svg
+							circle.skill__circle--background(
+								r="32" cx="35" cy="35")
+							circle.skill__circle--progress(
+								r="32" cx="35" cy="35" stroke-dasharray="40,201")
+					.skill__description MySql
 
-			<div class="skills__wrapper management">
-				<div class="skill__title">
-					<h2>Management Assets</h2>
-				</div>
+		.skills__wrapper.management
+			.skill__title
+				h2 Management Assets
 
-				<div class="skill__elements">
+			.skill__elements
+				//- Responsibility skill.
+				.skill.skill__management
+					.skill__circle
+						.skill__icon
+							i.icon.icon-responsible
+						svg
+							circle.skill__circle--background(
+								r="32" cx="35" cy="35")
+							circle.skill__circle--progress(
+								r="32" cx="35" cy="35" stroke-dasharray="201,201")
+					.skill__description Strong sense of #[strong personal responsibility]
 
-					<!-- Responsibility skill. -->
-					<div class="skill skill__management">
-						<div class="skill__circle">
-							<div class="skill__icon"><i class="icon icon-responsible"></i></div>
-							<svg>
-								<circle
-									class="skill__circle--background"
-									r="32"
-									cx="35"
-									cy="35"
-								/>	
-								<circle
-									class="skill__circle--progress"
-									r="32"
-									cx="35"
-									cy="35"
-									stroke-dasharray="201,201"
-								/>
-							</svg>
-						</div>	
-						<div class="skill__description">
-							<div>Strong sense of <strong>personal responsibility</strong></div>
-						</div>
-					</div>
+				//- Communication skill.
+				.skill.skill__management
+					.skill__circle
+						.skill__icon
+							i.icon.icon-vulcain
+						svg
+							circle.skill__circle--background(
+								r="32" cx="35" cy="35")
+							circle.skill__circle--progress(
+								r="32" cx="35" cy="35" stroke-dasharray="201,201")
+					.skill__description Excellent #[strong communication] skills
 
-					<!-- Communication skill. -->
-					<div class="skill skill__management">
-						<div class="skill__circle">
-							<div class="skill__icon"><i class="icon icon-vulcain"></i></div>
-							<svg>
-								<circle
-									class="skill__circle--background"
-									r="32"
-									cx="35"
-									cy="35"
-								/>	
-								<circle
-									class="skill__circle--progress"
-									r="32"
-									cx="35"
-									cy="35"
-									stroke-dasharray="201,201"
-								/>
-							</svg>
-						</div>
-						<div class="skill__description">
-							<div>Excellent <strong>communication</strong> skills</div>
-						</div>								
-					</div>
+				//- Challenge skill.
+				.skill.skill__management
+					.skill__circle
+						.skill__icon.challenges
+							i.icon.icon-speedometer
+						svg
+							circle.skill__circle--background(
+								r="32" cx="35" cy="35")
+							circle.skill__circle--progress(
+								r="32" cx="35" cy="35" stroke-dasharray="201,201")
+					.skill__description Hungry for #[strong challenges]
 
-					<!-- Challenge skill. -->
-					<div class="skill skill__management">
-						<div class="skill__circle">
-							<div class="skill__icon challenges"><i class="icon icon-speedometer"></i></div>
-							<svg>
-								<circle
-									class="skill__circle--background"
-									r="32"
-									cx="35"
-									cy="35"
-								/>	
-								<circle
-									class="skill__circle--progress"
-									r="32"
-									cx="35"
-									cy="35"
-									stroke-dasharray="201,201"
-								/>
-							</svg>
-						</div>
-						<div class="skill__description">
-							<div>Hungry for <strong>challenges</strong></div>
-						</div>
-					</div>
+				//- Make difference skill.
+				.skill.skill__management
+					.skill__circle
+						.skill__icon
+							i.icon.icon-difference
+						svg
+							circle.skill__circle--background(
+								r="32" cx="35" cy="35")
+							circle.skill__circle--progress(
+								r="32" cx="35" cy="35" stroke-dasharray="201,201")
+					.skill__description keen on #[strong making a real difference]
 
-					<!-- Make difference skill. -->
-					<div class="skill skill__management">
-						<div class="skill__circle">
-							<div class="skill__icon"><i class="icon icon-difference"></i></div>
-							<svg>
-								<circle
-									class="skill__circle--background"
-									r="32"
-									cx="35"
-									cy="35"
-								/>	
-								<circle
-									class="skill__circle--progress"
-									r="32"
-									cx="35"
-									cy="35"
-									stroke-dasharray="201,201"
-								/>
-							</svg>	
-						</div>
-						<div class="skill__description">
-							<div>keen on <strong>making a real difference</strong></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="skills__wrapper">
-				<div class="skill__title">
-					<h2>Languages</h2>
-				</div>
-				<div class="skill__elements">
-					<div class="skill">
-						<div class="skill__flag english"></div>
-						<div class="skill__description">
-							<h3>ENGLISH</h3> 
-							<p>fluent</p>
-						</div>
-					</div>
-					<div class="skill">
-						<div class="skill__flag french"></div>
-						<div class="skill__description">
-							<h3>FRENCH</h3>
-							<p>mother tongue</p>
-						</div>
-					</div>
-					<div class="skill">
-						<div class="skill__flag vietnamese"></div>
-						<div class="skill__description">
-							<h3>VIETNAMESE</h3>
-							<p>mother tongue</p>
-						</div>
-					</div>
-					<div class="skill">
-						<div class="skill__flag italian"></div>
-						<div class="skill__description">
-							<h3>ITALIAN</h3>
-							<p>intermediate</p>
-						</div>
-					</div>
-				</div>	
-			</div>
-		</div>	
-	</section>
+		.skills__wrapper
+			.skill__title
+				h2 Languages
+			.skill__elements
+				.skill
+					.skill__flag.english
+					.skill__description
+						h3 ENGLISH
+						p fluent
+				.skill
+					.skill__flag.french
+					.skill__description
+						h3 FRENCH
+						p mother tongue
+				.skill
+					.skill__flag.vietnamese
+					.skill__description
+						h3 VIETNAMESE
+						p mother tongue
+				.skill
+					.skill__flag.italian
+					.skill__description
+						h3 ITALIAN
+						p intermediate
 </template>
 
 <script>
@@ -369,17 +194,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .section--skills {
-  background-color: #ffffff;
+  background-color: #fff;
   min-height: 1080px;
-}
-
-.section--skills::after {
-  border: 4em solid #D7CCC8;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
+	&::after {
+		border: 4em solid transparent;
+		border-top-color: #d7ccc8;
+	}
 }
 
 .skills__title, 

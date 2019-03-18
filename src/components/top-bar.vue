@@ -1,23 +1,16 @@
-<template> 
-	<div id="top-bar" class="top-bar">
-		
-    <input type="checkbox" id="menu-toggle"/>
-    <label id="trigger" for="menu-toggle"></label>
-    <label id="burger" for="menu-toggle"></label>
-    
-    <ul class="top-bar--wrapper" id="menu">
-			<li v-for="(item, i) in topBarItems" :key="i">
-				<a v-if="item.scrollTo" 
-					 class="top-bar__button" 
-					 v-scroll-to="{ element: '#' + item.scrollTo, duration: 500 }">
-					<span class="top-bar__text" v-html="item.label"></span>
-				</a>
-				<a v-else :href="item.link" target="_blank" class="top-bar__button" :title="item.title">
-					<span class="top-bar__text" v-html="item.label"></span>
-				</a>
-			</li>
-		</ul>
-	</div>
+<template lang="pug">
+#top-bar.top-bar
+  input#menu-toggle(type="checkbox")
+  label#trigger(for="menu-toggle")
+  label#burger(for="menu-toggle")
+  ul.top-bar--wrapper
+    li(v-for="(item, i) in topBarItems" :key="i")
+      a(v-if="item.scrollTo" 
+          class="top-bar__button" 
+          v-scroll-to="{ element: '#' + item.scrollTo, duration: 500 }")
+        span.top-bar__text(v-html="item.label")
+      a(v-else :href="item.link" target="_blank" class="top-bar__button" :title="item.title")
+        span.top-bar__text(v-html="item.label")
 </template>
 
 <script>
@@ -80,33 +73,30 @@ export default {
   background-color: #ffffff;
   opacity: 0.85;
   box-shadow: 0 0 7px rgba(128,128,128, 0.5);
-}
 
-.top-bar--wrapper {
-  height: 68%;
-  position: absolute;
-  bottom: 0%;
-  display: flex;
-}
-
-.top-bar__button {
-  padding: 10px;
-  padding-left: 13px;
-  padding-right: 13px;
-  font-family: lemon-milk-light, arial;
-  text-align: center;
-  position: relative;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: 0.3s ease-in-out;
-}
-
-.top-bar__text {
-  transition: 0.3s ease-in-out;
-}
-
-.top-bar__button:hover .top-bar__text {
- color: #4dd0e1; 
+  &--wrapper {
+    height: 68%;
+    position: absolute;
+    bottom: 0%;
+    display: flex;
+  }
+  &__button {
+    padding: 10px;
+    padding-left: 13px;
+    padding-right: 13px;
+    font-family: lemon-milk-light, arial;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s ease-in-out;
+  }
+  &__text {
+    transition: 0.3s ease-in-out;
+  }
+    &__button:hover &__text {
+    color: #4dd0e1; 
+    }
 }
 
 .icon-download {
@@ -117,7 +107,7 @@ export default {
   padding-left: 5px;
 }
 
-/* Animation top menu. */
+/* Top bar active state. */
 .active {
  color: #4dd0e1; 
  border-bottom-color: #4dd0e1;
@@ -140,42 +130,31 @@ export default {
     background-color: unset; 
     opacity: unset;
     box-shadow: unset; 
-  }
-
-  .top-bar--wrapper {
-    height: 100vh;
-    flex-direction: column; 
-    justify-content: space-evenly;
-    top: 0%;
-    right: 0%; 
-    bottom: unset;
-    background-color: #ffffff;
-    opacity: 0.85;
-    box-shadow: 0 0 7px rgba(128,128,128, 0.5);
-    animation: not-checked-anim 0.3s ease-in-out both;
-    // display: none;
-  }
-
-  .top-bar__button {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .top-bar__button.active {
-    border-bottom: 2px solid transparent;
-  }
-
-  .top-bar__text {
-    font-size: 13px; 
+    
+    &--wrapper {
+      height: 100vh;
+      flex-direction: column; 
+      justify-content: space-evenly;
+      top: 0%;
+      right: 0%; 
+      bottom: unset;
+      background-color: #ffffff;
+      opacity: 0.85;
+      box-shadow: 0 0 7px rgba(128,128,128, 0.5);
+      animation: not-checked-anim 0.3s ease-in-out both;
+    }
+    &__button {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &__text {
+      font-size: 13px; 
+    }
   }
 
   .top-bar li {
     height: 30px;
     text-align: center; 
-  }
-
-  li, a {
-    display: none;
   }
 
   #trigger, #burger, #burger:before, #burger:after {

@@ -1,50 +1,31 @@
-<template>
-	<footer id="footer">
-		<div class="footnote">
-			<div class="footnote__text">Proudly made in Australia with </div>
-			<div class="footnote__icon-wrapper">
-				<div class="footnote__icon">
-					<i class="icon icon-html"></i>
-				</div>
-				<div class="footnote__description">HTML</div>
-			</div>
-
-			<div class="footnote__icon-wrapper">
-				<div class="footnote__icon">
-					<i class="icon icon-css"></i>
-				</div>
-				<div class="footnote__description">CSS</div>
-			</div>
-
-			<div class="footnote__icon-wrapper">
-				<div class="footnote__icon">
-					<i class="icon icon-vue"></i>
-				</div>
-				<div class="footnote__description">Vue</div>
-			</div>
-
-			<div class="footnote__icon-wrapper">
-				<div class="footnote__icon">
-					<i class="icon icon-php"></i>
-				</div>
-				<div class="footnote__description">PHP</div>
-			</div>
-
-			<div class="footnote__icon-wrapper">
-				<div class="footnote__icon ninja">
-					<i class="icon icon-close"></i>
-				</div>
-				<div class="footnote__description">Crazy Keyboard Combos</div>
-			</div>
-
-			<div class="footnote__icon-wrapper">
-				<div class="footnote__icon love">
-					<i class="icon icon-love"></i>
-				</div>
-				<div class="footnote__description">Love</div>
-			</div>
-		</div>
-	</footer>    
+<template lang="pug">
+  #footer
+    .footnote
+      .footnote__text Proudly made in Australia with 
+      .footnote__icon-wrapper
+        .footnote__icon
+          i.icon.icon-html
+        .footnote__description HTML 
+      .footnote__icon-wrapper
+        .footnote__icon
+          i.icon.icon-css
+        .footnote__description CSS
+      .footnote__icon-wrapper
+        .footnote__icon
+          i.icon.icon-vue
+        .footnote__description Vue
+      .footnote__icon-wrapper
+        .footnote__icon
+          i.icon.icon-php
+        .footnote__description PHP
+      .footnote__icon-wrapper
+        .footnote__icon.ninja
+          i.icon.icon-close
+        .footnote__description Crazy Keyboard Combos
+      .footnote__icon-wrapper
+        .footnote__icon.love
+          i.icon.icon-love
+        .footnote__description Love  
 </template>
 
 <script>
@@ -54,7 +35,8 @@ export default {
   }),
 }
 </script>
-<style>
+
+<style lang="scss">
 footer {
   height: 9vh;
   position: relative; 
@@ -63,16 +45,14 @@ footer {
 .footnote {
   position: absolute;
   right: 10px;
-  bottom: 6px;
   display: flex;
   font-style: italic;
   opacity: 0.5;
-}
-
-.footnote div {
-  padding: 3px; 
-  font-size: 13px; 
-  transition: 0.3s ease-in-out;   
+  & div {
+    padding: 3px; 
+    font-size: 13px; 
+    transition: 0.3s ease-in-out;   
+  }
 }
 
 .footnote__text {
@@ -88,16 +68,14 @@ footer {
 .footnote__icon {
   height: 12px;
   width: 12px; 
-}
-
-.footnote__icon:hover {
-  opacity: 1; 
-  color: #4dd0e1;
-  transform: scale(1.2);
-}
-
-.footnote__icon .icon-php {
-  font-size: 15px;
+  &:hover {
+    opacity: 1; 
+    color: #4dd0e1;
+    transform: scale(1.2);
+  }
+  & .icon-php {
+    font-size: 15px;
+  }
 }
 
 /* Animation icon ninja star. */
@@ -128,30 +106,28 @@ footer {
   opacity: 0;
   z-index: -2;
   transition: 0.3s ease-in-out;
-}
-
-.footnote__description::after {
-  content: "";
-  height: 0;
-  width: 0;
-  border: 6px solid transparent;
-  border-top-color: #ffffff;
-  position: absolute;
-  top: 97%; 
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.footnote__description::before {
-  content: "";
-  height: 0;
-  width: 0;
-  border: 7px solid transparent;
-  border-top-color: #eee;
-  position: absolute;
-  top: 100%; 
-  left: 50%;
-  transform: translateX(-50%);
+  &::after {
+    content: "";
+    height: 0;
+    width: 0;
+    border: 6px solid transparent;
+    border-top-color: #ffffff;
+    position: absolute;
+    top: 97%; 
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &::before {
+    content: "";
+    height: 0;
+    width: 0;
+    border: 7px solid transparent;
+    border-top-color: #eee;
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes beat {

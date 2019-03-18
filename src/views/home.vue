@@ -1,18 +1,13 @@
 <template lang="pug">
-  <section id="home" class="section--home">
-    <div class="home__background--wrapper">
-      <div class="home__background">
-        <img class="home__background--image" src="../assets/images/home/home-background.jpg" alt="">
-      </div>
-    </div>
-    <div class="home__title-wrapper">
-      <div class="home__title">
-        <div class="home__title--name">Helene ANDRE</div> 
-        <div class="home__title--job">Front-end Developer</div>
-      </div>
-    </div>
-    <img class="home__picture" :src="getImage('home/helene-andre-picture.jpg')" alt="Helene Andre's picture">
-  </section>
+  section#home.section--home
+    .home__background--wrapper
+      .home__background
+        img.home__background--image(src="../assets/images/home/home-background.jpg" alt="home background laptop coffee")
+    .home__title-wrapper
+      .home__title
+        .home__title--name Helene ANDRE
+        .home__title--job Front-end Developer
+    img.home__picture(:src="getImage('home/helene-andre-picture.jpg')" alt="Helene Andre's picture")
 </template>
 
 <script>
@@ -28,97 +23,108 @@ export default {
 }
 </script>
 
-<style lang="sass">
-/**=============================== home ================================**/
-.section--home 
-  bottom: 8%
-  height: 92vh
-  margin-bottom: 10vh 
-  padding: 0
+<style lang="scss">
+.section--home { 
+  bottom: 8%;
+  height: 92vh;
+  margin-bottom: 10vh;
+  padding: 0;
+}
 
-.home__background--wrapper
-  position: absolute
-  height: 100% 
-  width: 100% 
-  overflow: hidden
+.home__background--wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%; 
+  overflow: hidden;
+}
 
-.home__background 
-  position: absolute
-  width: 100%
+.home__background { 
+  position: absolute;
+  width: 100%;
 
-  &::before
-    content: '' 
-    height: 100% 
-    width: 100% 
-    position: absolute 
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    background-color: rgba(0, 0, 0, 0) 
-    transition: 0.3s ease-in-out 
+  &::before {
+    content: ''; 
+    height: 100%; 
+    width: 100%; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0); 
+    transition: 0.3s ease-in-out; 
+  }
 
-  &--image
-    width: 100% 
-    min-width: 712px 
-    min-height: 645px 
+  &--image {
+    width: 100%; 
+    min-width: 712px; 
+    min-height: 645px; 
+  }
+}
 
-.scroll .home__background::before
-  background-color: rgba(0, 0, 0, 0.2) 
+.scroll .home__background::before {
+  background-color: rgba(0, 0, 0, 0.2); 
+}
 
-.home__title-wrapper
-  height: 100% 
-  width: 100% 
-  text-align: center 
-  color: #ffffff 
+.home__title-wrapper {
+  height: 100%;
+  width: 100%; 
+  text-align: center; 
+  color: #fff; 
+}
 
-.home__title
-  height: 150px
-  width: 400px  
-  position: absolute
-  top: 50%
-  left: 50%
-  transform: translate(-50%,-50%)
+.home__title {
+  height: 150px;
+  width: 400px;  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 
-  &--name
-    font-size: 60px
-    font-family: lemon-milk-light, arial
+  &--name {
+    font-size: 60px;
+    font-family: lemon-milk-light, arial;
+  }
 
-  &--job
-    font-size: 30px
-    width: auto
-    margin-top: 14px
-    position: relative
-    font-weight: 300
-    font-style: italic
+  &--job {
+    font-size: 30px;
+    width: auto;
+    margin-top: 14px;
+    position: relative;
+    font-weight: 300;
+    font-style: italic;
 
-    &::before
-      content: ''
-      height: 2px
-      width: 35px
-      position: absolute
-      right: 90%
-      top: 50%
-      transform: translateY(-50%)
-      background-color: #fff
+    &::before {
+      content: '';
+      height: 2px;
+      width: 35px;
+      position: absolute;
+      right: 90%;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #fff;
+    }
 
-    &::after
-      content: ''
-      height: 2px
-      width: 35px
-      position: absolute
-      left: 90%
-      top: 50%
-      transform: translateY(-50%)
-      background-color: #fff
+    &::after {
+      content: '';
+      height: 2px;
+      width: 35px;
+      position: absolute;
+      left: 90%;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #fff;
+    }
+  }
+}
 
-.home__picture
-  width: 17em
-  position: absolute
-  bottom: -18%
-  left: 50%
-  transform: translateX(-50%)
-  border-radius: 25em
-  border: 8px solid #ffffff 
-/**=====================================================================**/
+.home__picture {
+  width: 17em;
+  position: absolute;
+  bottom: -18%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 25em;
+  border: 8px solid #fff;
+} 
 </style>

@@ -1,75 +1,39 @@
-<template>
-	<section class="section--contact" id="contact">
-		<svg class="cloud__wrapper" id="clouds" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
-			<path d="M-5 100 Q 0 20 5 100 Z
-						M0 100 Q 5 0 10 100
-						M5 100 Q 10 30 15 100
-						M10 100 Q 15 10 20 100
-						M15 100 Q 20 30 25 100
-						M20 100 Q 25 -10 30 100
-						M25 100 Q 30 10 35 100
-						M30 100 Q 35 30 40 100
-						M35 100 Q 40 10 45 100
-						M40 100 Q 45 50 50 100
-						M45 100 Q 50 20 55 100
-						M50 100 Q 55 40 60 100
-						M55 100 Q 60 60 65 100
-						M60 100 Q 65 50 70 100
-						M65 100 Q 70 20 75 100
-						M70 100 Q 75 45 80 100
-						M75 100 Q 80 30 85 100
-						M80 100 Q 85 20 90 100
-						M85 100 Q 90 50 95 100
-						M90 100 Q 95 25 100 100
-						M95 100 Q 100 15 105 100 Z">
-			</path>
-		</svg>
-		<div class="section--wrapper contact-wrapper">
-			<div class="contact-info__wrapper">
-				<h1 class="contact-info__title">CONTACT ME</h1>
-					<div class="contact-info__name">Helene ANDRE, front-end developer</div>
-					<div class="contact-info__icons-wrapper">
-						<a href="tel:0484084650"><i class="icon icon-phone contact-info__icon"></i></a>
-						<a href="mailto:helene.andre.06@gmail.com" target="_top"><i class="icon icon-email contact-info__icon"></i></a>
-						<a href="https://github.com/helene-andre" target="_blank"><i class="icon icon-github contact-info__icon"></i></a>
-						<a href="https://codepen.io/helene-andre/" target="_blank"><i class="icon icon-codepen contact-info__icon"></i></a>
-						<a href="https://www.linkedin.com/in/helene-andre/" target="_blank"><i class="icon icon-linkedin contact-info__icon"></i></a> 
-					</div>
-			</div>
-			<form id="form" class="contact-form" action="https://formspree.io/helene.andre.06@gmail.com" @submit="checkForm" method="post">
-        <div class="contact-form__field-wrapper">
-					<input v-model="name" v-on:keyup="validateField()" id="name" class="contact-form__field" type="text" name="name" placeholder="Name" autocomplete="off">				
-					<div class="invalid-field-message">This field is required</div>
-				</div>
-				<div class="contact-form__field-wrapper">
-					<input v-model="email" v-on:keyup="validateField()" id="email" class="contact-form__field" type="email" name="email" placeholder="Email" autocomplete="off">
-					<div class="invalid-field-message">This field is required</div>
-					<div class="invalid-email-message">Must be a valid email</div>
-				</div>
-				<div class="contact-form__field-wrapper">
-					<input v-model="subject" v-on:keyup="validateField()" id="subject" class="contact-form__field" type="text" name="subject" placeholder="Subject" autocomplete="off">	
-					<div class="invalid-field-message">This field is required</div>
-				</div>
-				<div class="contact-form__field-wrapper">
-					<textarea v-model="message" v-on:keyup="validateField()" id="message" class="contact-form__field" name="message" placeholder="Message" rows="6" cols="80"></textarea>		
-					<div class="invalid-field-message">This field is required</div>
-				</div>
-				<div class="contact-form__send-wrapper">
-					<input id="send-button" type="submit" value="Send">
-				</div>				
-			</form>		
-			<div class="contact__success-message">
-				<i class="icon icon-validated"></i>
-				<div>Thank you!</div>
-				<p>Your message has been sent.</p>
-			</div>
-			<div class="contact__failed-message">
-				<i class="icon icon-blocked"></i>
-				<div>You message has not been sent.</div>
-				<p>Check your internet connection.</p>
-			</div>
-		</div>
-	</section>
+<template lang="pug">
+section.section--contact#contact
+  svg.cloud__wrapper#clouds(xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none")
+    path(d="M-5 100 Q 0 20 5 100 Z M0 100 Q 5 0 10 100 M5 100 Q 10 30 15 100 M10 100 Q 15 10 20 100 M15 100 Q 20 30 25 100 M20 100 Q 25 -10 30 100 M25 100 Q 30 10 35 100 M30 100 Q 35 30 40 100 M35 100 Q 40 10 45 100 M40 100 Q 45 50 50 100 M45 100 Q 50 20 55 100 M50 100 Q 55 40 60 100 M55 100 Q 60 60 65 100 M60 100 Q 65 50 70 100 M65 100 Q 70 20 75 100 M70 100 Q 75 45 80 100 M75 100 Q 80 30 85 100 M80 100 Q 85 20 90 100 M85 100 Q 90 50 95 100 M90 100 Q 95 25 100 100 M95 100 Q 100 15 105 100 Z")
+  .section--wrapper.contact-wrapper
+    .contact-info__wrapper
+      h1.contact-info__title CONTACT ME
+        .contact-info__name Helene ANDRE, front-end developer
+        .contact-info__icons-wrapper
+          a(href="tel:0484084650")
+            i.icon.icon-phone.contact-info__icon
+          a(href="mailto:helene.andre.06@gmail.com" target="_top")
+            i.icon.icon-email.contact-info__icon
+          a(href="https://github.com/helene-andre" target="_blank")
+            i.icon.icon-github.contact-info__icon
+          a(href="https://codepen.io/helene-andre/" target="_blank")
+            i.icon.icon-codepen.contact-info__icon
+          a(href="https://www.linkedin.com/in/helene-andre/" target="_blank")
+            i.icon.icon-linkedin.contact-info__icon
+    form#form.contact-form(action="https://formspree.io/helene.andre.06@gmail.com" @submit="checkForm" method="post")
+      .contact-form__field-wrapper
+        input#name.contact-form__field(v-model="name" v-on:keyup="validateField()" type="text" name="name" placeholder="Name" autocomplete="off")
+        .invalid-field-message This field is required
+      .contact-form__field-wrapper
+        input#email.contact-form__field(v-model="email" v-on:keyup="validateField()" type="email" name="email" placeholder="Email" autocomplete="off")
+        .invalid-field-message This field is required
+        .invalid-email-message Must be a valid email
+      .contact-form__field-wrapper
+        input#subject.contact-form__field(v-model="subject" v-on:keyup="validateField()" type="text" name="subject" placeholder="Subject" autocomplete="off")
+        .invalid-field-message This field is required
+      .contact-form__field-wrapper
+        textarea#message.contact-form__field(v-model="message" v-on:keyup="validateField()" name="message" placeholder="Message" rows="6" cols="80")
+        .invalid-field-message This field is required
+
+      .contact-form__send-wrapper
+        input#send-button(type="submit" value="Send")
 </template>
 
 <script>

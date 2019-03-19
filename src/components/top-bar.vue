@@ -1,9 +1,9 @@
 <template lang="pug">
-#top-bar.top-bar
+#top-bar
   input#menu-toggle(type="checkbox")
   label#trigger(for="menu-toggle")
   label#burger(for="menu-toggle")
-  ul.top-bar--wrapper
+  ul.top-bar
     li(v-for="(item, i) in topBarItems" :key="i")
       a(v-if="item.scrollTo" 
           class="top-bar__button" 
@@ -15,6 +15,7 @@
 
 <script>
 import Vue from 'vue'
+import { returnStatement } from 'babel-types';
 const VueScrollTo = require('vue-scrollto')
 
 Vue.use(VueScrollTo)
@@ -57,12 +58,29 @@ export default {
 				title: 'Download my resume'
 			}
 		]
-	})
+  }),
+  created () {
+    document.addEventListener("click", function(event) {
+      let menu = document.getElementsByClassName('top-bar')[0]
+      // let buttons = document.getElementsByClassName('top-bar')[0].children
+      let menuToggle = document.getElementById('menu-toggle')
+      let menuIsOpen = menuToggle.checked
+      const clickingInMenu = event.target === menu
+      const clickingBurger = event.target === menuToggle
+      
+      if (!clickingBurger && !clickingInMenu && menuIsOpen) {
+        menuToggle.checked = false
+      }
+    })
+  }
 }
 </script>
 
 <style lang="scss">
 // =========================== Top bar =================================// 
+$primary-color: black; 
+// #4dd0e1
+
 .top-bar {
   height: 40px;
   width: 100%;
@@ -73,7 +91,7 @@ export default {
   background-color: #ffffff;
   opacity: 0.85;
   box-shadow: 0 0 7px rgba(128,128,128, 0.5);
-
+  display: flex; 
   &--wrapper {
     height: 68%;
     position: absolute;
@@ -94,9 +112,14 @@ export default {
   &__text {
     transition: 0.3s ease-in-out;
   }
-    &__button:hover &__text {
-    color: #4dd0e1; 
-    }
+  &__button:hover &__text {
+  color: $primary-color; 
+  }
+}
+
+.top-bar li {
+  position: relative;
+  top: 29%;
 }
 
 .icon-download {
@@ -109,8 +132,8 @@ export default {
 
 /* Top bar active state. */
 .active {
- color: #4dd0e1; 
- border-bottom-color: #4dd0e1;
+ color: $primary-color; 
+ border-bottom-color: $primary-color;
 }
 // ====================================================================// 
 
@@ -122,71 +145,69 @@ export default {
 @media screen and (max-width: 450px) {
   /* top-bar section. */
   .top-bar {
-    height: 60px;
-    width: 16%; 
-    left: unset;
-    right: 0%; 
-    padding: 5px;
-    background-color: unset; 
-    opacity: unset;
-    box-shadow: unset; 
-    
-    &--wrapper {
-      height: 100vh;
-      flex-direction: column; 
-      justify-content: space-evenly;
-      top: 0%;
-      right: 0%; 
-      bottom: unset;
-      background-color: #ffffff;
-      opacity: 0.85;
-      box-shadow: 0 0 7px rgba(128,128,128, 0.5);
-      animation: not-checked-anim 0.3s ease-in-out both;
-    }
-    &__button {
-      left: 50%;
-      transform: translateX(-50%);
-    }
+    height: 100%;
+    width: 34%;
+    position: fixed;
+    left: 100%;
+    padding-top: 80px;
+    display: unset;
+    animation: not-checked-anim 0.3s ease-in-out both;
+
     &__text {
       font-size: 13px; 
     }
+    &__button {
+      border: unset;
+      border-left: 2px solid transparent;
+      padding: 4px; 
+      display: block; 
+      text-align: left; 
+    }
   }
-
+  
+  .icon-download {
+    position: relative; 
+  }
+  
   .top-bar li {
     height: 30px;
-    text-align: center; 
+    text-align: left; 
+    top: unset;
   }
 
   #trigger, #burger, #burger:before, #burger:after {
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    background-color: #4dd0e1;
+    top: 20px;
+    right: 20px;
+    background-color: $primary-color;
     width: 30px;
     height: 4px;
     transition: 0.2s ease-in-out;
-    z-index: 1;
+    z-index: 6;
   }
 
   #trigger {
     height: 25px;
     background: none;
+    cursor: pointer;
   }
 
-  #burger:before {
+  #burger {
+    position: fixed; 
+    cursor: pointer;
+    &::before {
     content: '';
-    top: 10px;
-    left: 0;
-  }
-
-  #burger:after {
+      position: absolute;
+      top: 10px;
+      left: 0;
+    }
+    &::after {
     content: '';
-    top: 20px;
-    left: 0;
+      position: absolute;
+      left: 0;
+    }
   }
 
   #menu-toggle:checked + #trigger + #burger {
-    top: 35px;
     transform: rotate(180deg);
     transition: 0.3s ease-in-out;
   }
@@ -207,36 +228,39 @@ export default {
     transition: 0.3s ease-in-out;
   }
 
-  #menu-toggle:checked + #trigger + #burger + .top-bar--wrapper {
-    animation: checked-anim 1s ease-in-out both;
+  #menu-toggle:checked + #trigger + #burger + .top-bar {
+    animation: checked-anim 0.5s ease-in-out both;
   }
 
-  #menu-toggle:checked + #trigger ~ .top-bar--wrapper > li,
-  #menu-toggle:checked + #trigger ~ .top-bar--wrapper {
-    display: flex;
+  .checked-anim {
+    animation: checked-anim 0.5s ease-in-out both;
   }
 
-  [type="checkbox"]:not(:checked), 
-  [type="checkbox"]:checked {
-    display: none;
+  .not-checked-anim {
+    animation: not-checked-anim 0.3s ease-in-out both;
   }
 
   @keyframes checked-anim {
     0% {
-      width: 0px;
+      transform: translateX(0%)
     }
     100% {
-      width: 200px;
+      transform: translateX(-100%)
     }
   }
 
   @keyframes not-checked-anim {
     0% {
-      width: 200px;
+      transform: translateX(-100%)
     }
     100% {
-      width: 0px;
+      transform: translateX(0%)
     }
+  }
+
+  .active {
+    border-bottom-color: transparent;
+    border-left-color: $primary-color;
   }
 }
 // ====================================================================// 

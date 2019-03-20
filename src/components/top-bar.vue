@@ -1,14 +1,13 @@
 <template lang="pug">
   #top-bar
-    input#menu-toggler(type="checkbox")
-    label#trigger(for="menu-toggler")
-    label#burger(for="menu-toggler")
+    input#menu-checkbox(type="checkbox")
+    label#burger(for="menu-checkbox")
+      span.burger__element
     ul.menu
       li(v-for="(item, i) in menuItems" :key="i")
-        a(v-if="item.scrollTo" 
-            class="menu__link" 
-            v-scroll-to="{ element: '#' + item.scrollTo, duration: 500 }") {{item.label}}
-        a(v-else :href="item.link" target="_blank" class="menu__link" :title="item.title")
+        a.menu__link(v-if="item.scrollTo" 
+          v-scroll-to="{ element: '#' + item.scrollTo, duration: 500 }") {{item.label}}
+        a.menu__link(v-else :href="item.link" target="_blank" :title="item.title")
           span(v-html="item.label")
 </template>
 
@@ -62,12 +61,14 @@ export default {
   created () {
     document.addEventListener("click", function(event) {
       let menu = document.getElementsByClassName('menu')[0]
-      let menuToggler = document.getElementById('menu-toggler')
-      let menuIsOpen = menuToggler.checked
+      let burger = document.getElementById('burger')
+      let menuCheckbox = document.getElementById('menu-checkbox')
+      let menuIsOpen = menuCheckbox.checked
       const clickingInMenu = event.target === menu
-      const clickingBurger = event.target === menuToggler
-      if (!clickingBurger && !clickingInMenu && menuIsOpen) {
-        menuToggler.checked = false
+      const clickingBurger = event.target === burger
+      const clickingMenuCheckbox = event.target === menuCheckbox
+      if (!clickingBurger && !clickingInMenu && menuIsOpen && !clickingMenuCheckbox) {
+        menuCheckbox.checked = false
       }
     })
   }
@@ -122,7 +123,7 @@ $primary-color: black;
  border-bottom-color: $primary-color;
 }
 
-#menu-toggler {
+#menu-checkbox {
   display: none;
 } 
 
@@ -146,6 +147,7 @@ $primary-color: black;
       border: unset;
       border-left: 2px solid transparent;
       padding: 4px; 
+      padding-left: 24px; 
       display: block; 
       text-align: left; 
     }
@@ -165,59 +167,70 @@ $primary-color: black;
     position: relative; 
   }
 
-  #trigger, #burger, #burger:before, #burger:after {
+  #burger {
+    width: 30px;
+    height: 30px;
+    position: fixed;
     top: 20px;
     right: 20px;
+    background-color: transparent;
+    transition: 0.2s ease-in-out;
+    z-index: 7;
+    cursor: pointer;
+  }
+
+  .burger__element {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
     background-color: $primary-color;
     width: 30px;
     height: 4px;
     transition: 0.2s ease-in-out;
     z-index: 7;
     cursor: pointer;
-  }
-
-  #trigger {
-    height: 25px;
-    background: none;
-  }
-
-  #burger {
-    position: fixed; 
     &::before {
     content: '';
       position: absolute;
       top: 10px;
       left: 0;
+      background-color: $primary-color;
+      width: 30px;
+      height: 4px;
     }
     &::after {
-    content: '';
+      content: '';
       position: absolute;
+      top: -10px;
       left: 0;
+      background-color: $primary-color;
+      width: 30px;
+      height: 4px;
     }
   }
 
-  #menu-toggler:checked + #trigger + #burger {
+  #menu-checkbox:checked + #burger {
     transform: rotate(180deg);
     transition: 0.3s ease-in-out;
   }
 
-  #menu-toggler:checked + #trigger + #burger:before {
-    width: 20px;
-    top: -2px;
-    left: -8px;
-    transform: rotate(135deg) translateX(-5px);
-    transition: 0.3s ease-in-out;
-  }
+  // #menu-checkbox:checked + #burger + .burger__element +.burger__element::before {
+  //   width: 20px;
+  //   top: -2px;
+  //   left: -8px;
+  //   transform: rotate(135deg) translateX(-5px);
+  //   transition: 0.3s ease-in-out;
+  // }
 
-  #menu-toggler:checked + #trigger + #burger:after {
-    width: 20px;
-    top: 2px;
-    left: -8px;
-    transform: rotate(-135deg) translateX(-5px);
-    transition: 0.3s ease-in-out;
-  }
+  // #menu-checkbox:checked + .burger__element::after {
+  //   width: 20px;
+  //   top: 2px;
+  //   left: -8px;
+  //   transform: rotate(-135deg) translateX(-5px);
+  //   transition: 0.3s ease-in-out;
+  // }
 
-  #menu-toggler:checked + #trigger + #burger + .menu {
+  #menu-checkbox:checked + #burger + .menu {
     animation: checked-anim 0.5s ease-in-out both;
   }
 

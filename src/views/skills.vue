@@ -347,7 +347,7 @@ export default {
   height: 0;
   width: 0;
   border: 8px solid transparent;
-  border-bottom-color: #ffffff;
+  border-bottom-color: #fff;
   position: absolute;
   bottom: 100%; 
   left: 50%;

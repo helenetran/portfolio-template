@@ -116,12 +116,19 @@ export default {
 }
 
 #clouds path {
-  fill: #ffffff;
-  stroke: #ffffff;
+  fill: #fff;
+  stroke: #fff;
 }
 /**==============================================================================**/
 
 /**=========================== section--contact =================================**/
+input[type=submit] {
+  border-radius: 0px; 
+  -webkit-border-radius:0px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
 /* Contact section wrapper. */
 .section--contact {
   padding-top: 3em; 
@@ -130,7 +137,7 @@ export default {
 
 /* Contact sub-section wrapper. */
 .contact-wrapper {
-  background-color: #ffffff;
+  background-color: #fff;
   height: auto;
   display: flex; 
   justify-content: center;

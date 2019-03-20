@@ -111,7 +111,7 @@ footer {
     height: 0;
     width: 0;
     border: 6px solid transparent;
-    border-top-color: #ffffff;
+    border-top-color: #fff;
     position: absolute;
     top: 97%; 
     left: 50%;

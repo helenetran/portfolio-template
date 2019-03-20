@@ -64,7 +64,7 @@ export default {
 }
 
 .hobbies__title {
-	color: #ffffff;
+	color: #fff;
 }
 
 .hobbies__wrapper {
@@ -81,7 +81,7 @@ export default {
   width: 9vw;
 	&__icon {
 		font-size: 8vw;
-		color: #ffffff;
+		color: #fff;
 		margin: 0;
 		transition: 0.3s ease-in-out;
 		&:hover {
@@ -99,7 +99,7 @@ export default {
   height: auto;
   width: 180px;
   padding: 15px;
-  background-color: #ffffff;
+  background-color: #fff;
   text-align: left;
   position: relative;
   left: 50%; 
@@ -112,7 +112,7 @@ export default {
 		height: 0; 
 		width: 0; 
 		border: 10px solid transparent; 
-		border-bottom-color: #ffffff;
+		border-bottom-color: #fff;
 		position: absolute;
 		bottom: 99%;
 		left: 50%; 

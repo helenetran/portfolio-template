@@ -1,21 +1,21 @@
 <template lang="pug">
-#top-bar
-  input#menu-toggle(type="checkbox")
-  label#trigger(for="menu-toggle")
-  label#burger(for="menu-toggle")
-  ul.top-bar
-    li(v-for="(item, i) in topBarItems" :key="i")
-      a(v-if="item.scrollTo" 
-          class="top-bar__button" 
-          v-scroll-to="{ element: '#' + item.scrollTo, duration: 500 }")
-        span.top-bar__text(v-html="item.label")
-      a(v-else :href="item.link" target="_blank" class="top-bar__button" :title="item.title")
-        span.top-bar__text(v-html="item.label")
+  #top-bar
+    input#menu-toggler(type="checkbox")
+    label#trigger(for="menu-toggler")
+    label#burger(for="menu-toggler")
+    ul.menu
+      li(v-for="(item, i) in menuItems" :key="i")
+        a(v-if="item.scrollTo" 
+            class="menu__link" 
+            v-scroll-to="{ element: '#' + item.scrollTo, duration: 500 }") {{item.label}}
+        a(v-else :href="item.link" target="_blank" class="menu__link" :title="item.title")
+          span(v-html="item.label")
 </template>
 
 <script>
 import Vue from 'vue'
 import { returnStatement } from 'babel-types';
+import { close } from 'fs';
 const VueScrollTo = require('vue-scrollto')
 
 Vue.use(VueScrollTo)
@@ -23,7 +23,7 @@ Vue.use(VueScrollTo)
 export default {
 	name: 'topBar',
 	data: () => ({
-		topBarItems: [
+		menuItems: [
 			{
 				scrollTo: 'home',
 				label: 'Home'
@@ -61,15 +61,13 @@ export default {
   }),
   created () {
     document.addEventListener("click", function(event) {
-      let menu = document.getElementsByClassName('top-bar')[0]
-      // let buttons = document.getElementsByClassName('top-bar')[0].children
-      let menuToggle = document.getElementById('menu-toggle')
-      let menuIsOpen = menuToggle.checked
+      let menu = document.getElementsByClassName('menu')[0]
+      let menuToggler = document.getElementById('menu-toggler')
+      let menuIsOpen = menuToggler.checked
       const clickingInMenu = event.target === menu
-      const clickingBurger = event.target === menuToggle
-      
+      const clickingBurger = event.target === menuToggler
       if (!clickingBurger && !clickingInMenu && menuIsOpen) {
-        menuToggle.checked = false
+        menuToggler.checked = false
       }
     })
   }
@@ -81,27 +79,18 @@ export default {
 $primary-color: black; 
 // #4dd0e1
 
-.top-bar {
+.menu {
   height: 40px;
   width: 100%;
   position: fixed;
   top: 0%;
-  left: 0%;
-  z-index: 4;
-  background-color: #ffffff;
+  z-index: 6;
+  background-color: #fff;
   opacity: 0.85;
   box-shadow: 0 0 7px rgba(128,128,128, 0.5);
   display: flex; 
-  &--wrapper {
-    height: 68%;
-    position: absolute;
-    bottom: 0%;
-    display: flex;
-  }
-  &__button {
+  &__link {
     padding: 10px;
-    padding-left: 13px;
-    padding-right: 13px;
     font-family: lemon-milk-light, arial;
     text-align: center;
     position: relative;
@@ -109,15 +98,12 @@ $primary-color: black;
     border-bottom: 2px solid transparent;
     transition: 0.3s ease-in-out;
   }
-  &__text {
-    transition: 0.3s ease-in-out;
-  }
-  &__button:hover &__text {
+  &__link:hover {
   color: $primary-color; 
   }
 }
 
-.top-bar li {
+.menu li {
   position: relative;
   top: 29%;
 }
@@ -130,21 +116,25 @@ $primary-color: black;
   padding-left: 5px;
 }
 
-/* Top bar active state. */
+/* Menu active state for screen width > 450px. */
 .active {
  color: $primary-color; 
  border-bottom-color: $primary-color;
 }
-// ====================================================================// 
 
-// =================== Burger menu for mobile screens =================//
-#menu-toggle {
+#menu-toggler {
   display: none;
 } 
 
+@media screen and (max-width: 768px) {
+  .menu__link {
+    padding-left: 10px; 
+    padding-right: 10px; 
+  }
+}
+
 @media screen and (max-width: 450px) {
-  /* top-bar section. */
-  .top-bar {
+  .menu {
     height: 100%;
     width: 34%;
     position: fixed;
@@ -152,27 +142,27 @@ $primary-color: black;
     padding-top: 80px;
     display: unset;
     animation: not-checked-anim 0.3s ease-in-out both;
-
-    &__text {
-      font-size: 13px; 
-    }
-    &__button {
+    &__link {
       border: unset;
       border-left: 2px solid transparent;
       padding: 4px; 
       display: block; 
       text-align: left; 
     }
+    & li {
+      height: 30px;
+      text-align: left; 
+      top: unset;
+    }
   }
   
+  .active {
+    border-bottom-color: transparent;
+    border-left-color: $primary-color;
+  }
+
   .icon-download {
     position: relative; 
-  }
-  
-  .top-bar li {
-    height: 30px;
-    text-align: left; 
-    top: unset;
   }
 
   #trigger, #burger, #burger:before, #burger:after {
@@ -182,18 +172,17 @@ $primary-color: black;
     width: 30px;
     height: 4px;
     transition: 0.2s ease-in-out;
-    z-index: 6;
+    z-index: 7;
+    cursor: pointer;
   }
 
   #trigger {
     height: 25px;
     background: none;
-    cursor: pointer;
   }
 
   #burger {
     position: fixed; 
-    cursor: pointer;
     &::before {
     content: '';
       position: absolute;
@@ -207,12 +196,12 @@ $primary-color: black;
     }
   }
 
-  #menu-toggle:checked + #trigger + #burger {
+  #menu-toggler:checked + #trigger + #burger {
     transform: rotate(180deg);
     transition: 0.3s ease-in-out;
   }
 
-  #menu-toggle:checked + #trigger + #burger:before {
+  #menu-toggler:checked + #trigger + #burger:before {
     width: 20px;
     top: -2px;
     left: -8px;
@@ -220,7 +209,7 @@ $primary-color: black;
     transition: 0.3s ease-in-out;
   }
 
-  #menu-toggle:checked + #trigger + #burger:after {
+  #menu-toggler:checked + #trigger + #burger:after {
     width: 20px;
     top: 2px;
     left: -8px;
@@ -228,16 +217,8 @@ $primary-color: black;
     transition: 0.3s ease-in-out;
   }
 
-  #menu-toggle:checked + #trigger + #burger + .top-bar {
+  #menu-toggler:checked + #trigger + #burger + .menu {
     animation: checked-anim 0.5s ease-in-out both;
-  }
-
-  .checked-anim {
-    animation: checked-anim 0.5s ease-in-out both;
-  }
-
-  .not-checked-anim {
-    animation: not-checked-anim 0.3s ease-in-out both;
   }
 
   @keyframes checked-anim {
@@ -256,11 +237,6 @@ $primary-color: black;
     100% {
       transform: translateX(0%)
     }
-  }
-
-  .active {
-    border-bottom-color: transparent;
-    border-left-color: $primary-color;
   }
 }
 // ====================================================================// 

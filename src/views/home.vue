@@ -25,9 +25,7 @@ export default {
 
 <style lang="scss">
 .section--home { 
-  bottom: 8%;
-  height: 92vh;
-  margin-bottom: 10vh;
+  height: 90vh;
   padding: 0;
 }
 
@@ -41,7 +39,6 @@ export default {
 .home__background { 
   position: absolute;
   width: 100%;
-
   &::before {
     content: ''; 
     height: 100%; 
@@ -54,7 +51,6 @@ export default {
     background-color: rgba(0, 0, 0, 0); 
     transition: 0.3s ease-in-out; 
   }
-
   &--image {
     width: 100%; 
     min-width: 712px; 
@@ -80,12 +76,10 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-
   &--name {
     font-size: 60px;
     font-family: lemon-milk-light, arial;
   }
-
   &--job {
     font-size: 30px;
     width: auto;
@@ -93,7 +87,6 @@ export default {
     position: relative;
     font-weight: 300;
     font-style: italic;
-
     &::before {
       content: '';
       height: 2px;
@@ -104,7 +97,6 @@ export default {
       transform: translateY(-50%);
       background-color: #fff;
     }
-
     &::after {
       content: '';
       height: 2px;

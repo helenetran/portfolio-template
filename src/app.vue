@@ -22,13 +22,8 @@ import xp from '@/views/xp'
 import hobbies from '@/views/hobbies'
 import contact from '@/views/contact'
 import footerSection from '@/components/footer'
-
 import 'vueperslides/dist/vueperslides.css'
-
-
 import Vue from 'vue'
-
-// Vue.use(VueAnimate)
 
 export default {
   name: 'app',
@@ -69,8 +64,8 @@ export default {
         }
       }
 
-      // Animation top menu active state on scroll.
-      let buttons = document.getElementsByClassName('top-bar__button')
+      // Animation menu on scroll.
+      let buttons = document.getElementsByClassName('menu__link')
       for (let i = 0; i < sections.length; i++) {
         let section = sections[i]
         let button = buttons[i]
@@ -98,7 +93,7 @@ export default {
       // Parallax effect on home__title.
       let backgroundTitle = document.getElementsByClassName('home__background')[0]
       if (document.getElementById('home').classList.contains('scroll')) {
-        backgroundTitle.style.top = -(0-(windowTopPosition*0.04))+'%'
+        backgroundTitle.style.top = -(0-(windowTopPosition*0.08))+'%'
       }
     }
   },
@@ -112,7 +107,10 @@ export default {
 </script>
 
 <style lang="scss">
- * {
+$primary-color: black; 
+// #4dd0e1
+
+* {
   margin: 0; 
   padding: 0;
 }
@@ -136,6 +134,7 @@ h1 {
   position: absolute;
   text-align: center;
   top: 90px; 
+  font-weight: 100; 
 }
 
 h2 {
@@ -143,7 +142,6 @@ h2 {
   font-family: lemon-milk-light, arial;
   margin-bottom: 10px;
   position: relative;
-  color: #ffe082;
 }
 
 h3 {
@@ -165,14 +163,6 @@ a {
 li {
   list-style-type: none;
 }
-
-input[type=submit] {
-  border-radius: 0px; 
-  -webkit-border-radius:0px;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
 /**=====================================================================**/
 
 /**=========================== font-family =============================**/
@@ -386,15 +376,6 @@ section.scroll .section--wrapper {
     padding-left: 6%; 
     padding-right: 6%; 
   }
-  /* top-bar section. */
-  .top-bar__text {
-    font-size: 12px; 
-  }
-
-  .top-bar__button {
-    padding-left: 10px; 
-    padding-right: 10px; 
-  }
 
   /* Skills section. */
   .skills__wrapper {
@@ -508,11 +489,6 @@ section.scroll .section--wrapper {
     right: 50%; 
     transform: translateX(50%);
   } 
-
-  // /* Footer. */
-  // footer {
-  //   z-index: -5;
-  // }
 }
 
 @media screen and (max-width: 450px) {

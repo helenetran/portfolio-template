@@ -90,15 +90,23 @@ export default {
   background-color: #D7CCC8;
   height: 120vh; 
 	&::after {
-		border: 4em solid #ffffff;
-		border-bottom-color: transparent;
-		border-left-color: transparent;
-		border-right-color: transparent;
+	// 	border: 4em solid #fff;
+	// 	border-bottom-color: transparent;
+	// 	border-left-color: transparent;
+	// 	border-right-color: transparent;
+	// }
+	// &::before {
+		height: 300px; 
+		width: 200px; 
+		position: absolute; 
+		-webkit-clip-path: polygon(100% 94%, 0% 100%, 100% 100%);
+		clip-path: polygon(100% 94%, 0% 100%, 100% 100%);
+		background-color: aqua;
 	}
 }
 
 .projects__title {
-	color: #ffffff;
+	color: #fff;
 }
 
 .projects-wrapper {
@@ -110,7 +118,7 @@ export default {
 
 .project__title {
   height: auto;
-  color: #ffffff;
+  color: #fff;
   padding: 12px;
   background-color: rgba(128,128,128, 0.5);
 }
@@ -121,7 +129,7 @@ export default {
 }
 
 .project__title p {
-  color: #ffffff;
+  color: #fff;
   margin: 0; 
   margin-bottom: 6px;
 }
@@ -161,7 +169,7 @@ export default {
 .vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) {
 	width: 100%; 
 	height: auto;
-	color: #ffffff;
+	color: #fff;
 	padding: 12px;
 	background-color: rgba(128,128,128, 0.8);	position: absolute; 
 	bottom: 0%;  
@@ -173,7 +181,7 @@ export default {
 }
 
 .vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) p {
-	color: #ffffff;
+	color: #fff;
 }
 
 .vueperslide__title {

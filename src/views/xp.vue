@@ -106,14 +106,14 @@ export default {
 }
 
 .section--xp::after {
-  border: 4em solid #ffffff;
+  border: 4em solid #fff;
   border-bottom-color: transparent;
   border-left-color: transparent;
   border-right-color: transparent;
 }
 
 .xp__title {
-	color: #ffffff;
+	color: #fff;
 }
 
 .xp__wrapper {
@@ -127,7 +127,7 @@ export default {
   content: '';
   height: 152em;
   width: 0.2em;
-  background-color: #ffffff;
+  background-color: #fff;
   position: absolute;
   left: 50%;
   top: -1%;
@@ -144,7 +144,7 @@ export default {
 		height: 1.3em;
 		width: 1.3em;
 		background-color: #e0e0e0;
-		border: 3px solid #ffffff;
+		border: 3px solid #fff;
 		border-radius: 15px;
 		position: absolute;
 		left: 50%; 
@@ -156,7 +156,7 @@ export default {
 .left {
   text-align: right; 
 	&::after {
-		border-left-color: #ffffff;
+		border-left-color: #fff;
 		left: 100%; 
 	}
 }
@@ -173,7 +173,7 @@ export default {
 .xp-item-box {
   width: 38%;
   float: left;
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 20px;
   position: absolute;
   top: 50%;
@@ -194,13 +194,13 @@ export default {
 .right {
   right: 0%;
 	&::after {
-		border-right-color: #ffffff;
+		border-right-color: #fff;
 		right: 100%;
 	}
 }
 
 .xp-item-box__date {
-  color: #ffffff;
+  color: #fff;
   font-family: lemon-milk;
   font-size: 1.5em; 
   width: 6em;

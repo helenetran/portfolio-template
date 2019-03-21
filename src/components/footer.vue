@@ -2,22 +2,15 @@
   #footer
     .footnote
       .footnote__text Proudly made in Australia with 
-      .footnote__icon-wrapper
-        .footnote__icon
-          i.icon.icon-html
-        .footnote__description HTML 
-      .footnote__icon-wrapper
-        .footnote__icon
-          i.icon.icon-css
-        .footnote__description CSS
-      .footnote__icon-wrapper
-        .footnote__icon
-          i.icon.icon-vue
-        .footnote__description Vue
-      .footnote__icon-wrapper
-        .footnote__icon
-          i.icon.icon-php
-        .footnote__description PHP
+      .footnote__icon-wrapper(v-for="(item, i) in footnoteItems"
+          :key="i"
+          :icon="item.icon"
+          :class="item.class"
+          :description="item.description")
+        .footnote__icon(:class="item.class")
+          i.icon(:class="item.icon")
+        .footnote__description {{item.description}} 
+
       .footnote__icon-wrapper
         .footnote__icon.ninja
           i.icon.icon-close
@@ -32,6 +25,34 @@
 export default {
 	name: 'footerSection',
 	data: () => ({
+    footnoteItems: [
+      {
+        icon:"icon-html",
+        description:"HTML"
+      },
+      {
+        icon:"icon-css",
+        description:"CSS"
+      },
+      {
+        icon:"icon-vue",
+        description:"Vue"
+      },
+      {
+        icon:"icon-php",
+        description:"PHP"
+      },
+      // {
+      //   class:"ninja",
+      //   icon:"icon-close",
+      //   description:"Crazy Keyboard Combos"
+      // },
+      // {
+      //   class:"love",
+      //   icon:"icon-love",
+      //   description:"Love"
+      // }
+    ]
   }),
 }
 </script>
@@ -70,7 +91,7 @@ footer {
   width: 12px; 
   &:hover {
     opacity: 1; 
-    color: #4dd0e1;
+    color: #ff8a80;
     transform: scale(1.2);
   }
   & .icon-php {
@@ -81,6 +102,7 @@ footer {
 /* Animation icon ninja star. */
 .ninja:hover {
   transform: rotate(-360deg) scale(1.2); 
+  color: #ffd54f; 
 }
 
 /* Animation icon heart. */

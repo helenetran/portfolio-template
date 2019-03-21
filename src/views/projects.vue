@@ -3,7 +3,7 @@
 		.section--wrapper
 			h1.projects__title PROJECTS
 			.slide--wrapper
-				vueper-slides.no-shadow(:slide-ratio="0.5" arrows-outside bullets-outside :breakpoints="breakpoints")
+				vueper-slides.no-shadow(:slide-ratio="0.5" arrows-outside slide-content-outside="bottom" bullets-outside)
 					vueper-slide(v-for="(slide, i) in slides"
 						:key="i"
 						:image="getImage(slide.image)"
@@ -19,7 +19,6 @@ export default {
   name: 'projects',
   components: { VueperSlides, VueperSlide },
   data: () => ({
-		breakpoints: { 500: { slideContentOutside: "bottom" } },
     slides: [
       {
         title: 'Colors of the triangles',
@@ -90,23 +89,13 @@ export default {
   background-color: #D7CCC8;
   height: 120vh; 
 	&::after {
-	// 	border: 4em solid #fff;
-	// 	border-bottom-color: transparent;
-	// 	border-left-color: transparent;
-	// 	border-right-color: transparent;
-	// }
-	// &::before {
-		height: 300px; 
-		width: 200px; 
-		position: absolute; 
-		-webkit-clip-path: polygon(100% 94%, 0% 100%, 100% 100%);
-		clip-path: polygon(100% 94%, 0% 100%, 100% 100%);
-		background-color: aqua;
+		border: 4em solid transparent;
+		border-top-color: #ffffff;
 	}
 }
 
 .projects__title {
-	color: #fff;
+	color: #ffffff;
 }
 
 .projects-wrapper {
@@ -116,40 +105,11 @@ export default {
   padding-top: 20px;
 }
 
-.project__title {
-  height: auto;
-  color: #fff;
-  padding: 12px;
-  background-color: rgba(128,128,128, 0.5);
-}
-
-.project__title h3 {
-  font-family: lemon-milk-light, arial;
-  margin-bottom: 8px;
-}
-
-.project__title p {
-  color: #fff;
-  margin: 0; 
-  margin-bottom: 6px;
-}
-
-.project__image {
-  height: 100%; 
-  width: 100%; 
-}
-
 .project__link {
-  color: #4dd0e1; 
+  color: hsla(6, 100%, 80%, 1); 
   cursor: pointer;
   font-style: italic; 
   margin-top: 5px;
-}
-
-.vueperslide__content-wrapper--outside-top {
-  transition: 0.3s ease-in-out;
-  opacity: 1;
-  transform: scale(1);
 }
 
 .vueperslides--animated .vueperslide__content-wrapper--outside-top {
@@ -166,25 +126,34 @@ export default {
 	transform: translateY(-50%);
 }
 
-.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) {
-	width: 100%; 
-	height: auto;
-	color: #fff;
+.vueperslide__content-wrapper {
+	color: #ffffff;
 	padding: 12px;
 	background-color: rgba(128,128,128, 0.8);	position: absolute; 
-	bottom: 0%;  
-	top: unset;
-	left: unset;
+	position: inherit;
 	-webkit-transform: translate(0%,0%);
 	transform: translate(0%,0%);
 	text-align: unset; 
 }
 
-.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) p {
-	color: #fff;
+.vueperslide__content-wrapper p {
+	color: #ffffff;
 }
 
 .vueperslide__title {
 	font-size: 20px; 
+}
+
+.vueperslides__bullets {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 100%;
+}
+
+.vueperslides__arrow {
+	color: #fff; 
 }
 </style>

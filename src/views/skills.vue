@@ -6,103 +6,22 @@ section.section--skills#skills
 			.skill__title
 				h2 Computer Skills
 			.skill__elements
-				//-  HTML skill.
-				.skill
+				.skill(v-for="(skill, i) in skills"
+						:key="i"
+						:icon="skill.icon"
+						:strokes="skill.stroke"
+						:description="skill.description")
 					.skill__circle
 						.skill__icon
-							i.icon.icon-html
+							i(:class="skill.icon")
 						svg
 							circle.skill__circle--background(
 								r="32" cx="35" cy="35")
 							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" stroke-dasharray="160,201")
-					.skill__description HTML
+								r="32" cx="35" cy="35" :stroke-dasharray="skill.stroke")
+					.skill__description {{skill.description}}					
 
-				//- CSS skills.
-				.skill
-					.skill__circle
-						.skill__icon
-							i.icon.icon-css
-						svg
-							circle.skill__circle--background(
-								r="32" cx="35" cy="35")
-							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" stroke-dasharray="150,201")
-					.skill__description CSS			
-
-				//- CSS Sass.
-				.skill
-					.skill__circle
-						.skill__icon
-							i.icon.icon-sass
-						svg
-							circle.skill__circle--background(
-								r="32" cx="35" cy="35")
-							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" stroke-dasharray="150,201")
-					.skill__description Sass					
-
-				//- Javascript skill.
-				.skill
-					.skill__circle
-						.skill__icon
-							i.icon.icon-js
-						svg
-							circle.skill__circle--background(
-								r="32" cx="35" cy="35")
-							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" stroke-dasharray="105,201")
-					.skill__description JavaScript ES6
-
-				//- JQuery skill.
-				.skill
-					.skill__circle
-						.skill__icon
-							i.icon.icon-jquery
-						svg
-							circle.skill__circle--background(
-								r="32" cx="35" cy="35")
-							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" stroke-dasharray="130,201")
-					.skill__description JQuery
-
-				//- Vue skill.
-				.skill
-					.skill__circle
-						.skill__icon
-							i.icon.icon-vue
-						svg
-							circle.skill__circle--background(
-								r="32" cx="35" cy="35")
-							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" stroke-dasharray="130,201")
-					.skill__description Vue
-
-				//- PHP skill.
-				.skill
-					.skill__circle
-						.skill__icon
-							i.icon.icon-php
-						svg
-							circle.skill__circle--background(
-								r="32" cx="35" cy="35")
-							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" stroke-dasharray="40,201")
-					.skill__description PHP
-
-				//- MySql skill.
-				.skill
-					.skill__circle
-						.skill__icon
-							i.icon.icon-mysql
-						svg
-							circle.skill__circle--background(
-								r="32" cx="35" cy="35")
-							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" stroke-dasharray="40,201")
-					.skill__description MySql
-
-		.skills__wrapper.management
+		.skills__wrapper
 			.skill__title
 				h2 Management Assets
 
@@ -159,22 +78,22 @@ section.section--skills#skills
 			.skill__title
 				h2 Languages
 			.skill__elements
-				.skill
+				.skill.language
 					.skill__flag.english
 					.skill__description
 						h3 ENGLISH
 						p fluent
-				.skill
+				.skill.language
 					.skill__flag.french
 					.skill__description
 						h3 FRENCH
 						p mother tongue
-				.skill
+				.skill.language
 					.skill__flag.vietnamese
 					.skill__description
 						h3 VIETNAMESE
 						p mother tongue
-				.skill
+				.skill.language
 					.skill__flag.italian
 					.skill__description
 						h3 ITALIAN
@@ -184,7 +103,49 @@ section.section--skills#skills
 <script>
 export default {
   name: 'skills',
-  data: () => ({
+	data: () => ({
+		skills: [
+			{
+				icon: 'icon icon-html',
+				stroke: '160,201',
+				description: 'HTML'
+			},
+			{
+				icon: 'icon icon-css',
+				stroke: '170,201',
+				description: 'CSS'
+			},
+			{
+				icon: 'icon icon-sass',
+				stroke: '150,201',
+				description: 'Sass'
+			},
+			{
+				icon: 'icon icon-js',
+				stroke: '105,201',
+				description: 'JavaScript ES6'
+			},
+			{
+				icon: 'icon icon-jquery',
+				stroke: '150,201',
+				description: 'jQuery'
+			},
+			{
+				icon: 'icon icon-vue',
+				stroke: '110,201',
+				description: 'Vue'
+			},
+			{
+				icon: 'icon icon-php',
+				stroke: '60,201',
+				description: 'PHP'
+			},
+			{
+				icon: 'icon icon-mysql',
+				stroke: '50,201',
+				description: 'MySql'
+			}
+		]
   }),
   methods: {
     getImage (name) {
@@ -195,6 +156,8 @@ export default {
 </script>
 
 <style lang="scss">
+$primary-color: #424242; 
+
 .section--skills {
   background-color: #fff;
   min-height: 1080px;
@@ -202,17 +165,15 @@ export default {
 		border: 4em solid transparent;
 		border-top-color: #d7ccc8;
 	}
+	& h2 {
+		text-align: left;
+		padding-bottom: 5px;
+		border-bottom: 1px solid #eee;
+	}
 }
 
-.skills__title, 
-.section--skills h2 {
-	color: #4dd0e1;
-}
-
-.section--skills h2 {
-  text-align: left;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #eee;
+.skills__title {
+	color: $primary-color;
 }
 
 .skills__wrapper {
@@ -222,11 +183,6 @@ export default {
   margin-bottom: 100px;
   position: relative;
   top: 200px; 
-}
-
-/* Management skills div. */
-.management {
-  margin-bottom: 170px;
 }
 
 .skill__title {
@@ -239,14 +195,18 @@ export default {
   display: flex; 
   flex-wrap: wrap;
 	flex-basis: 50%;
-  justify-content: space-between;
 }
 
 .skill {
-  height: 70px; 
-  width: 70px; 
-  position: relative;
-  margin-bottom: 20px;
+	height: 70px;
+	width: 70px;
+	position: relative;
+	padding: 0 10px 20px 0px;
+}
+
+.language {
+	height: 50px;
+	width: 50px;
 }
 
 .skill__icon {
@@ -279,7 +239,7 @@ export default {
   transition: 0.35s stroke-dashoffset;
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
-  stroke-width: 6px; 
+  stroke-width: 4px; 
   stroke: #e0e0e0; 
   fill: transparent; 
 }
@@ -287,8 +247,8 @@ export default {
 .skill__circle--progress {
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
-  stroke-width: 6px; 
-  stroke: #4dd0e1; 
+  stroke-width: 4px; 
+  stroke: #ff8a80; 
   fill: transparent; 
 }
 
@@ -335,39 +295,35 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  border: 1px solid #b2Ebf2;
+  border: 1px solid #bdbdbd;
   padding: 10px;
   background-color: white;
   opacity: 0;
-  transition: 0.3s ease-in-out;
-}
-
-.skill__description::after {
-  content: "";
-  height: 0;
-  width: 0;
-  border: 8px solid transparent;
-  border-bottom-color: #fff;
-  position: absolute;
-  bottom: 100%; 
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.skill__description::before {
-  content: "";
-  height: 0;
-  width: 0;
-  border: 9px solid transparent;
-  border-bottom-color: #b2Ebf2;
-  position: absolute;
-  bottom: 100%; 
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.skill__description p {
-  margin-top: 5px; 
+	&::after {
+		content: "";
+		height: 0;
+		width: 0;
+		position: absolute;
+		top: -17px;
+		left: 50%;
+		transform: translateX(-50%);
+		border: 9px solid transparent;
+		border-bottom-color: #fff;
+	}
+	&::before {
+		content: "";
+		height: 0;
+		width: 0;
+		position: absolute;
+		top: -18px;
+		left: 50%;
+		transform: translateX(-50%);
+		border: 9px solid transparent;
+		border-bottom-color: #bdbdbd;
+	}
+	& p {
+		margin-top: 5px; 
+	}
 }
 
 .skill__flag:hover {
@@ -380,10 +336,28 @@ export default {
   transform: translate(-50%,5px);
   opacity: 1;
   z-index: 5; 
+	transition: 0.3s ease-in-out;
 }
 
 .animate-description {
   transform: translate(-50%,5px);
   opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+	.skill__elements {
+		justify-content: center; 
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.section--skills {
+    min-height: 1350px;
+	}
+
+	.skill__description {
+		padding-left: 0px;
+    padding-right: 0px;
+	}
 }
 </style>

@@ -5,18 +5,18 @@ section.section--contact#contact
   .section--wrapper.contact-wrapper
     .contact-info__wrapper
       h1.contact-info__title CONTACT ME
-        .contact-info__name Helene ANDRE, front-end developer
-        .contact-info__icons-wrapper
-          a(href="tel:0484084650")
-            i.icon.icon-phone.contact-info__icon
-          a(href="mailto:helene.andre.06@gmail.com" target="_top")
-            i.icon.icon-email.contact-info__icon
-          a(href="https://github.com/helene-andre" target="_blank")
-            i.icon.icon-github.contact-info__icon
-          a(href="https://codepen.io/helene-andre/" target="_blank")
-            i.icon.icon-codepen.contact-info__icon
-          a(href="https://www.linkedin.com/in/helene-andre/" target="_blank")
-            i.icon.icon-linkedin.contact-info__icon
+      h2.contact-info__name Helene ANDRE, front-end developer
+      .contact-info__icons-wrapper
+        a(href="tel:0484084650")
+          i.icon.icon-phone.contact-info__icon
+        a(href="mailto:helene.andre.06@gmail.com" target="_top")
+          i.icon.icon-email.contact-info__icon
+        a(href="https://github.com/helene-andre" target="_blank")
+          i.icon.icon-github.contact-info__icon
+        a(href="https://codepen.io/helene-andre/" target="_blank")
+          i.icon.icon-codepen.contact-info__icon
+        a(href="https://www.linkedin.com/in/helene-andre/" target="_blank")
+          i.icon.icon-linkedin.contact-info__icon
     form#form.contact-form(action="https://formspree.io/helene.andre.06@gmail.com" @submit="checkForm" method="post")
       .contact-form__field-wrapper
         input#name.contact-form__field(v-model="name" v-on:keyup="validateField()" type="text" name="name" placeholder="Name" autocomplete="off")
@@ -105,6 +105,7 @@ export default {
 }
 
 .cloud__wrapper {
+  width: 100%; 
   min-width: 1200px;
   max-height: 150px;
   left: 0%;
@@ -145,21 +146,20 @@ input[type=submit] {
 
 .contact-info__wrapper {
   height: 34em;
-  width: 24em;
+  width: 50%;
 }
 
 .contact-info__title {
   position: relative;
-  color: #4dd0e1;
   letter-spacing: 2px;
   top: 0%;
   margin-bottom: 30px;
   text-align: left;
+  font-size: 3em;
 }
 
 .contact-info__name {
 	font-family: 'Roboto', arial;
-	color: #4dd0e1;
   letter-spacing: 1px;
   margin-bottom: 45px;
   font-size: 14px;
@@ -168,11 +168,11 @@ input[type=submit] {
 .contact-info__icons-wrapper {
   font-size: 36px;
   height: 38px;
-  color: #4dd0e1;
   display: flex;
   flex-wrap: wrap; 
   justify-content: left;
   letter-spacing: 17px;
+  color: #bdbdbd;
 }
 
 .contact-info__icon {
@@ -181,17 +181,17 @@ input[type=submit] {
 }
 
 .contact-info__icon:hover {
-	color: #757575;
+  color: #ff8a80;
 }
 
-.contact-form__wrapper {
+.contact-form {
   height: 34em;
-  width: 24em;  
+  width: 360px;  
 }
 
 .contact-form__field-wrapper, .contact-form__send-wrapper {
-  width: 24em;
-  margin-bottom: 11%;
+  width: 100%;
+  margin-bottom: 9%;
   position: relative;
 }
 
@@ -212,11 +212,11 @@ input {
   transition: 0.3s ease-in-out;
   font-family: 'Roboto', arial;
   font-size: 14px;
-  padding: 10px;
+  padding: 3%;
 }
 
 .contact-form__field:focus {
-  border-color: #4dd0e1;
+  border-color: #ff8a80c7;
 }
 
 .send-button-wrapper {
@@ -226,16 +226,15 @@ input {
 
 #send-button {
   width: 4em;
-  font-size: 14px;
-  font-family: 'Roboto', arial;
-  color: #4dd0e1;
-  border: 1px solid #4dd0e1;
-  padding: 3px 7px;
-  outline: none;
-  padding-left: 10px;
-  padding-right: 10px;
   position: absolute;
   right: 0%;
+  padding: 3px 10px 7px 10px;
+  font-size: 14px;
+  font-family: 'Roboto', arial;
+  color: #ff8a80;
+  border: 1px solid #ff8a80;
+  background-color: #fff;
+  outline: none;
   transition: 0.3s ease-in-out;
 }
 
@@ -323,4 +322,64 @@ input {
   z-index: 5;
 }
 /**=====================================================================**/
+
+@media screen and (max-width: 768px){
+  .contact-info__icons-wrapper {
+    font-size: 32px;
+  }
+
+  .contact-info__name {
+    font-size: 13px; 
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .section--contact {
+    height: 120vh;
+  }  
+
+  .contact-wrapper {
+    flex-direction: column;
+  }
+
+  .contact-info__wrapper {
+    width: 70%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .contact-form {
+    width: 70%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 30px;
+  }
+  .contact-info__wrapper {
+    text-align: center; 
+    height: 200px; 
+  }
+
+  .contact-info__title {
+    font-size: 2.5em;
+    text-align: center; 
+  }
+
+  .contact-info__icons-wrapper {
+    justify-content: space-between;
+    letter-spacing: unset;
+  }
+
+  .contact-form__field-wrapper, 
+  .contact-form__send-wrapper {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #send-button {
+    right: 50%; 
+    transform: translateX(50%);
+  } 
+}
 </style>

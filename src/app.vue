@@ -92,9 +92,7 @@ export default {
 
       // Parallax effect on home__title.
       let backgroundTitle = document.getElementsByClassName('home__background')[0]
-      if (document.getElementById('home').classList.contains('scroll')) {
-        backgroundTitle.style.top = -(0-(windowTopPosition*0.08))+'%'
-      }
+        backgroundTitle.style.top = -(0-(windowTopPosition*0.04))+'%'
     }
   },
   created () {
@@ -107,8 +105,6 @@ export default {
 </script>
 
 <style lang="scss">
-$primary-color: black; 
-// #4dd0e1
 
 * {
   margin: 0; 
@@ -129,19 +125,21 @@ body {
 
 h1 {
   font-family: lemon-milk-light, arial; 
-  font-size: 3em;
+  font-size: 2.1em;
   width: 100%; 
   position: absolute;
   text-align: center;
   top: 90px; 
-  font-weight: 100; 
+  color: #424242; 
 }
 
 h2 {
+  color: #616161; 
   font-size: 1.5em;
   font-family: lemon-milk-light, arial;
   margin-bottom: 10px;
   position: relative;
+  font-weight: 300; 
 }
 
 h3 {
@@ -401,40 +399,6 @@ section.scroll .section--wrapper {
   .section--xp h2 {
     font-size: 14px; 
   }
-
-  /* Hobbies section. */
-  .hobbies__wrapper {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-  }
-
-  .hobby {
-    height: 69px;
-    width: 69px;
-    padding: 17px;
-    padding-bottom: 60px;
-  }
-  .hobby__text {
-    width: 150px; 
-    padding: 5px; 
-  }
-
-  .hobby__icon {
-    font-size: 69px; 
-  }
-
-  /* Contact section. */
-  .contact-info__icons-wrapper {
-    font-size: 33px;
-  }
-
-  .contact-info__name {
-    font-size: 13px; 
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -446,52 +410,10 @@ section.scroll .section--wrapper {
   .section--hobbies {
     height: 112vh; 
   }
-
-  /* Contact section. */
-  .section--contact {
-    height: 120vh;
-  }
-  
-  .contact-info__title {
-    font-size: 3em; 
-    text-align: center; 
-  }
-
-  .contact-wrapper {
-    flex-direction: column;
-  }
-
-  .contact-info__wrapper {
-    position: relative;
-    left: 50%; 
-    transform: translateX(-50%);
-    text-align: center; 
-    height: 200px; 
-  }
-
-  .contact-form__wrapper {
-    position: relative;
-    left: 50%; 
-    transform: translateX(-50%);
-  }
-  .contact-form__field-wrapper, 
-  .contact-form__send-wrapper {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .contact-info__icons-wrapper {
-    justify-content: space-between;
-    letter-spacing: unset;
-  }
-
-  #send-button {
-    right: 50%; 
-    transform: translateX(50%);
-  } 
 }
 
 @media screen and (max-width: 450px) {
+  
   /* Whole page. */
   p {
     font-size: 12px; 
@@ -534,15 +456,6 @@ section.scroll .section--wrapper {
   .section--xp {
     padding-left: 1%; 
     padding-right: 1%;
-  }
-
-  /* Xp section. */
-  .right-date {
-    right: 105%;
-  }
-
-  .left-date {
-    left: 105%; 
   }
 
   /* Hobbies section. */

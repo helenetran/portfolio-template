@@ -1,8 +1,7 @@
 <template lang="pug">
   #top-bar
     input#menu-checkbox(type="checkbox")
-    label#burger(for="menu-checkbox")
-      span.burger__element
+    span.burger__element
     ul.menu
       li(v-for="(item, i) in menuItems" :key="i")
         a.menu__link(v-if="item.scrollTo" 
@@ -61,13 +60,11 @@ export default {
   created () {
     document.addEventListener("click", function(event) {
       let menu = document.getElementsByClassName('menu')[0]
-      let burger = document.getElementById('burger')
       let menuCheckbox = document.getElementById('menu-checkbox')
       let menuIsOpen = menuCheckbox.checked
       const clickingInMenu = event.target === menu
-      const clickingBurger = event.target === burger
       const clickingMenuCheckbox = event.target === menuCheckbox
-      if (!clickingBurger && !clickingInMenu && menuIsOpen && !clickingMenuCheckbox) {
+      if (!clickingInMenu && menuIsOpen && !clickingMenuCheckbox) {
         menuCheckbox.checked = false
       }
     })
@@ -77,8 +74,7 @@ export default {
 
 <style lang="scss">
 // =========================== Top bar =================================// 
-$primary-color: black; 
-// #4dd0e1
+$primary-color: #ff8a80; 
 
 .menu {
   height: 40px;
@@ -92,6 +88,7 @@ $primary-color: black;
   display: flex; 
   &__link {
     padding: 10px;
+    color: rgba(0,0,0,0.4);
     font-family: lemon-milk-light, arial;
     text-align: center;
     position: relative;
@@ -127,34 +124,37 @@ $primary-color: black;
   display: none;
 } 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .menu__link {
-    padding-left: 10px; 
-    padding-right: 10px; 
+    padding: 10px 10px 10px 6px; 
   }
 }
 
 @media screen and (max-width: 450px) {
   .menu {
     height: 100%;
-    width: 34%;
+    width: 200px;
     position: fixed;
     left: 100%;
     padding-top: 80px;
     display: unset;
-    animation: not-checked-anim 0.3s ease-in-out both;
+    z-index: 9; 
+    animation: not-checked-anim 0.5s ease-in-out both;
     &__link {
       border: unset;
       border-left: 2px solid transparent;
-      padding: 4px; 
+      padding: 10px; 
       padding-left: 24px; 
       display: block; 
       text-align: left; 
     }
     & li {
-      height: 30px;
       text-align: left; 
       top: unset;
+      transition: 0.3s ease-in-out;
+    }
+    & li:hover {
+      background-color: rgba(0,0,0,0.1);
     }
   }
   
@@ -167,72 +167,79 @@ $primary-color: black;
     position: relative; 
   }
 
-  #burger {
-    width: 30px;
-    height: 30px;
+  #menu-checkbox {
+    display: block; 
+    width: 40px;
+    height: 35px;
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: transparent;
-    transition: 0.2s ease-in-out;
-    z-index: 7;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
+    opacity: 0; 
+    z-index: 11;
+    -webkit-touch-callout: none;
   }
 
   .burger__element {
-    position: absolute;
-    top: 50%; 
-    transform: translateY(-50%);
-    background-color: $primary-color;
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 12px;
+    background-color: #000;
     width: 30px;
     height: 4px;
+    margin: 4px; 
     transition: 0.2s ease-in-out;
-    z-index: 7;
+    z-index: 10;
     cursor: pointer;
+    border-radius: 3px;
     &::before {
     content: '';
       position: absolute;
       top: 10px;
       left: 0;
-      background-color: $primary-color;
+      background-color: #000;
       width: 30px;
       height: 4px;
+      border-radius: 3px;
     }
     &::after {
       content: '';
       position: absolute;
       top: -10px;
       left: 0;
-      background-color: $primary-color;
+      background-color: #000;
       width: 30px;
       height: 4px;
+      border-radius: 3px;
     }
   }
 
-  #menu-checkbox:checked + #burger {
+  #menu-checkbox:checked ~ .burger__element {
     transform: rotate(180deg);
     transition: 0.3s ease-in-out;
   }
 
-  // #menu-checkbox:checked + #burger + .burger__element +.burger__element::before {
-  //   width: 20px;
-  //   top: -2px;
-  //   left: -8px;
-  //   transform: rotate(135deg) translateX(-5px);
-  //   transition: 0.3s ease-in-out;
-  // }
-
-  // #menu-checkbox:checked + .burger__element::after {
-  //   width: 20px;
-  //   top: 2px;
-  //   left: -8px;
-  //   transform: rotate(-135deg) translateX(-5px);
-  //   transition: 0.3s ease-in-out;
-  // }
-
-  #menu-checkbox:checked + #burger + .menu {
-    animation: checked-anim 0.5s ease-in-out both;
+  #menu-checkbox:checked ~ .burger__element::before {
+    width: 20px;
+    top: 2px;
+    left: -8px;
+    transform: rotate(45deg) translateX(5px);
+    transition: 0.3s ease-in-out;
   }
+
+  #menu-checkbox:checked ~ .burger__element::after {
+    width: 20px;
+    top: 2px;
+    left: -12px;
+    -webkit-transform: rotate(-45deg) translateX(-5px);
+    transform: rotate(-45deg) translateX(12px);
+    transition: 0.3s ease-in-out;
+  }
+
+  #menu-checkbox:checked ~ .menu {
+    animation: checked-anim 0.3s ease-in-out both;  
+  } 
 
   @keyframes checked-anim {
     0% {

@@ -3,47 +3,58 @@
 		.section--wrapper
 			h1.hobbies__title HOBBIES & INTERESTS				
 			.hobbies__wrapper
-				.hobby
-					i.hobby__icon.icon.icon-laptop
+				.hobby(v-for="(hobby, i) in hobbiesItems"
+						:key="i"
+						:icon="hobby.icon"
+						:title="hobby.title"
+						:description="hobby.description")
+					i.hobby__icon.icon(:class="hobby.icon")
 					.hobby__text
-						h3 PROGRAMMING
-						p Started programming in November 2018, love it so far!
-				.hobby
-					i.hobby__icon.icon.icon-travel
-					.hobby__text
-						h3 TRAVELLING
-						p Recently travelled around Europe, Asia & Australia - <i class="icon icon-love"> Australia, that's why I decided to live in Melbourne for few years! </i>- (14 countries visited last year).
-				.hobby
-					i.hobby__icon.icon.icon-roller
-					.hobby__text
-						h3 ROLLER SKATING
-						p My favorite sport! I always enjoy a good ride every now & then.
-				.hobby
-					i.hobby__icon.icon.icon-volleyball
-					.hobby__text
-						h3 VOLLEYBALL
-						p Started to play for the high school team, now playing for fun when I have the chance.
-				.hobby
-					i.hobby__icon.icon.icon-music
-					.hobby__text
-						h3 PLAYING GUITAR
-						p From Red Hot Chili Peppers to Britney Spears - you name it :)
-				.hobby
-					i.hobby__icon.icon.icon-cooking
-					.hobby__text
-						h3 COOKING
-						p I looooove fooood! I mostly cook French, Italian & Vietnamese cuisine - but I sometimes also enjoy Indian, Japanese... and many more.
-				.hobby
-					i.hobby__icon.icon.icon-hiking
-					.hobby__text
-						h3 HIKING
-						p Listenning to the sounds of the nature, spotting wild life, wandering over a great view.
+						h3 {{hobby.title}}
+						p {{hobby.description}}
 </template>
 
 <script>
 export default {
   name: 'hobbies',
   data: () => ({
+		hobbiesItems: [
+			{
+				icon:"icon-laptop",
+				title:"PROGRAMMING",
+				description:"Started programming in November 2018, love it so far!"
+			},
+			{
+				icon:"icon-travel",
+				title:"TRAVELLING",
+				description:"Recently travelled around Europe, Asia & Australia - <i class=\"icon icon-love\"> Australia, that's why I decided to live in Melbourne for few years! </i>- (14 countries visited last year)."
+			},
+			{
+				icon:"icon-roller",
+				title:"ROLLER SKATING",
+				description:"My favorite sport! I always enjoy a good ride every now & then."
+			},
+			{
+				icon:"icon-volleyball",
+				title:"VOLLEYBALL",
+				description:"Started to play for the high school team, now playing for fun when I have the chance."
+			},
+			{
+				icon:"icon-music",
+				title:"PLAYING GUITAR",
+				description:"From Red Hot Chili Peppers to Britney Spears - you name it :)"
+			},
+			{
+				icon:"icon-cooking",
+				title:"COOKING",
+				description:"I looooove fooood! I mostly cook French, Italian & Vietnamese cuisine - but I sometimes also enjoy Indian, Japanese... and many more."
+			},
+			{
+				icon:"icon-hiking",
+				title:"HIKING",
+				description:"Listenning to the sounds of the nature, spotting wild life, wandering over a great view."
+			}
+		],
   }),
   methods: {
     getImage (name) {
@@ -55,7 +66,7 @@ export default {
 
 <style lang="scss">
 .section--hobbies {
-  background-color: #4dd0e1;
+  background-color: #ff8a80c7;
   min-height: 640px; 
 	&::after {
 		border: 4em solid transparent;
@@ -79,8 +90,9 @@ export default {
 .hobby {
   height: 9vw;
   width: 9vw;
+	text-align: center;
 	&__icon {
-		font-size: 8vw;
+		font-size: 7vw;
 		color: #fff;
 		margin: 0;
 		transition: 0.3s ease-in-out;
@@ -122,5 +134,31 @@ export default {
   color: #000000;
   margin-bottom: 10px;
 	}
+}
+
+@media screen and (max-width: 768px) {
+  /* Hobbies section. */
+  .hobbies__wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+  }
+
+  .hobby {
+    height: 69px;
+    width: 69px;
+    padding: 17px;
+    padding-bottom: 60px;
+		&__text {
+			width: 150px; 
+			padding: 11px; 
+		}
+		&__icon {
+			font-size: 50px; 
+		}
+	}	
 }
 </style>

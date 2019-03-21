@@ -19,9 +19,6 @@ export default {
 </script>
 
 <style lang="scss">
-$primary-color: black; 
-// #4dd0e1
-
 .section--about-me {
   padding-top: 15vh;
   height: 60vh; 
@@ -42,7 +39,7 @@ $primary-color: black;
   padding-top: 1em;
 
   &__title {
-    color: $primary-color;
+    color: #ff8a80;
     position: relative;
     top: 0%; 
     margin-top: 15px;

@@ -2,7 +2,7 @@
 section.section--skills#skills
 	.section--wrapper
 		h1.skills__title SKILLS			
-		.skills__wrapper
+		.skills
 			.skill__title
 				h2 Computer Skills
 			.skill__elements
@@ -21,7 +21,7 @@ section.section--skills#skills
 								r="32" cx="35" cy="35" :stroke-dasharray="skill.stroke")
 					.skill__description {{skill.description}}					
 
-		.skills__wrapper
+		.skills
 			.skill__title
 				h2 Management Assets
 
@@ -74,7 +74,7 @@ section.section--skills#skills
 								r="32" cx="35" cy="35" stroke-dasharray="201,201")
 					.skill__description keen on #[strong making a real difference]
 
-		.skills__wrapper
+		.skills
 			.skill__title
 				h2 Languages
 			.skill__elements
@@ -176,7 +176,7 @@ $primary-color: #424242;
 	color: $primary-color;
 }
 
-.skills__wrapper {
+.skills {
   height: auto;
   width: 100%;
   color: #757575;
@@ -202,22 +202,42 @@ $primary-color: #424242;
 	width: 70px;
 	position: relative;
 	padding: 0 10px 20px 0px;
+	&__icon {
+		height: 30px; 
+		width: 30px; 
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		text-align: center;
+		font-size: 30px;
+	}
+	&__circle svg {
+		height: 70px;
+		width: 70px;
+		position: absolute;
+		top: 0%;
+	}
+	&__circle--background {
+		transition: 0.35s stroke-dashoffset;
+		transform: rotate(-90deg);
+		transform-origin: 50% 50%;
+		stroke-width: 4px; 
+		stroke: #e0e0e0; 
+		fill: transparent; 
+	}
+	&__circle--progress {
+		transform: rotate(-90deg);
+		transform-origin: 50% 50%;
+		stroke-width: 4px; 
+		stroke: #ff8a80; 
+		fill: transparent; 
+	}
 }
 
 .language {
 	height: 50px;
 	width: 50px;
-}
-
-.skill__icon {
-  height: 30px; 
-  width: 30px; 
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  text-align: center;
-  font-size: 30px;
 }
 
 /* Icon speedometer in management skills. */
@@ -226,30 +246,6 @@ $primary-color: #424242;
   width: 38px;
   font-size: 38px; 
   top: 45%;
-}
-
-.skill__circle svg {
-  height: 70px;
-  width: 70px;
-  position: absolute;
-  top: 0%;
-}
-
-.skill__circle--background {
-  transition: 0.35s stroke-dashoffset;
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-  stroke-width: 4px; 
-  stroke: #e0e0e0; 
-  fill: transparent; 
-}
-
-.skill__circle--progress {
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-  stroke-width: 4px; 
-  stroke: #ff8a80; 
-  fill: transparent; 
 }
 
 .animate-circle {
@@ -269,6 +265,18 @@ $primary-color: #424242;
 .skill__flag {
   filter: grayscale(50%);
   opacity: 0.8;
+	&:hover {
+		filter: grayscale(0%);
+		opacity: 1;
+	}
+}
+
+.skill__flag:hover ~ .skill__description,
+.skill__circle:hover ~ .skill__description {
+  transform: translate(-50%,5px);
+  opacity: 1;
+  z-index: 5; 
+	transition: 0.3s ease-in-out;
 }
 
 .english {
@@ -299,26 +307,21 @@ $primary-color: #424242;
   padding: 10px;
   background-color: white;
   opacity: 0;
-	&::after {
+	&::after, &::before {
 		content: "";
 		height: 0;
 		width: 0;
 		position: absolute;
-		top: -17px;
 		left: 50%;
 		transform: translateX(-50%);
 		border: 9px solid transparent;
+	}
+	&::after {
+		top: -17px;
 		border-bottom-color: #fff;
 	}
 	&::before {
-		content: "";
-		height: 0;
-		width: 0;
-		position: absolute;
 		top: -18px;
-		left: 50%;
-		transform: translateX(-50%);
-		border: 9px solid transparent;
 		border-bottom-color: #bdbdbd;
 	}
 	& p {
@@ -326,22 +329,26 @@ $primary-color: #424242;
 	}
 }
 
-.skill__flag:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-}
-
-.skill__flag:hover ~ .skill__description,
-.skill__circle:hover ~ .skill__description {
-  transform: translate(-50%,5px);
-  opacity: 1;
-  z-index: 5; 
-	transition: 0.3s ease-in-out;
-}
-
 .animate-description {
   transform: translate(-50%,5px);
   opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  /* Skills section. */
+  .skills {
+    margin: 0; 
+    padding-bottom: 100px;
+  }
+  
+  .animate-description {
+    transform: unset;
+    opacity: 0;
+  }
+
+  .skill__management .skill__description {
+    transition: unset; 
+  } 
 }
 
 @media screen and (max-width: 600px) {
@@ -352,7 +359,7 @@ $primary-color: #424242;
 
 @media screen and (max-width: 450px) {
 	.section--skills {
-    min-height: 1350px;
+    min-height: 1220px;
 	}
 
 	.skill__description {

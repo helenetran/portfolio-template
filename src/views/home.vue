@@ -124,4 +124,24 @@ export default {
   border-radius: 25em;
   border: 6px solid #fff;
 } 
+
+@media screen and (max-width: 450px) {
+  .home__title {
+    width: 275px; 
+  }
+
+  .home__title--name {
+    font-size: 13vw;
+  }
+
+  .home__title--job {
+    font-size: 7vw; 
+  }
+
+  .home__title--job::before, 
+  .home__title--job::after {
+    opacity: 0;
+    z-index: -1; 
+  }
+}
 </style>

@@ -37,7 +37,6 @@ export default {
   font-weight: 300;
   text-align: justify;
   padding-top: 1em;
-
   &__title {
     color: #ff8a80;
     position: relative;
@@ -50,6 +49,12 @@ export default {
     padding-top: 10px; 
     color: #7c796f;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media screen and (max-width: 450px){
+  .about-me__description {
+    padding-top: 0;
   }
 }
 </style>

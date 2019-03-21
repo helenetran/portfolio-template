@@ -70,20 +70,17 @@ footer {
   font-style: italic;
   opacity: 0.5;
   & div {
-    padding: 3px; 
-    font-size: 13px; 
+    padding: 2px; 
+    font-size: 12px; 
     transition: 0.3s ease-in-out;   
   }
-}
-
-.footnote__text {
-  position: relative;
-  bottom: -2px;
-}
-
-.footnote__icon-wrapper {
-  width: 12px; 
-  position: relative;
+  &__text {
+    position: relative;
+    bottom: -2px;
+  }
+  &__icon-wrapper {
+    position: relative;
+  }
 }
 
 .footnote__icon {
@@ -128,27 +125,24 @@ footer {
   opacity: 0;
   z-index: -2;
   transition: 0.3s ease-in-out;
-  &::after {
-    content: "";
+  &::after, &::before {
     height: 0;
     width: 0;
-    border: 6px solid transparent;
-    border-top-color: #fff;
     position: absolute;
-    top: 97%; 
     left: 50%;
     transform: translateX(-50%);
   }
+  &::after {
+    content: "";
+    border: 6px solid transparent;
+    border-top-color: #fff;
+    top: 97%; 
+  }
   &::before {
     content: "";
-    height: 0;
-    width: 0;
     border: 7px solid transparent;
     border-top-color: #eee;
-    position: absolute;
     top: 100%; 
-    left: 50%;
-    transform: translateX(-50%);
   }
 }
 
@@ -171,5 +165,13 @@ footer {
   100% {
     transform: scale( .75 );
   }
+}
+
+@media screen and (max-width: 450px) {
+  .footnote {
+    left: 50%; 
+    transform: translateX(-50%);
+    width: fit-content;
+  }  
 }
 </style>

@@ -161,4 +161,15 @@ export default {
 		}
 	}	
 }
+@media screen and (max-width: 600px) {
+  .section--hobbies {
+    height: 112vh; 
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .section--hobbies {
+    height: 140vh;
+  }
+}
 </style>

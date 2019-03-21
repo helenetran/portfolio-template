@@ -120,7 +120,7 @@ body {
 .page-wrapper {
   height: 100%; 
   width: 100%; 
-  overflow-x: hidden; 
+  overflow: hidden; 
 }
 
 h1 {
@@ -172,11 +172,6 @@ li {
 @font-face {
   font-family: lemon-milk-light;
   src: url('./assets/fonts/LemonMilklight.otf');
-}
-
-@font-face {
-  font-family: lemon-milk-light-italic;
-  src: url('./assets/fonts/LemonMilklightitalic.otf');
 }
 /**=====================================================================**/
 
@@ -361,43 +356,10 @@ section.scroll .section--wrapper {
 /**=====================================================================**/
 
 /**========================== media queries width ======================**/
-@media screen and (max-width: 992px) {
-  /* Contact section. */
-  .section--contact {
-    padding-left: 3%; 
-    padding-right: 3%; 
-  }
-}
-
 @media screen and (max-width: 768px) {
   section {
     padding-left: 6%; 
     padding-right: 6%; 
-  }
-
-  /* Skills section. */
-  .skills__wrapper {
-    margin: 0; 
-    padding-bottom: 100px;
-  }
-  
-  .animate-description {
-    transform: unset;
-    opacity: 0;
-  }
-
-  .skill__management .skill__description {
-    transition: unset; 
-  } 
- 
-  /*.section--xp section. */
-  .xp__text, 
-  .xp__container-right--text {
-    padding: 12px;
-  }
-
-  .section--xp h2 {
-    font-size: 14px; 
   }
 }
 
@@ -405,16 +367,9 @@ section.scroll .section--wrapper {
   h1 {
     font-size: 2.5em;
   }
-
-  /* Hobbies section. */
-  .section--hobbies {
-    height: 112vh; 
-  }
 }
 
 @media screen and (max-width: 450px) {
-  
-  /* Whole page. */
   p {
     font-size: 12px; 
   }
@@ -426,48 +381,6 @@ section.scroll .section--wrapper {
   
   h1 {
     font-size: 20px; 
-  } 
-
-  /* Home section. */
-  .home__title {
-    width: 275px; 
-  }
-
-  .home__title--name {
-    font-size: 13vw;
-  }
-
-  .home__title--job {
-    font-size: 7vw; 
-  }
-
-  .home__title--job::before, 
-  .home__title--job::after {
-    opacity: 0;
-    z-index: -1; 
-  } 
-
-  /* About-me section. */
-  .about-me__description {
-    padding-top: 0;
-  }
-
-  /*.section--xp section. */
-  .section--xp {
-    padding-left: 1%; 
-    padding-right: 1%;
-  }
-
-  /* Hobbies section. */
-  .section--hobbies {
-    height: 140vh;
-  }
-
-  /* Footnote. */
-  .footnote {
-    left: 50%; 
-    transform: translateX(-50%);
-    width: fit-content;
   }
 }
 

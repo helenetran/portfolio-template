@@ -237,10 +237,30 @@ export default {
   right: 130%;
 }
 
+
+@media screen and (max-width: 768px) {
+  .xp__text, 
+  .xp__container-right--text {
+    padding: 12px;
+  }
+
+  .section--xp h2 {
+    font-size: 14px; 
+  }
+}
+
+
 @media screen and (max-width: 600px) {
 	.xp__box {
 		width: 35%;
 		padding: 10px;
 	}
+}
+
+@media screen and (max-width: 450px) {
+ .section--xp {
+    padding-left: 1%; 
+    padding-right: 1%;
+  }
 }
 </style>

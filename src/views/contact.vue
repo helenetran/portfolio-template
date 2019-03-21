@@ -3,7 +3,7 @@ section.section--contact#contact
   svg.cloud__wrapper#clouds(xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none")
     path(d="M-5 100 Q 0 20 5 100 Z M0 100 Q 5 0 10 100 M5 100 Q 10 30 15 100 M10 100 Q 15 10 20 100 M15 100 Q 20 30 25 100 M20 100 Q 25 -10 30 100 M25 100 Q 30 10 35 100 M30 100 Q 35 30 40 100 M35 100 Q 40 10 45 100 M40 100 Q 45 50 50 100 M45 100 Q 50 20 55 100 M50 100 Q 55 40 60 100 M55 100 Q 60 60 65 100 M60 100 Q 65 50 70 100 M65 100 Q 70 20 75 100 M70 100 Q 75 45 80 100 M75 100 Q 80 30 85 100 M80 100 Q 85 20 90 100 M85 100 Q 90 50 95 100 M90 100 Q 95 25 100 100 M95 100 Q 100 15 105 100 Z")
   .section--wrapper.contact-wrapper
-    .contact-info__wrapper
+    .contact-info
       h1.contact-info__title CONTACT ME
       h2.contact-info__name Helene ANDRE, front-end developer
       .contact-info__icons-wrapper
@@ -114,11 +114,10 @@ export default {
 #clouds {
   position: absolute;
   bottom: 100%;
-}
-
-#clouds path {
-  fill: #fff;
-  stroke: #fff;
+  & path {
+    fill: #fff;
+    stroke: #fff;
+  }
 }
 /**==============================================================================**/
 
@@ -144,55 +143,63 @@ input[type=submit] {
   justify-content: center;
 }
 
-.contact-info__wrapper {
+.contact-info {
   height: 34em;
-  width: 50%;
-}
-
-.contact-info__title {
-  position: relative;
-  letter-spacing: 2px;
-  top: 0%;
-  margin-bottom: 30px;
-  text-align: left;
-  font-size: 3em;
-}
-
-.contact-info__name {
-	font-family: 'Roboto', arial;
-  letter-spacing: 1px;
-  margin-bottom: 45px;
-  font-size: 14px;
-}
-
-.contact-info__icons-wrapper {
-  font-size: 36px;
-  height: 38px;
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: left;
-  letter-spacing: 17px;
-  color: #bdbdbd;
-}
-
-.contact-info__icon {
-  transition: 0.3s;
-  cursor: pointer; 
-}
-
-.contact-info__icon:hover {
-  color: #ff8a80;
+  width: 40%;
+  &__title {
+    position: relative;
+    letter-spacing: 2px;
+    top: 0%;
+    margin-bottom: 30px;
+    text-align: left;
+    font-size: 3em;
+  }
+  &__name {
+    font-family: 'Roboto', arial;
+    letter-spacing: 1px;
+    margin-bottom: 45px;
+    font-size: 14px;
+  }
+  &__icons-wrapper {
+    font-size: 36px;
+    height: 38px;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: left;
+    letter-spacing: 17px;
+    color: #bdbdbd;
+  }
+  &__icon {
+    transition: 0.3s;
+    cursor: pointer; 
+    &:hover {
+      color: #ff8a80;
+    }
+  }
 }
 
 .contact-form {
   height: 34em;
   width: 360px;  
-}
-
-.contact-form__field-wrapper, .contact-form__send-wrapper {
-  width: 100%;
-  margin-bottom: 9%;
-  position: relative;
+  &__field-wrapper, &__send-wrapper {
+    width: 100%;
+    margin-bottom: 9%;
+    position: relative;
+  }
+  &__field {
+    width: 94%;
+    background-color: #f5f5f5;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s ease-in-out;
+    font-family: 'Roboto', arial;
+    font-size: 14px;
+    padding: 3%;
+    &:focus {
+      border-color: #ff8a80c7;
+    }
+  }
 }
 
 textarea {
@@ -201,22 +208,6 @@ textarea {
 
 input {
 	color: #190e0b;
-}
-
-.contact-form__field {
-  width: 94%;
-  background-color: #f5f5f5;
-  outline: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  transition: 0.3s ease-in-out;
-  font-family: 'Roboto', arial;
-  font-size: 14px;
-  padding: 3%;
-}
-
-.contact-form__field:focus {
-  border-color: #ff8a80c7;
 }
 
 .send-button-wrapper {
@@ -236,14 +227,13 @@ input {
   background-color: #fff;
   outline: none;
   transition: 0.3s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+    color: #757575;
+    border-color: #757575;
+  } 
 }
-
-#send-button:hover {
-  cursor: pointer;
-  opacity: 1;
-  color: #757575;
-  border-color: #757575;
-} 
 /**=====================================================================**/
 /**=========================  error messages ===========================**/
 .invalid-field-message, .invalid-email-message { 
@@ -270,66 +260,36 @@ input {
 .invalid-field textarea,
 .invalid-field input:focus, 
 .invalid-email input:focus, 
-.invalid-field textarea:focus,
-.contact__failed-message, 
-.icon-blocked:hover {
+.invalid-field textarea:focus {
   border-color: #e53935;
 }
 
 .correct-field input, 
 .correct-field textarea,
 .correct-field input:focus, 
-.correct-field textarea:focus, 
-.contact__success-message,
-.icon-validated:hover {
+.correct-field textarea:focus {
   border-color: #81c784;
 }
-
-.contact__success-message, 
-.contact__failed-message {
-  height: 9em;
-  width: 100%;
-  font-size: 20px;
-  background-color: rgba(255,255,255, 0.8);
-  text-align: center;
-  padding-top: 150px;
-  padding-bottom: 100px;
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
-  transition: 0.3s ease-in-out;
-}
-
-.icon-blocked,
-.icon-validated {
-  font-size: 75px;
-}
-
-.icon-validated,
-.contact__success-message div {
-  color: #81c784;
-}
-
-.icon-blocked,
-.contact__failed-message div {
-  color: #e53935;
-}
 /**=====================================================================**/
 
-/**================  animation validation / error message ==============**/
-.show {
-  opacity: 1; 
-  z-index: 5;
+/**========================== media queries ============================**/
+@media screen and (max-width: 992px) {
+  /* Contact section. */
+  .section--contact {
+    padding-left: 3%; 
+    padding-right: 3%; 
+  }
 }
-/**=====================================================================**/
 
 @media screen and (max-width: 768px){
-  .contact-info__icons-wrapper {
-    font-size: 32px;
-  }
-
-  .contact-info__name {
-    font-size: 13px; 
+  .contact-info {
+    width: 50%;
+    &__icons-wrapper {
+      font-size: 32px;
+    }
+    &__name {
+      font-size: 13px; 
+    }
   }
 }
 
@@ -342,11 +302,21 @@ input {
     flex-direction: column;
   }
 
-  .contact-info__wrapper {
+  .contact-info {
     width: 70%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    text-align: center; 
+    height: 200px; 
+    &__title {
+      font-size: 2.5em;
+      text-align: center; 
+    }
+    &__icons-wrapper {
+      justify-content: space-between;
+      letter-spacing: unset;
+    }
   }
 
   .contact-form {
@@ -355,26 +325,11 @@ input {
     left: 50%;
     transform: translateX(-50%);
     padding-top: 30px;
-  }
-  .contact-info__wrapper {
-    text-align: center; 
-    height: 200px; 
-  }
-
-  .contact-info__title {
-    font-size: 2.5em;
-    text-align: center; 
-  }
-
-  .contact-info__icons-wrapper {
-    justify-content: space-between;
-    letter-spacing: unset;
-  }
-
-  .contact-form__field-wrapper, 
-  .contact-form__send-wrapper {
-    left: 50%;
-    transform: translateX(-50%);
+    &__field-wrapper, 
+    &__send-wrapper {
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   #send-button {

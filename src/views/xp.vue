@@ -263,4 +263,10 @@ export default {
     padding-right: 1%;
   }
 }
+
+@media screen and (max-height: 320px) {
+	.section--xp {
+		min-height: 2090px;
+	}
+}
 </style>

@@ -367,4 +367,11 @@ $primary-color: #424242;
     padding-right: 0px;
 	}
 }
+
+@media screen and (max-height: 320px) {
+	.section--projects {
+		height: 154vh;
+	}
+}
+
 </style>

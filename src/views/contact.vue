@@ -337,4 +337,10 @@ input {
     transform: translateX(50%);
   } 
 }
+
+@media screen and (max-height: 320px) {
+  .section--contact {
+    min-height: 206vh;
+  }
+}
 </style>

@@ -57,4 +57,10 @@ export default {
     padding-top: 0;
   }
 }
+
+@media screen and (max-height: 320px) {
+  .section--about-me {
+    height: 94vh;
+  }
+}
 </style>

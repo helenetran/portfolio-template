@@ -27,7 +27,7 @@ export default {
 			{
 				icon:"icon-travel",
 				title:"TRAVELLING",
-				description:"Recently travelled around Europe, Asia & Australia - <i class=\"icon icon-love\"> Australia, that's why I decided to live in Melbourne for few years! </i>- (14 countries visited last year)."
+				description:"Recently travelled around Europe, Asia & Australia (14 countries visited last year) - <3 Australia, that's why I decided to live in Melbourne for few years!"
 			},
 			{
 				icon:"icon-roller",

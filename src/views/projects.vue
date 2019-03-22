@@ -39,16 +39,16 @@ export default {
 				image: 'heart-project.jpg'
 			},
 			{
-        title: 'CSS cat',
+        title: 'Pure CSS cat',
 				content: `<div class="slide__content">
-										<p>Here is my very first web project on codepen!</p>
+										<p>Click the box to reveal the cat.</p>
 										<p><i class="icon icon-wand"></i> HTML, CSS, Javascript.</p>
 										<div class="project__link"><a href="https://codepen.io/Helene-Andre/pen/mQrgZa" target="_blank">https://codepen.io/Helene-Andre/pen/mQrgZa</a></div>
 									</div>`,
 				image: 'cat-project.jpg'
 			},
 			{
-				title: 'CSS eye',
+				title: 'CSS pupil tracks mouse',
 				content: `<div class="slide__content">
 										<p>The pupil moves on mouse move.</p>
 										<p><i class="icon icon-wand"></i> HTML, CSS, Javascript.</p>
@@ -68,7 +68,7 @@ export default {
 			{
 				title: 'HTML Memento',
 				content: `<div class="slide__content">
-										<p>This is the first website I created in October 2018 to gather all HTML tags.</p>
+										<p>This is the first website I created in November 2018 to gather HTML tags.</p>
 										<p><i class="icon icon-wand"></i> HTML, CSS, Javascript.</p>
 										<div class="project__link"><a href="https://helene-andre.github.io/html-memento/" target="_blank">https://helene-andre.github.io/html-memento/</a></div>
 									</div>`,

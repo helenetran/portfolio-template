@@ -74,8 +74,6 @@ export default {
 
 <style lang="scss">
 // =========================== Top bar =================================// 
-$primary-color: #ff8a80; 
-
 .menu {
   height: 40px;
   width: 100%;
@@ -97,7 +95,7 @@ $primary-color: #ff8a80;
     transition: 0.3s ease-in-out;
   }
   &__link:hover {
-  color: $primary-color; 
+  color: #ff8a80; 
   }
 }
 
@@ -116,8 +114,8 @@ $primary-color: #ff8a80;
 
 /* Menu active state for screen width > 450px. */
 .active {
- color: $primary-color; 
- border-bottom-color: $primary-color;
+ color: #ff8a80; 
+ border-bottom-color: #ff8a80;
 }
 
 #menu-checkbox {
@@ -160,7 +158,7 @@ $primary-color: #ff8a80;
   
   .active {
     border-bottom-color: transparent;
-    border-left-color: $primary-color;
+    border-left-color: #ff8a80;
   }
 
   .icon-download {

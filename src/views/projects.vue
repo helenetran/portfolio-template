@@ -156,4 +156,10 @@ export default {
 .vueperslides__arrow {
 	color: #fff; 
 }
+
+@media screen and (max-height: 420px) {
+	.section--projects {
+		height: 200vh;
+	}
+}
 </style>

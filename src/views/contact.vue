@@ -113,7 +113,7 @@ export default {
 
 #clouds {
   position: absolute;
-  bottom: 100%;
+  bottom: 99%;
   & path {
     fill: #fff;
     stroke: #fff;
@@ -131,7 +131,7 @@ input[type=submit] {
 
 /* Contact section wrapper. */
 .section--contact {
-  padding-top: 3em; 
+  padding-top: 100px;
   height: 70vh; 
 }
 
@@ -338,9 +338,9 @@ input {
   } 
 }
 
-@media screen and (max-height: 320px) {
+@media screen and (max-height: 420px) {
   .section--contact {
-    min-height: 206vh;
+    height: 204vh;
   }
 }
 </style>

@@ -378,10 +378,10 @@ $primary-color: #424242;
 	}
 }
 
-@media screen and (max-height: 320px) {
-	.section--projects {
-		height: 154vh;
-	}
-}
+// @media screen and (max-height: 320px) {
+// 	.section--projects {
+// 		height: 154vh;
+// 	}
+// }
 
 </style>

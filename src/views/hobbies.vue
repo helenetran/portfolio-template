@@ -79,12 +79,13 @@ export default {
 }
 
 .hobbies__wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
+  height: auto;
+	width: 100%;
+	position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
 }
 
 .hobby {
@@ -139,12 +140,8 @@ export default {
 @media screen and (max-width: 768px) {
   /* Hobbies section. */
   .hobbies__wrapper {
-    width: 100%;
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    position: absolute;
-    top: 50%;
   }
 
   .hobby {
@@ -169,7 +166,7 @@ export default {
 
 @media screen and (max-width: 450px) {
   .section--hobbies {
-    height: 140vh;
+    height: 150vh;
   }
 }
 </style>

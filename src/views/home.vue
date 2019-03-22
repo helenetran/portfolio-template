@@ -25,10 +25,10 @@ export default {
 
 <style lang="scss">
 .section--home { 
+  height: 92vh; 
   bottom: 8%;
-  height: 92vh;
-  margin-bottom: 10vh;
   padding: 0;
+  margin-bottom: 10vh; 
 }
 
 .home__background--wrapper {
@@ -113,17 +113,22 @@ export default {
 }
 
 .home__picture {
-  width: 14vw;
-  max-width: 200px; 
-  min-width: 135px; 
+  width: 200px;
   position: absolute;
-  bottom: -16%;
+  bottom: calc(200px/-2);
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   border-radius: 25em;
   border: 6px solid #fff;
 } 
+
+@media screen and (max-width: 600px) {
+  .home__picture {
+    width: 176px;
+    bottom: calc(176px/-2);
+  }
+}
 
 @media screen and (max-width: 450px) {
   .home__title {
@@ -142,6 +147,10 @@ export default {
   .home__title--job::after {
     opacity: 0;
     z-index: -1; 
+  }
+  .home__picture {
+    width: 150px;
+    bottom: calc(150px/-2);
   }
 }
 </style>

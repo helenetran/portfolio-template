@@ -2,102 +2,103 @@
 section.section--skills#skills
 	.section--wrapper
 		h1.skills__title SKILLS			
-		.skills
-			.skill__title
-				h2 Computer Skills
-			.skill__elements
-				.skill(v-for="(skill, i) in skills"
-						:key="i"
-						:icon="skill.icon"
-						:strokes="skill.stroke"
-						:description="skill.description")
-					.skill__circle
-						.skill__icon
-							i(:class="skill.icon")
-						svg
-							circle.skill__circle--background(
-								r="32" cx="35" cy="35")
-							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" :stroke-dasharray="skill.stroke")
-					.skill__description {{skill.description}}					
+		.skills-wrapper
+			.skills
+				.skill__title
+					h2 Computer Skills
+				.skill__elements
+					.skill(v-for="(skill, i) in skills"
+							:key="i"
+							:icon="skill.icon"
+							:strokes="skill.stroke"
+							:description="skill.description")
+						.skill__circle
+							.skill__icon
+								i(:class="skill.icon")
+							svg
+								circle.skill__circle--background(
+									r="32" cx="35" cy="35")
+								circle.skill__circle--progress(
+									r="32" cx="35" cy="35" :stroke-dasharray="skill.stroke")
+						.skill__description {{skill.description}}					
 
-		.skills
-			.skill__title
-				h2 Management Assets
+			.skills
+				.skill__title
+					h2 Management Assets
 
-			.skill__elements
-				//- Responsibility skill.
-				.skill.skill__management
-					.skill__circle
-						.skill__icon
-							i.icon.icon-responsible
-						svg
-							circle.skill__circle--background(
-								r="32" cx="35" cy="35")
-							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" stroke-dasharray="201,201")
-					.skill__description Strong sense of #[strong personal responsibility]
+				.skill__elements
+					//- Responsibility skill.
+					.skill.skill__management
+						.skill__circle
+							.skill__icon
+								i.icon.icon-responsible
+							svg
+								circle.skill__circle--background(
+									r="32" cx="35" cy="35")
+								circle.skill__circle--progress(
+									r="32" cx="35" cy="35" stroke-dasharray="201,201")
+						.skill__description Strong sense of #[strong personal responsibility]
 
-				//- Communication skill.
-				.skill.skill__management
-					.skill__circle
-						.skill__icon
-							i.icon.icon-vulcain
-						svg
-							circle.skill__circle--background(
-								r="32" cx="35" cy="35")
-							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" stroke-dasharray="201,201")
-					.skill__description Excellent #[strong communication] skills
+					//- Communication skill.
+					.skill.skill__management
+						.skill__circle
+							.skill__icon
+								i.icon.icon-vulcain
+							svg
+								circle.skill__circle--background(
+									r="32" cx="35" cy="35")
+								circle.skill__circle--progress(
+									r="32" cx="35" cy="35" stroke-dasharray="201,201")
+						.skill__description Excellent #[strong communication] skills
 
-				//- Challenge skill.
-				.skill.skill__management
-					.skill__circle
-						.skill__icon.challenges
-							i.icon.icon-speedometer
-						svg
-							circle.skill__circle--background(
-								r="32" cx="35" cy="35")
-							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" stroke-dasharray="201,201")
-					.skill__description Hungry for #[strong challenges]
+					//- Challenge skill.
+					.skill.skill__management
+						.skill__circle
+							.skill__icon.challenges
+								i.icon.icon-speedometer
+							svg
+								circle.skill__circle--background(
+									r="32" cx="35" cy="35")
+								circle.skill__circle--progress(
+									r="32" cx="35" cy="35" stroke-dasharray="201,201")
+						.skill__description Hungry for #[strong challenges]
 
-				//- Make difference skill.
-				.skill.skill__management
-					.skill__circle
-						.skill__icon
-							i.icon.icon-difference
-						svg
-							circle.skill__circle--background(
-								r="32" cx="35" cy="35")
-							circle.skill__circle--progress(
-								r="32" cx="35" cy="35" stroke-dasharray="201,201")
-					.skill__description keen on #[strong making a real difference]
+					//- Make difference skill.
+					.skill.skill__management
+						.skill__circle
+							.skill__icon
+								i.icon.icon-difference
+							svg
+								circle.skill__circle--background(
+									r="32" cx="35" cy="35")
+								circle.skill__circle--progress(
+									r="32" cx="35" cy="35" stroke-dasharray="201,201")
+						.skill__description keen on #[strong making a real difference]
 
-		.skills
-			.skill__title
-				h2 Languages
-			.skill__elements
-				.skill.language
-					.skill__flag.english
-					.skill__description
-						h3 ENGLISH
-						p fluent
-				.skill.language
-					.skill__flag.french
-					.skill__description
-						h3 FRENCH
-						p mother tongue
-				.skill.language
-					.skill__flag.vietnamese
-					.skill__description
-						h3 VIETNAMESE
-						p mother tongue
-				.skill.language
-					.skill__flag.italian
-					.skill__description
-						h3 ITALIAN
-						p intermediate
+			.skills
+				.skill__title
+					h2 Languages
+				.skill__elements
+					.skill.language
+						.skill__flag.english
+						.skill__description
+							h3 ENGLISH
+							p fluent
+					.skill.language
+						.skill__flag.french
+						.skill__description
+							h3 FRENCH
+							p mother tongue
+					.skill.language
+						.skill__flag.vietnamese
+						.skill__description
+							h3 VIETNAMESE
+							p mother tongue
+					.skill.language
+						.skill__flag.italian
+						.skill__description
+							h3 ITALIAN
+							p intermediate
 </template>
 
 <script>
@@ -172,6 +173,15 @@ $primary-color: #424242;
 	}
 }
 
+.skills-wrapper {
+	height: auto;
+	width: 100%; 
+	position: absolute; 
+	top: 50%; 
+	transform: translateY(-50%);
+	padding-top: 200px; 
+}
+
 .skills__title {
 	color: $primary-color;
 }
@@ -181,8 +191,8 @@ $primary-color: #424242;
   width: 100%;
   color: #757575;
   margin-bottom: 100px;
-  position: relative;
-  top: 200px; 
+  // position: relative;
+  // top: 200px; 
 }
 
 .skill__title {

@@ -119,7 +119,7 @@ export default {
 }
 
 .slide--wrapper {
-	height: 400px; 
+	height: auto; 
 	width: 100%; 
 	position: relative; 
 	top: 50%; 

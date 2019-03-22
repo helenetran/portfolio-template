@@ -326,13 +326,13 @@ section {
 /* Section wrapper to animate on scrolldown. */
 .section--wrapper {
   position: relative;
-  top: 0%;
-  left: 0%;
+  /* top: 0%; */
+  /* left: 0%; */
   height: 100%;
   width: 100%;
-  max-width: 1200px;
   opacity: 0;
-  transform: translateY(2em);
+  -webkit-transform: translateY(2em);
+  /* transform: translateY(2em); */
   transition: 0.3s ease-in-out 0.5s;
 }
 

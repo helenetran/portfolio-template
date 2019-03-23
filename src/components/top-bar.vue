@@ -97,11 +97,10 @@ export default {
   &__link:hover {
   color: #ff8a80; 
   }
-}
-
-.menu li {
-  position: relative;
-  top: 29%;
+  & li {
+    position: relative;
+    top: 29%;
+  }
 }
 
 .icon-download {

@@ -51,7 +51,7 @@ export default {
 				label: 'Contact'
 			},
 			{
-				link: `./helene-developer-resume.pdf?v=3`,
+				link: `./helene-resume.pdf`,
 				label: '<i class="icon icon-download"></i>',
 				title: 'Download my resume'
 			}
@@ -66,6 +66,7 @@ export default {
       const clickingMenuCheckbox = event.target === menuCheckbox
       if (!clickingInMenu && menuIsOpen && !clickingMenuCheckbox) {
         menuCheckbox.checked = false
+        menu.classList.toggle('slideIn')
       }
     })
   }
@@ -136,7 +137,8 @@ export default {
     padding-top: 80px;
     display: unset;
     z-index: 9; 
-    animation: not-checked-anim 0.5s ease-in-out both;
+    transform: translateX(100%);
+    transition: 0.5s ease-in-out;
     &__link {
       border: unset;
       border-left: 2px solid transparent;
@@ -190,25 +192,21 @@ export default {
     z-index: 10;
     cursor: pointer;
     border-radius: 3px;
-    &::before {
-    content: '';
+    &::before, &::after {
       position: absolute;
-      top: 10px;
       left: 0;
       background-color: #000;
       width: 30px;
       height: 4px;
       border-radius: 3px;
     }
+    &::before {
+    content: '';
+      top: 10px;
+    }
     &::after {
       content: '';
-      position: absolute;
       top: -10px;
-      left: 0;
-      background-color: #000;
-      width: 30px;
-      height: 4px;
-      border-radius: 3px;
     }
   }
 
@@ -235,25 +233,7 @@ export default {
   }
 
   #menu-checkbox:checked ~ .menu {
-    animation: checked-anim 0.3s ease-in-out both;  
-  } 
-
-  @keyframes checked-anim {
-    0% {
-      transform: translateX(0%)
-    }
-    100% {
-      transform: translateX(-100%)
-    }
-  }
-
-  @keyframes not-checked-anim {
-    0% {
-      transform: translateX(-100%)
-    }
-    100% {
-      transform: translateX(0%)
-    }
+    transform: translateX(-100%);
   }
 }
 // ====================================================================// 

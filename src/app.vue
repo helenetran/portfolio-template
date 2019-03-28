@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <top-bar id="top-bar"></top-bar>
+    <nav-bar id="nav-bar"></nav-bar>
     <home id="home"></home>
     <about id="about"></about>
     <projects id="projects"></projects>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import topBar from '@/components/top-bar'
+import navBar from '@/components/nav-bar'
 import home from '@/views/home'
 import about from '@/views/about'
 import projects from '@/views/projects'
@@ -28,7 +28,7 @@ import Vue from 'vue'
 export default {
   name: 'app',
   components: {
-    topBar,
+    navBar,
     home,
     about,
     projects,

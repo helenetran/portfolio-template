@@ -1,5 +1,5 @@
 <template lang="pug">
-  #top-bar
+  nav#nav-bar
     input#menu-checkbox(type="checkbox")
     span.burger__element
     ul.menu
@@ -19,7 +19,7 @@ const VueScrollTo = require('vue-scrollto')
 Vue.use(VueScrollTo)
 
 export default {
-	name: 'topBar',
+	name: 'navBar',
 	data: () => ({
 		menuItems: [
 			{
@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss">
-// =========================== Top bar =================================// 
+// =========================== Nav bar =================================// 
 .menu {
   height: 40px;
   width: 100%;

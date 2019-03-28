@@ -29,6 +29,14 @@ export default {
   data: () => ({
 		xpItems: [
 			{
+				boxSide: "left",
+				dateSide: "left-date",
+				date: "Mar. 2019",
+				job: "Responsive Web Design Certification",
+				place: "FreeCodeCamp",
+				city: "freecodecamp.org"
+			},
+			{
 				boxSide: "right",
 				dateSide: "right-date",
 				date: "Jan. 2017",
@@ -50,7 +58,7 @@ export default {
 				boxSide: "right",
 				dateSide: "right-date",
 				date: "Sept. 2014",
-				job: "MBA",
+				job: "MBA in Marketing",
 				place: "Institute of Business Administration",
 				city: "Montpellier, France",
 			},
@@ -148,7 +156,7 @@ export default {
 		/* Timeline.  */
 	&::before {
 		content: '';
-		height: 142em;
+		height: 152em;
 		width: 0.2em;
 		background-color: #fff;
 		position: absolute;

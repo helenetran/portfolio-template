@@ -29,6 +29,15 @@ export default {
   data: () => ({
 		xpItems: [
 			{
+				boxSide: "right",
+				dateSide: "right-date",
+				date: "Mar. 2019",
+				job: "Junior Software Developer",
+				place: "Praktika",
+				city: "Melbourne, Australia",
+				duration: "Current position"
+			},
+			{
 				boxSide: "left",
 				dateSide: "left-date",
 				date: "Mar. 2019",

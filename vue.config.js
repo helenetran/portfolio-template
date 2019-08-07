@@ -1,6 +1,4 @@
 module.exports = {
 	outputDir: 'docs',
-	publicPath: process.env.NODE_ENV === 'production'
-	  ? '/portfolio'
-		: '/'
+	publicPath: process.env.NODE_ENV === 'production' ? '/portfolio-template' : '/'
 }

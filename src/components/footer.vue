@@ -1,57 +1,23 @@
 <template lang="pug">
-  #footer
-    .footnote
-      .footnote__text Proudly made in Australia with 
-      .footnote__icon-wrapper(v-for="(item, i) in footnoteItems"
-          :key="i"
-          :icon="item.icon"
-          :class="item.class"
-          :description="item.description")
-        .footnote__icon(:class="item.class")
-          i.icon(:class="item.icon")
-        .footnote__description {{item.description}} 
-
-      .footnote__icon-wrapper
-        .footnote__icon.ninja
-          i.icon.icon-close
-        .footnote__description Crazy Keyboard Combos
-      .footnote__icon-wrapper
-        .footnote__icon.love
-          i.icon.icon-love
-        .footnote__description Love  
+#footer
+  .footnote
+    .footnote__text Made in Australia with 
+    .footnote__icon-wrapper(v-for="(item, i) in footnoteItems" :key="i")
+      .footnote__icon(:class="item.class")
+        i.icon(:class="item.icon")
+      .footnote__description {{ item.description }} 
 </template>
 
 <script>
 export default {
-	name: 'footerSection',
 	data: () => ({
     footnoteItems: [
-      {
-        icon:"icon-html",
-        description:"HTML"
-      },
-      {
-        icon:"icon-css",
-        description:"CSS"
-      },
-      {
-        icon:"icon-vue",
-        description:"Vue"
-      },
-      {
-        icon:"icon-php",
-        description:"PHP"
-      },
-      // {
-      //   class:"ninja",
-      //   icon:"icon-close",
-      //   description:"Crazy Keyboard Combos"
-      // },
-      // {
-      //   class:"love",
-      //   icon:"icon-love",
-      //   description:"Love"
-      // }
+      { icon: 'icon-html', description: 'HTML' },
+      { icon: 'icon-css', description: 'CSS' },
+      { icon: 'icon-vue', description:'Vue' },
+      { icon:'icon-php', description:'PHP' },
+      { class:'ninja', icon:'icon-close', description:'Crazy Keyboard Combos' },
+      { class:'love', icon:'icon-love', description:'Love' }
     ]
   }),
 }
@@ -78,34 +44,28 @@ footer {
     position: relative;
     bottom: -2px;
   }
-  &__icon-wrapper {
-    position: relative;
-  }
+  &__icon-wrapper {position: relative;}
 }
 
 .footnote__icon {
   height: 12px;
-  width: 12px; 
+  width: 12px;
   &:hover {
     opacity: 1; 
-    color: #ff8a80;
+    color: #2e7d32;
     transform: scale(1.2);
   }
-  & .icon-php {
-    font-size: 15px;
-  }
+  & .icon-php {font-size: 15px;}
 }
 
 /* Animation icon ninja star. */
 .ninja:hover {
   transform: rotate(-360deg) scale(1.2); 
-  color: #ffd54f; 
+  color: #ffd54f;
 }
 
 /* Animation icon heart. */
-.love:hover {
-  animation: beat 1s infinite;
-}
+.love:hover {animation: beat 1s infinite;}
 
 .footnote__icon:hover ~ .footnote__description {
   opacity: 1;
@@ -136,35 +96,23 @@ footer {
     content: "";
     border: 6px solid transparent;
     border-top-color: #fff;
-    top: 97%; 
+    top: 97%;
   }
   &::before {
     content: "";
     border: 7px solid transparent;
     border-top-color: #eee;
-    top: 100%; 
+    top: 100%;
   }
 }
 
 @keyframes beat {
-  0% {
-    transform: scale( .75 );
-  }
-  20% {
-    transform: scale( 1 );
-  }
-  40% {
-    transform: scale( .75 );
-  }
-  60% {
-    transform: scale( 1 );
-  }
-  80% {
-    transform: scale( .75 );
-  }
-  100% {
-    transform: scale( .75 );
-  }
+  0% {transform: scale(0.75);}
+  20% {transform: scale(1);}
+  40% {transform: scale(0.75);}
+  60% {transform: scale(1);}
+  80% {transform: scale(0.75);}
+  100% {transform: scale(0.75);}
 }
 
 @media screen and (max-width: 450px) {
@@ -172,6 +120,6 @@ footer {
     left: 50%; 
     transform: translateX(-50%);
     width: fit-content;
-  }  
+  }
 }
 </style>

@@ -1,150 +1,68 @@
 <template lang="pug">
-section.section--skills#skills
+section#skills
 	.section--wrapper
-		h1.skills__title SKILLS			
-		.skills-wrapper
+		h1 SKILLS			
+		.skills--wrapper
 			.skills
-				.skill__title
-					h2 Computer Skills
-				.skill__elements
-					.skill(v-for="(skill, i) in skills"
-							:key="i"
-							:icon="skill.icon"
-							:strokes="skill.stroke"
-							:description="skill.description")
-						.skill__circle
-							.skill__icon
-								i(:class="skill.icon")
-							svg
-								circle.skill__circle--background(
-									r="32" cx="35" cy="35")
-								circle.skill__circle--progress(
-									r="32" cx="35" cy="35" :stroke-dasharray="skill.stroke")
-						.skill__description {{skill.description}}					
+				h2.skills__title Computer Skills
+				.skill(v-for="(skill, i) in computerSkills" :key="i" strokes="201,201")
+					.skill__circle
+						.skill__circle--icon
+							i(:class="skill.icon")
+						svg
+							circle.skill__circle--background(r="32" cx="35" cy="35")
+							circle.skill__circle--progress(r="32" cx="35" cy="35" stroke-dasharray="201,201")
+					.skill__description {{ skill.description }}
 
 			.skills
-				.skill__title
-					h2 Management Assets
-
-				.skill__elements
-					//- Responsibility skill.
-					.skill.skill__management
-						.skill__circle
-							.skill__icon
-								i.icon.icon-responsible
-							svg
-								circle.skill__circle--background(
-									r="32" cx="35" cy="35")
-								circle.skill__circle--progress(
-									r="32" cx="35" cy="35" stroke-dasharray="201,201")
-						.skill__description Strong sense of #[strong personal responsibility]
-
-					//- Communication skill.
-					.skill.skill__management
-						.skill__circle
-							.skill__icon
-								i.icon.icon-vulcain
-							svg
-								circle.skill__circle--background(
-									r="32" cx="35" cy="35")
-								circle.skill__circle--progress(
-									r="32" cx="35" cy="35" stroke-dasharray="201,201")
-						.skill__description Excellent #[strong communication] skills
-
-					//- Challenge skill.
-					.skill.skill__management
-						.skill__circle
-							.skill__icon.challenges
-								i.icon.icon-speedometer
-							svg
-								circle.skill__circle--background(
-									r="32" cx="35" cy="35")
-								circle.skill__circle--progress(
-									r="32" cx="35" cy="35" stroke-dasharray="201,201")
-						.skill__description Hungry for #[strong challenges]
-
-					//- Make difference skill.
-					.skill.skill__management
-						.skill__circle
-							.skill__icon
-								i.icon.icon-difference
-							svg
-								circle.skill__circle--background(
-									r="32" cx="35" cy="35")
-								circle.skill__circle--progress(
-									r="32" cx="35" cy="35" stroke-dasharray="201,201")
-						.skill__description keen on #[strong making a real difference]
-
-			.skills
-				.skill__title
-					h2 Languages
-				.skill__elements
-					.skill.language
-						.skill__flag.english
-						.skill__description
-							h3 ENGLISH
-							p fluent
-					.skill.language
-						.skill__flag.french
-						.skill__description
-							h3 FRENCH
-							p mother tongue
-					.skill.language
-						.skill__flag.vietnamese
-						.skill__description
-							h3 VIETNAMESE
-							p mother tongue
-					.skill.language
-						.skill__flag.italian
-						.skill__description
-							h3 ITALIAN
-							p intermediate
+				h2.skills__title Soft skills
+				.skill(v-for="(skill, j) in softSkills" :key="j" strokes="201,201")
+					.skill__circle
+						.skill__circle--icon
+							i(:class="skill.icon")
+						svg
+							circle.skill__circle--background(r="32" cx="35" cy="35")
+							circle.skill__circle--progress(r="32" cx="35" cy="35" stroke-dasharray="201,201")
+					.skill__description {{ skill.description }}
 </template>
 
 <script>
 export default {
-  name: 'skills',
 	data: () => ({
-		skills: [
+		computerSkills: [
 			{
 				icon: 'icon icon-html',
-				stroke: '160,201',
-				description: 'HTML'
+				description: 'Eu duis dolore irure sint fugiat velit sunt quis anim.'
 			},
 			{
 				icon: 'icon icon-css',
-				stroke: '170,201',
-				description: 'CSS'
+				description: 'Excepteur reprehenderit amet pariatur nisi consectetur proident mollit ea sint.'
 			},
 			{
 				icon: 'icon icon-sass',
-				stroke: '150,201',
-				description: 'Sass'
+				description: 'Eiusmod eu irure minim culpa.'
 			},
 			{
 				icon: 'icon icon-js',
-				stroke: '105,201',
-				description: 'JavaScript ES6'
+				description: 'Nostrud mollit quis amet officia nisi occaecat aute aliquip.'
+			}
+		],
+		softSkills: [
+			{
+				icon: 'icon icon-responsible',
+				description: 'Mollit duis tempor aute amet magna minim cupidatat reprehenderit et culpa.'
 			},
 			{
-				icon: 'icon icon-jquery',
-				stroke: '150,201',
-				description: 'jQuery'
+				icon: 'icon icon-difference',
+				description: 'Aliquip fugiat occaecat ea do id in incididunt.'
 			},
 			{
-				icon: 'icon icon-vue',
-				stroke: '110,201',
-				description: 'Vue'
+				icon: 'icon icon-speedometer',
+				description: 'Fugiat do reprehenderit deserunt nostrud irure pariatur nisi pariatur consequat esse aliqua pariatur.'
 			},
 			{
-				icon: 'icon icon-php',
-				stroke: '60,201',
-				description: 'PHP'
-			},
-			{
-				icon: 'icon icon-mysql',
-				stroke: '50,201',
-				description: 'MySql'
+				icon: 'icon icon-vulcain',
+				description: 'Deserunt laborum in ad est labore esse eu occaecat nisi esse esse.'
 			}
 		]
   }),
@@ -157,23 +75,9 @@ export default {
 </script>
 
 <style lang="scss">
-$primary-color: #424242; 
+#skills {background-color: #fff;}
 
-.section--skills {
-  background-color: #fff;
-  min-height: 1080px;
-	&::after {
-		border: 4em solid transparent;
-		border-top-color: #d7ccc8;
-	}
-	& h2 {
-		text-align: left;
-		padding-bottom: 5px;
-		border-bottom: 1px solid #eee;
-	}
-}
-
-.skills-wrapper {
+.skills--wrapper {
 	height: auto;
 	width: 100%; 
 	position: absolute; 
@@ -182,29 +86,22 @@ $primary-color: #424242;
 	padding-top: 200px; 
 }
 
-.skills__title {
-	color: $primary-color;
-}
-
 .skills {
+	display: flex; 
+  flex-wrap: wrap;
+	flex-basis: 50%;
   height: auto;
   width: 100%;
   color: #757575;
-  margin-bottom: 100px;
-  // position: relative;
-  // top: 200px; 
-}
-
-.skill__title {
-  width: 100%;
-  text-align: center; 
-  margin-bottom: 40px;
-}
-
-.skill__elements {
-  display: flex; 
-  flex-wrap: wrap;
-	flex-basis: 50%;
+	margin-bottom: 100px;
+	&__title {
+		width: 100%;
+		text-align: center; 
+		margin-bottom: 40px;
+		text-align: left;
+		padding-bottom: 5px;
+		border-bottom: 1px solid #eee;
+	}
 }
 
 .skill {
@@ -212,42 +109,6 @@ $primary-color: #424242;
 	width: 70px;
 	position: relative;
 	padding: 0 10px 20px 0px;
-	&__icon {
-		height: 30px; 
-		width: 30px; 
-		position: relative;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%,-50%);
-		text-align: center;
-		font-size: 30px;
-	}
-	&__circle svg {
-		height: 70px;
-		width: 70px;
-		position: absolute;
-		top: 0%;
-	}
-	&__circle--background {
-		transition: 0.35s stroke-dashoffset;
-		transform: rotate(-90deg);
-		transform-origin: 50% 50%;
-		stroke-width: 4px; 
-		stroke: #e0e0e0; 
-		fill: transparent; 
-	}
-	&__circle--progress {
-		transform: rotate(-90deg);
-		transform-origin: 50% 50%;
-		stroke-width: 4px; 
-		stroke: #ff8a80; 
-		fill: transparent; 
-	}
-}
-
-.language {
-	height: 50px;
-	width: 50px;
 }
 
 /* Icon speedometer in management skills. */
@@ -258,51 +119,52 @@ $primary-color: #424242;
   top: 45%;
 }
 
-.animate-circle {
-  animation: circle-chart-fill 2s reverse;
-}
+.animate-circle {animation: circle-chart-fill 2s reverse;}
 
-@keyframes circle-chart-fill {
-  to { stroke-dasharray: 0 201; }
-}
+@keyframes circle-chart-fill {to{ stroke-dasharray: 0 201;}}
 
-.skill__flag, .skill__circle {
+.skill__circle {
   height: 100%;
   width: 100%;
-  transition: 0.3s ease-in-out; 
-}
-
-.skill__flag {
-  filter: grayscale(50%);
-  opacity: 0.8;
-	&:hover {
-		filter: grayscale(0%);
-		opacity: 1;
+	transition: 0.3s ease-in-out; 
+	& svg {
+		height: 70px;
+		width: 70px;
+		position: absolute;
+		top: 0%;
+	}
+	&--icon {
+		height: 30px; 
+		width: 30px; 
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		text-align: center;
+		font-size: 30px;
+	}
+	&--background {
+		transition: 0.35s stroke-dashoffset;
+		transform: rotate(-90deg);
+		transform-origin: 50% 50%;
+		stroke-width: 4px; 
+		stroke: #e0e0e0; 
+		fill: transparent; 
+	}
+	&--progress {
+		transform: rotate(-90deg);
+		transform-origin: 50% 50%;
+		stroke-width: 4px; 
+		stroke: #2e7d32; 
+		fill: transparent; 
 	}
 }
 
-.skill__flag:hover ~ .skill__description,
 .skill__circle:hover ~ .skill__description {
   transform: translate(-50%,5px);
   opacity: 1;
   z-index: 5; 
 	transition: 0.3s ease-in-out;
-}
-
-.english {
-	content: url('../assets/images/skills/english.png');
-}
-
-.french {
-  content: url('../assets/images/skills/french.png');
-}
-
-.vietnamese {
-  content: url('../assets/images/skills/vietnamese.png');
-}
-
-.italian {
-  content: url('../assets/images/skills/italian.png');
 }
 
 .skill__description {
@@ -334,9 +196,7 @@ $primary-color: #424242;
 		top: -18px;
 		border-bottom-color: #bdbdbd;
 	}
-	& p {
-		margin-top: 5px; 
-	}
+	& p {margin-top: 5px;}
 }
 
 .animate-description {
@@ -345,43 +205,19 @@ $primary-color: #424242;
 }
 
 @media screen and (max-width: 768px) {
-  /* Skills section. */
   .skills {
     margin: 0; 
     padding-bottom: 100px;
   }
-  
   .animate-description {
     transform: unset;
     opacity: 0;
   }
-
-  .skill__management .skill__description {
-    transition: unset; 
-  } 
-}
-
-@media screen and (max-width: 600px) {
-	.skill__elements {
-		justify-content: center; 
-	}
+  .skill__management .skill__description {transition: unset;} 
 }
 
 @media screen and (max-width: 450px) {
-	.section--skills {
-    min-height: 1220px;
-	}
-
-	.skill__description {
-		padding-left: 0px;
-    padding-right: 0px;
-	}
+	#skills {min-height: 1220px;}
+	.skill__description {padding: 0px;}
 }
-
-// @media screen and (max-height: 320px) {
-// 	.section--projects {
-// 		height: 154vh;
-// 	}
-// }
-
 </style>

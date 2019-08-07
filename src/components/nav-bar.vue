@@ -22,39 +22,18 @@ export default {
 	name: 'navBar',
 	data: () => ({
 		menuItems: [
-			{
-				scrollTo: 'home',
-				label: 'Home'
-			},
-			{
-				scrollTo: 'about',
-				label: 'About Me'
-			},
-			{
-				scrollTo: 'projects',
-				label: 'Projects'
-			},
-			{
-				scrollTo: 'skills',
-				label: 'Skills'
-			},
-			{
-				scrollTo: 'xp',
-				label: 'Xp'
-			},
-			{
-				scrollTo: 'hobbies',
-				label: 'Hobbies'
-			},
-			{
-				scrollTo: 'contact',
-				label: 'Contact'
-			},
-			{
-				link: `./helene-resume.pdf`,
-				label: '<i class="icon icon-download"></i>',
-				title: 'Download my resume'
-			}
+			{ scrollTo: 'home', label: 'Home' },
+			{ scrollTo: 'about', label: 'About' },
+			{ scrollTo: 'projects', label: 'Projects' },
+			{ scrollTo: 'skills', label: 'Skills' },
+			{ scrollTo: 'xp', label: 'Xp' },
+			{ scrollTo: 'interests', label: 'interests' },
+			{ scrollTo: 'contact', label: 'Contact' },
+      { 
+        link: `./john-resume.pdf`, 
+        label: '<i class="icon icon-download"></i>', 
+        title: 'Download my resume' 
+      }
 		]
   }),
   created () {
@@ -95,9 +74,7 @@ export default {
     border-bottom: 2px solid transparent;
     transition: 0.3s ease-in-out;
   }
-  &__link:hover {
-  color: #ff8a80; 
-  }
+  &__link:hover {color: #2e7d32;}
   & li {
     position: relative;
     top: 29%;
@@ -114,18 +91,14 @@ export default {
 
 /* Menu active state for screen width > 450px. */
 .active {
- color: #ff8a80; 
- border-bottom-color: #ff8a80;
+ color: #2e7d32; 
+ border-bottom-color: #2e7d32;
 }
 
-#menu-checkbox {
-  display: none;
-} 
+#menu-checkbox {display: none;}
 
 @media screen and (max-width: 600px) {
-  .menu__link {
-    padding: 10px 10px 10px 6px; 
-  }
+  .menu__link {padding: 10px 10px 10px 6px;}
 }
 
 @media screen and (max-width: 450px) {
@@ -152,19 +125,15 @@ export default {
       top: unset;
       transition: 0.3s ease-in-out;
     }
-    & li:hover {
-      background-color: rgba(0,0,0,0.1);
-    }
+    & li:hover {background-color: rgba(0,0,0,0.1);}
   }
   
   .active {
     border-bottom-color: transparent;
-    border-left-color: #ff8a80;
+    border-left-color: #2e7d32;
   }
 
-  .icon-download {
-    position: relative; 
-  }
+  .icon-download {position: relative;}
 
   #menu-checkbox {
     display: block; 
@@ -184,7 +153,8 @@ export default {
     position: fixed;
     top: 20px;
     right: 12px;
-    background-color: #000;
+    background-color: #fff;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.3);
     width: 30px;
     height: 4px;
     margin: 4px; 
@@ -195,13 +165,14 @@ export default {
     &::before, &::after {
       position: absolute;
       left: 0;
-      background-color: #000;
+      background-color: #fff;
+      box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.3);
       width: 30px;
       height: 4px;
       border-radius: 3px;
     }
     &::before {
-    content: '';
+      content: '';
       top: 10px;
     }
     &::after {
@@ -213,6 +184,7 @@ export default {
   #menu-checkbox:checked ~ .burger__element {
     transform: rotate(180deg);
     transition: 0.3s ease-in-out;
+    background-color: #000;
   }
 
   #menu-checkbox:checked ~ .burger__element::before {
@@ -221,6 +193,7 @@ export default {
     left: -8px;
     transform: rotate(45deg) translateX(5px);
     transition: 0.3s ease-in-out;
+    background-color: #000;
   }
 
   #menu-checkbox:checked ~ .burger__element::after {
@@ -230,11 +203,10 @@ export default {
     -webkit-transform: rotate(-45deg) translateX(-5px);
     transform: rotate(-45deg) translateX(12px);
     transition: 0.3s ease-in-out;
+    background-color: #000;
   }
 
-  #menu-checkbox:checked ~ .menu {
-    transform: translateX(-100%);
-  }
+  #menu-checkbox:checked ~ .menu {transform: translateX(-100%);}
 }
 // ====================================================================// 
 </style>

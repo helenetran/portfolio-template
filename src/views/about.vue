@@ -1,44 +1,30 @@
 <template lang="pug">
-section.section--about-me#about
-  .section--wrapper.about-me
-    h1.about-me__title About Me
-    .about-me__description
-      p Hi there!
-      p I am a former project manager from the pharmaceutical industry who have #[strong started programming last November]… so far, so good! #[strong I play with HTML, SCSS / SASS, JavaScript / jQuery / Vue, PHP & MySql].
-      p You can visit some of my projects 
-        a(href="https://codepen.io/Helene-Andre/pen/mQrgZa" target="_blank")  #[strong @ codepen.io/Helene-Andre]
-        span  or 
-        a(href="https://github.com/helene-andre" target="_blank")  #[strong @ github.com/helene-andre]          
-      p Based in Melbourne, I am looking for an opportunity to challenge myself while #[strong learning new things, sharing and having fun all along].
+section#about
+  .about.section--wrapper
+    h1.about__title About
+    .about__description
+      p Amet aliquip qui esse labore ad veniam quis nulla labore eu ea exercitation. Sit occaecat officia id irure tempor cillum excepteur proident qui. Quis Lorem do aute do culpa Lorem excepteur officia proident irure sint minim nostrud quis. Elit consequat ea minim ullamco eiusmod sint proident amet quis laboris incididunt. Officia sunt veniam nostrud id mollit excepteur. Sit qui nisi dolor commodo aliquip laboris sunt sunt ad aliquip proident.
+      p Cillum veniam consectetur reprehenderit eiusmod sint nisi sint aute nisi cupidatat consectetur. Laboris occaecat dolore velit irure deserunt ut. Et consequat nulla occaecat ex sit. Proident pariatur enim aliquip nostrud eu dolore ad ut. Consectetur qui aliquip tempor aliqua laborum culpa. In deserunt consequat laboris enim aute occaecat consectetur dolore nisi eiusmod sunt anim.
+      p Nostrud amet sunt in occaecat non fugiat sit fugiat. Culpa consectetur consequat nulla in sint aliqua excepteur do esse incididunt esse pariatur velit quis. Labore fugiat laborum consequat voluptate sunt.
 </template>
 
-<script>
-export default {
-  name: 'about'
-}
-</script>
-
 <style lang="scss">
-.section--about-me {
+#about {
   padding-top: 15vh;
-  height: 60vh; 
+  height: auto;
 }
 
-.about-me {
-  position: absolute;
-  height: 80%;
-  width: 70%;
-  top: unset;
-  bottom: 14%;
-  height: auto;
+.about {
+  position: relative;
+  height: 100%;
   width: 100%;
   font-size: 1em;
   font-family: 'Roboto', arial;
   font-weight: 300;
   text-align: justify;
-  padding-top: 1em;
+  padding: 0 0 20% 0;
   &__title {
-    color: #ff8a80;
+    color: #2e7d32;
     position: relative;
     top: 0%; 
     margin-top: 15px;
@@ -53,20 +39,6 @@ export default {
 }
 
 @media screen and (max-width: 450px){
-  .about-me__description {
-    padding-top: 0;
-  }
-}
-
-@media screen and (max-height: 420px) {
-  .section--about-me {
-    padding-top: 30vh;
-    height: 94vh;
-  }
-}
-@media screen and (max-height: 320px) {
-  // .section--about-me {
-  //   height: 94vh;
-  // }
+  .about__description {padding-top: 0;}
 }
 </style>

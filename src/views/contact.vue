@@ -5,31 +5,31 @@ section.section--contact#contact
   .section--wrapper.contact-wrapper
     .contact-info
       h1.contact-info__title CONTACT ME
-      h2.contact-info__name Helene ANDRE, front-end developer
+      h2.contact-info__name John DOE, Ad commodo
       .contact-info__icons-wrapper
-        a(href="tel:0484084650")
+        a(href="#")
           i.icon.icon-phone.contact-info__icon
         a(href="mailto:helene.andre.06@gmail.com" target="_top")
           i.icon.icon-email.contact-info__icon
-        a(href="https://github.com/helene-andre" target="_blank")
+        a(href="#" target="_blank")
           i.icon.icon-github.contact-info__icon
-        a(href="https://codepen.io/helene-andre/" target="_blank")
+        a(href="#" target="_blank")
           i.icon.icon-codepen.contact-info__icon
-        a(href="https://www.linkedin.com/in/helene-andre/" target="_blank")
+        a(href="#" target="_blank")
           i.icon.icon-linkedin.contact-info__icon
     form#form.contact-form(action="https://formspree.io/helene.andre.06@gmail.com" @submit="checkForm" method="post")
       .contact-form__field-wrapper
-        input#name.contact-form__field(v-model="name" v-on:keyup="validateField()" type="text" name="name" placeholder="Name" autocomplete="off")
+        input#name.contact-form__field(v-model="name" @keyup="validateField()" type="text" name="name" placeholder="Name" autocomplete="off")
         .invalid-field-message This field is required
       .contact-form__field-wrapper
-        input#email.contact-form__field(v-model="email" v-on:keyup="validateField()" type="email" name="email" placeholder="Email" autocomplete="off")
+        input#email.contact-form__field(v-model="email" @keyup="validateField()" type="email" name="email" placeholder="Email" autocomplete="off")
         .invalid-field-message This field is required
         .invalid-email-message Must be a valid email
       .contact-form__field-wrapper
-        input#subject.contact-form__field(v-model="subject" v-on:keyup="validateField()" type="text" name="subject" placeholder="Subject" autocomplete="off")
+        input#subject.contact-form__field(v-model="subject" @keyup="validateField()" type="text" name="subject" placeholder="Subject" autocomplete="off")
         .invalid-field-message This field is required
       .contact-form__field-wrapper
-        textarea#message.contact-form__field(v-model="message" v-on:keyup="validateField()" name="message" placeholder="Message" rows="6" cols="80")
+        textarea#message.contact-form__field(v-model="message" @keyup="validateField()" name="message" placeholder="Message" rows="6" cols="80")
         .invalid-field-message This field is required
 
       .contact-form__send-wrapper
@@ -47,24 +47,18 @@ export default {
   }),
   methods:{
     checkForm: function (e) {
-      if (this.name && this.email && this.subject && this.message) {
-        return true;
-      }
+      if (this.name && this.email && this.subject && this.message) return true
 
       this.errors = [];
 
-      if (!this.name) {
-        document.getElementById('name').parentElement.classList.add('invalid-field')
-      }
-      if (!this.email) {
-        document.getElementById('email').parentElement.classList.add('invalid-field')
-      }
-      if (!this.subject) {
-        document.getElementById('subject').parentElement.classList.add('invalid-field')
-      }
-      if (!this.message) {
-        document.getElementById('message').parentElement.classList.add('invalid-field')
-      }
+      if (!this.name) document.getElementById('name').parentElement.classList.add('invalid-field')
+
+      if (!this.email) document.getElementById('email').parentElement.classList.add('invalid-field')
+
+      if (!this.subject) document.getElementById('subject').parentElement.classList.add('invalid-field')
+
+      if (!this.message) document.getElementById('message').parentElement.classList.add('invalid-field')
+
       e.preventDefault();
     },
     validateField: function (e) {
@@ -93,16 +87,13 @@ export default {
         return true 
       }
     }
-
   }
 }
 </script>
 
 <style lang="scss">
-/**================ div separation hobbies /.section--contact ===================**/
-.container .cloud__wrapper {
-  display: block;
-}
+/**================ div separation interests /.section--contact ===================**/
+.container .cloud__wrapper {display: block;}
 
 .cloud__wrapper {
   width: 100%; 
@@ -172,9 +163,7 @@ input[type=submit] {
   &__icon {
     transition: 0.3s;
     cursor: pointer; 
-    &:hover {
-      color: #ff8a80;
-    }
+    &:hover {color: #2e7d32;}
   }
 }
 
@@ -196,19 +185,13 @@ input[type=submit] {
     font-family: 'Roboto', arial;
     font-size: 14px;
     padding: 3%;
-    &:focus {
-      border-color: #ff8a80c7;
-    }
+    &:focus {border-color: rgba(46, 125, 50, 0.78);}
   }
 }
 
-textarea {
-  resize: none;
-}
+textarea {resize: none;}
 
-input {
-	color: #190e0b;
-}
+input {color: #190e0b;}
 
 .send-button-wrapper {
   position: absolute;
@@ -222,8 +205,8 @@ input {
   padding: 3px 10px 7px 10px;
   font-size: 14px;
   font-family: 'Roboto', arial;
-  color: #ff8a80;
-  border: 1px solid #ff8a80;
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
   background-color: #fff;
   outline: none;
   transition: 0.3s ease-in-out;
@@ -294,13 +277,9 @@ input {
 }
 
 @media screen and (max-width: 600px) {
-  .section--contact {
-    height: 120vh;
-  }  
+  .section--contact {height: 120vh;}
 
-  .contact-wrapper {
-    flex-direction: column;
-  }
+  .contact-wrapper {flex-direction: column;}
 
   .contact-info {
     width: 70%;
@@ -339,8 +318,6 @@ input {
 }
 
 @media screen and (max-height: 420px) {
-  .section--contact {
-    height: 204vh;
-  }
+  .section--contact {height: 204vh;}
 }
 </style>
